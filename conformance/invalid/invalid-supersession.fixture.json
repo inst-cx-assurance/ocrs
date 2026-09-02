@@ -1,0 +1,1 @@
+{ "name": "evidence supersedes wrong entity type", "expectedCode": "INVALID_SUPERSESSION_CHAIN", "mutation": { "op": "add", "path": "/evidence/0/supersedes", "value": "ocrs:party:project-owner" } }

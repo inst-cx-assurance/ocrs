@@ -1,0 +1,1 @@
+{ "name": "external evidence path traversal", "expectedCode": "UNSAFE_EXTERNAL_REFERENCE", "mutation": { "op": "replace", "path": "/evidence/9/externalReference", "value": "file:///../../secrets.txt" } }

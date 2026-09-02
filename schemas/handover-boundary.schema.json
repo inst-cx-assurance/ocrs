@@ -1,0 +1,1 @@
+{ "$schema": "https://json-schema.org/draft/2020-12/schema", "$id": "https://spec.ocrs.dev/v0.1/schemas/handover-boundary.schema.json", "title": "Handover boundary specialization", "allOf": [{ "$ref": "https://spec.ocrs.dev/v0.1/schemas/boundary.schema.json" }, { "properties": { "boundaryType": { "const": "handover" } } }] }

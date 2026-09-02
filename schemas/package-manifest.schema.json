@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://spec.ocrs.dev/v0.1/schemas/package-manifest.schema.json",
+  "title": "OCRS package manifest",
+  "type": "object",
+  "required": ["packageId", "manifestVersion", "ocrsVersion", "createdAt", "producedByPartyId", "projectId", "boundaryIds", "profiles", "inventory", "qualifications", "exclusions"],
+  "properties": {
+    "packageId": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id" },
+    "manifestVersion": { "const": "0.1.0" },
+    "ocrsVersion": { "const": "0.1.0" },
+    "createdAt": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/timestamp" },
+    "producedByPartyId": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id" },
+    "projectId": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id" },
+    "boundaryIds": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/idArray" },
+    "profiles": {
+      "type": "array", "minItems": 1, "uniqueItems": true,
+      "items": { "type": "object", "required": ["profileId", "profileVersion"], "properties": { "profileId": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id" }, "profileVersion": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/version" } }, "additionalProperties": false }
+    },
+    "inventory": {
+      "type": "array", "minItems": 1,
+      "items": { "type": "object", "required": ["recordId", "entityType", "recordVersion"], "properties": { "recordId": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id" }, "entityType": { "type": "string", "pattern": "^[a-z][a-z0-9-]*$" }, "recordVersion": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/version" } }, "additionalProperties": false }
+    },
+    "qualifications": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+    "exclusions": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+    "contentHash": { "type": "object", "required": ["algorithm", "value"], "properties": { "algorithm": { "const": "sha256" }, "value": { "type": "string", "pattern": "^[a-f0-9]{64}$" } }, "additionalProperties": false }
+  },
+  "additionalProperties": false
+}

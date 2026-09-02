@@ -1,0 +1,1 @@
+{ "name": "duplicate stable identifier", "expectedCode": "DUPLICATE_IDENTIFIER", "mutation": { "op": "replace", "path": "/systems/1/id", "value": "ocrs:system:CW-101" } }

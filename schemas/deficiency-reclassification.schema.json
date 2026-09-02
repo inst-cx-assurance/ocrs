@@ -1,0 +1,4 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema", "$id": "https://spec.ocrs.dev/v0.1/schemas/deficiency-reclassification.schema.json", "title": "Deficiency reclassification",
+  "allOf": [{ "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json" }, { "type": "object", "required": ["entityType", "deficiencyId", "fromCategory", "toCategory", "reason", "changedByPartyId", "changedAt"], "properties": { "entityType": { "const": "deficiency-reclassification" }, "deficiencyId": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id" }, "fromCategory": { "enum": ["A", "B", "C", "D"] }, "toCategory": { "enum": ["A", "B", "C", "D"] }, "reason": { "type": "string", "minLength": 1 }, "changedByPartyId": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id" }, "changedAt": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/timestamp" } } }], "unevaluatedProperties": false
+}

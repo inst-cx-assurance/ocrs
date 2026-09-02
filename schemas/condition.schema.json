@@ -1,0 +1,4 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema", "$id": "https://spec.ocrs.dev/v0.1/schemas/condition.schema.json", "title": "Controlled condition",
+  "allOf": [{ "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json" }, { "type": "object", "required": ["entityType", "title", "status", "ownerPartyId", "dueDate", "sourceRecordIds"], "properties": { "entityType": { "const": "condition" }, "title": { "type": "string", "minLength": 1 }, "status": { "enum": ["open", "closed", "superseded"] }, "ownerPartyId": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id" }, "dueDate": { "type": "string", "format": "date" }, "sourceRecordIds": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/idArray" } } }], "unevaluatedProperties": false
+}

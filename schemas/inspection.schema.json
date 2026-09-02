@@ -1,0 +1,1 @@
+{ "$schema": "https://json-schema.org/draft/2020-12/schema", "$id": "https://spec.ocrs.dev/v0.1/schemas/inspection.schema.json", "title": "Inspection specialization", "allOf": [{ "$ref": "https://spec.ocrs.dev/v0.1/schemas/activity.schema.json" }, { "properties": { "activityType": { "const": "inspection" } } }] }

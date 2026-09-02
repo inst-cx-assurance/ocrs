@@ -1,0 +1,127 @@
+{
+  "profile": {
+    "id": "ocrs:profile:icxa:core-v0.1",
+    "name": "ICxA Alignment Profile",
+    "ocrsProfileVersion": "v0.1",
+    "status": "draft",
+    "documentation": "specification/icxa-alignment.md"
+  },
+  "alignment": [
+    {
+      "documentNumber": "ICXA-10000",
+      "title": "Outcome Assurance — Fundamentals",
+      "editionOrYear": "current controlled edition",
+      "revision": "current controlled revision",
+      "publicationDate": "controlled by ICxA",
+      "status": "normative",
+      "profileVersion": "v0.1"
+    },
+    {
+      "documentNumber": "ICXA-10001",
+      "title": "Outcome Assurance — Requirements",
+      "editionOrYear": "current controlled edition",
+      "revision": "current controlled revision",
+      "publicationDate": "controlled by ICxA",
+      "status": "normative",
+      "profileVersion": "v0.1"
+    },
+    {
+      "documentNumber": "ICXA-10002",
+      "title": "Outcome Assurance — Evidence Requirements",
+      "editionOrYear": "current controlled edition",
+      "revision": "current controlled revision",
+      "publicationDate": "controlled by ICxA",
+      "status": "normative",
+      "profileVersion": "v0.1"
+    },
+    {
+      "documentNumber": "ICXA-20100",
+      "title": "Commissioning & Outcome Execution — Concepts, Principles, and Model",
+      "editionOrYear": "current controlled edition",
+      "revision": "current controlled revision",
+      "publicationDate": "controlled by ICxA",
+      "status": "normative",
+      "profileVersion": "v0.1"
+    },
+    {
+      "documentNumber": "ICXA-20101",
+      "title": "Commissioning & Outcome Execution — Requirements",
+      "editionOrYear": "current controlled edition",
+      "revision": "current controlled revision",
+      "publicationDate": "controlled by ICxA",
+      "status": "normative",
+      "profileVersion": "v0.1"
+    },
+    {
+      "documentNumber": "ICXA-20102",
+      "title": "Commissioning & Outcome Execution — Vocabulary",
+      "editionOrYear": "current controlled edition",
+      "revision": "current controlled revision",
+      "publicationDate": "controlled by ICxA",
+      "status": "normative",
+      "profileVersion": "v0.1"
+    },
+    {
+      "documentNumber": "ICXA-20200",
+      "title": "Operational Readiness — Concepts and Principles",
+      "editionOrYear": "current controlled edition",
+      "revision": "current controlled revision",
+      "publicationDate": "controlled by ICxA",
+      "status": "normative",
+      "profileVersion": "v0.1"
+    },
+    {
+      "documentNumber": "ICXA-20201",
+      "title": "Operational Readiness — Requirements",
+      "editionOrYear": "current controlled edition",
+      "revision": "current controlled revision",
+      "publicationDate": "controlled by ICxA",
+      "status": "normative",
+      "profileVersion": "v0.1"
+    },
+    {
+      "documentNumber": "ICXA-20202",
+      "title": "Operational Readiness — Vocabulary",
+      "editionOrYear": "current controlled edition",
+      "revision": "current controlled revision",
+      "publicationDate": "controlled by ICxA",
+      "status": "normative",
+      "profileVersion": "v0.1"
+    },
+    {
+      "documentNumber": "ICXA-10003",
+      "title": "Outcome Assurance — Informative Guidance",
+      "editionOrYear": "current controlled edition",
+      "revision": "current controlled revision",
+      "publicationDate": "controlled by ICxA",
+      "status": "informative",
+      "profileVersion": "v0.1",
+      "usage": "informative guidance only"
+    },
+    {
+      "documentNumber": "ICXA-20103",
+      "title": "Commissioning & Outcome Execution — Informative Guidance",
+      "editionOrYear": "current controlled edition",
+      "revision": "current controlled revision",
+      "publicationDate": "controlled by ICxA",
+      "status": "informative",
+      "profileVersion": "v0.1",
+      "usage": "informative guidance only"
+    },
+    {
+      "documentNumber": "ICXA-20203",
+      "title": "Operational Readiness — Informative Guidance",
+      "editionOrYear": "current controlled edition",
+      "revision": "current controlled revision",
+      "publicationDate": "controlled by ICxA",
+      "status": "informative",
+      "profileVersion": "v0.1",
+      "usage": "informative guidance only"
+    }
+  ],
+  "compatibility": {
+    "rule": "Any change to a controlled ICxA source requires a new OCRS profile version and documented compatibility impact.",
+    "profileVersion": "v0.1",
+    "status": "draft experimental not-yet-stable"
+  }
+}

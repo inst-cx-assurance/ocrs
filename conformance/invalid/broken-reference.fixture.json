@@ -1,0 +1,1 @@
+{ "name": "broken system boundary reference", "expectedCode": "BROKEN_REFERENCE", "mutation": { "op": "replace", "path": "/systems/0/boundaryIds/0", "value": "ocrs:boundary:DOES-NOT-EXIST" } }

@@ -1,0 +1,37 @@
+{
+  "name": "ocrs",
+  "version": "0.1.0-draft",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22.12.0" },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "eslint . --max-warnings 0",
+    "validate:schemas": "tsx src/validate-schemas.ts",
+    "validate:packages": "tsx src/validate-packages-cli.ts valid",
+    "validate:invalid": "tsx src/validate-packages-cli.ts invalid",
+    "validate:references": "tsx src/validate-packages-cli.ts references",
+    "test": "vitest run",
+    "rfdc:evaluate:ready": "tsx src/rfdc-cli.ts examples/cw-101-reference/rfdc-ready.package.json",
+    "rfdc:evaluate:not-ready": "tsx src/rfdc-cli.ts examples/cw-101-reference/rfdc-not-ready.scenario.json",
+    "rfdc:evaluate": "npm run rfdc:evaluate:ready",
+    "conformance": "npm run format:check && npm run lint && npm run build && npm run validate:schemas && npm run validate:packages && npm run validate:invalid && npm run validate:references && npm test && npm run rfdc:evaluate:ready && npm run rfdc:evaluate:not-ready",
+    "audit:dependencies": "npm audit --omit=dev"
+  },
+  "devDependencies": {
+    "@eslint/js": "9.39.5",
+    "@types/node": "22.20.1",
+    "@typescript-eslint/eslint-plugin": "8.69.0",
+    "@typescript-eslint/parser": "8.69.0",
+    "ajv": "8.20.0",
+    "ajv-formats": "3.0.1",
+    "eslint": "9.39.5",
+    "eslint-config-prettier": "10.1.8",
+    "prettier": "3.9.6",
+    "tsx": "4.23.13",
+    "typescript": "5.9.3",
+    "vitest": "4.1.11"
+  }
+}

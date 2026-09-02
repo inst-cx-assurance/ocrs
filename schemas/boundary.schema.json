@@ -1,0 +1,4 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema", "$id": "https://spec.ocrs.dev/v0.1/schemas/boundary.schema.json", "title": "Controlled boundary",
+  "allOf": [{ "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json" }, { "type": "object", "required": ["entityType", "name", "boundaryType", "subjectIds", "mappedBoundaryIds"], "properties": { "entityType": { "const": "boundary" }, "name": { "type": "string", "minLength": 1 }, "boundaryType": { "enum": ["system", "test", "readiness", "handover", "transfer_of_operational_control"] }, "subjectIds": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/idArray" }, "mappedBoundaryIds": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/idArray" }, "description": { "type": "string" } } }], "unevaluatedProperties": false
+}

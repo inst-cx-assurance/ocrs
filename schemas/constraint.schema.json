@@ -1,0 +1,4 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema", "$id": "https://spec.ocrs.dev/v0.1/schemas/constraint.schema.json", "title": "Constraint",
+  "allOf": [{ "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json" }, { "type": "object", "required": ["entityType", "title", "status", "gateId", "subjectIds", "blocksCurrentGate", "ownerPartyId"], "properties": { "entityType": { "const": "constraint" }, "title": { "type": "string", "minLength": 1 }, "status": { "enum": ["active", "resolved", "accepted"] }, "gateId": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id" }, "subjectIds": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/idArray" }, "blocksCurrentGate": { "type": "boolean" }, "ownerPartyId": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id" }, "disposition": { "type": "string" } } }], "unevaluatedProperties": false
+}

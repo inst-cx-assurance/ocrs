@@ -1,0 +1,1 @@
+{ "name": "Category C lacks risk assessment", "expectedCode": "CATEGORY_C_RISK_ASSESSMENT_REQUIRED", "mutation": { "op": "remove", "path": "/deficiencies/2/riskAssessment" } }

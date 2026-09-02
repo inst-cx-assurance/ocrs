@@ -1,0 +1,1 @@
+{ "name": "prohibited dependency cycle", "expectedCode": "PROHIBITED_CIRCULAR_DEPENDENCY", "mutation": { "op": "replace", "path": "/dependencies/1/targetId", "value": "ocrs:system:CW-101" } }

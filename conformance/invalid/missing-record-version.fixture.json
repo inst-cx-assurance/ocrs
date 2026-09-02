@@ -1,0 +1,1 @@
+{ "name": "record version omitted", "expectedCode": "MISSING_RECORD_VERSION", "mutation": { "op": "remove", "path": "/evidence/0/recordVersion" } }
