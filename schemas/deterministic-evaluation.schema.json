@@ -1,4 +1,38 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema", "$id": "https://spec.ocrs.dev/v0.1/schemas/deterministic-evaluation.schema.json", "title": "Deterministic evaluation",
-  "allOf": [{ "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json" }, { "type": "object", "required": ["entityType", "gateId", "evaluatorId", "evaluatorVersion", "result", "explanationId", "inputRecordIds"], "properties": { "entityType": { "const": "deterministic-evaluation" }, "gateId": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id" }, "evaluatorId": { "type": "string", "minLength": 1 }, "evaluatorVersion": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/version" }, "result": { "enum": ["satisfied", "not_satisfied", "indeterminate"] }, "explanationId": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id" }, "inputRecordIds": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/idArray" } } }], "unevaluatedProperties": false
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://spec.ocrs.dev/v0.1/schemas/deterministic-evaluation.schema.json",
+  "title": "Deterministic evaluation",
+  "allOf": [
+    { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json" },
+    {
+      "type": "object",
+      "required": [
+        "entityType",
+        "gateId",
+        "evaluatorId",
+        "evaluatorVersion",
+        "result",
+        "explanationId",
+        "inputRecordIds"
+      ],
+      "properties": {
+        "entityType": { "const": "deterministic-evaluation" },
+        "gateId": {
+          "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id"
+        },
+        "evaluatorId": { "type": "string", "minLength": 1 },
+        "evaluatorVersion": {
+          "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/version"
+        },
+        "result": { "enum": ["satisfied", "not_satisfied", "indeterminate"] },
+        "explanationId": {
+          "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id"
+        },
+        "inputRecordIds": {
+          "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/idArray"
+        }
+      }
+    }
+  ],
+  "unevaluatedProperties": false
 }

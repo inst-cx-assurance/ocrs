@@ -1,1 +1,5 @@
-{ "name": "missing required project", "expectedCode": "SCHEMA_INVALID", "mutation": { "op": "remove", "path": "/project" } }
+{
+  "name": "missing required project",
+  "expectedCode": "SCHEMA_INVALID",
+  "mutation": { "op": "remove", "path": "/project" }
+}

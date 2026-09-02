@@ -1,29 +1,19 @@
 # Conformance
 
-This chapter defines the Phase 1 conformance posture for OCRS v0.1.
+## OCRS Data Conformant
 
-## 1. Conformance purpose
+Every declared schema/profile is supported; all package records pass Draft 2020-12 structural validation and OCRS semantic integrity rules.
 
-OCRS conformance is intended to support interoperability and evidence traceability. It is not a substitute for ICxA standards conformance or corporate or project authorization.
+## OCRS Exchange Conformant
 
-## 2. v0.1 conformance posture
+An implementation imports and exports exact identifiers, versions, relationships, provenance, inventory, qualifications, extensions, and controlled terms without semantic loss.
 
-OCRS v0.1 does not yet define a full certification model. Instead, it establishes the conceptual conditions for a future conformance framework:
+## OCRS RFDC Evaluation Conformant
 
-- a capable implementation should create, validate, and exchange OCRS metadata and record structures;
-- a compliant implementation should preserve authority boundaries;
-- a compliant implementation should support explainability and traceability;
-- a compliant implementation should not claim ICxA standards conformity solely because it validates an OCRS schema.
+An implementation accepts Data Conformant RFDC packages and returns the normative results and full explanation basis for the conformance scenarios reproducibly, without creating human decision records.
 
-## 3. Future conformance work
+## OCRS ICxA Profile Conformant
 
-Future conformance work may define tests for:
+Data and behavior conform to an approved, exact versioned ICxA mapping. The draft v0.1 mapping is marked for ICxA verification, so this claim is not currently established by the repository.
 
-- profile validity;
-- ontology usage;
-- traceability linkage rules;
-- evidence sufficiency representation;
-- stage-gate status and recommendation correctness; and
-- profile-to-ICxA mapping fidelity.
-
-These future tests shall remain distinct from the governance decisions made under Level 1 and Level 2 standards themselves.
+Schema validity does not prove readiness. Deterministic evaluation is not professional judgment. Readiness Recommendations and Operational Readiness decisions do not constitute Outcome Authorization. OCRS conformance does not establish underlying ICxA Standards conformity or certification. OAP and ICxA certification policy remain outside v0.1.

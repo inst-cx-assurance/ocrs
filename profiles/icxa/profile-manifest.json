@@ -1,127 +1,79 @@
 {
-  "profile": {
-    "id": "ocrs:profile:icxa:core-v0.1",
-    "name": "ICxA Alignment Profile",
-    "ocrsProfileVersion": "v0.1",
-    "status": "draft",
-    "documentation": "specification/icxa-alignment.md"
-  },
-  "alignment": [
-    {
-      "documentNumber": "ICXA-10000",
-      "title": "Outcome Assurance — Fundamentals",
-      "editionOrYear": "current controlled edition",
-      "revision": "current controlled revision",
-      "publicationDate": "controlled by ICxA",
-      "status": "normative",
-      "profileVersion": "v0.1"
-    },
-    {
-      "documentNumber": "ICXA-10001",
-      "title": "Outcome Assurance — Requirements",
-      "editionOrYear": "current controlled edition",
-      "revision": "current controlled revision",
-      "publicationDate": "controlled by ICxA",
-      "status": "normative",
-      "profileVersion": "v0.1"
-    },
-    {
-      "documentNumber": "ICXA-10002",
-      "title": "Outcome Assurance — Evidence Requirements",
-      "editionOrYear": "current controlled edition",
-      "revision": "current controlled revision",
-      "publicationDate": "controlled by ICxA",
-      "status": "normative",
-      "profileVersion": "v0.1"
-    },
+  "$schema": "https://spec.ocrs.dev/v0.1/schemas/icxa-profile-manifest.schema.json",
+  "profileId": "ocrs:profile:rfdc",
+  "profileVersion": "0.1.0",
+  "ocrsVersion": "0.1.0",
+  "status": "draft_icxa_verification_required",
+  "scope": "Level 2 Commissioning & Outcome Execution and Operational Readiness representation; deterministic evaluation is implemented only for RFDC.",
+  "standards": [
     {
       "documentNumber": "ICXA-20100",
       "title": "Commissioning & Outcome Execution — Concepts, Principles, and Model",
-      "editionOrYear": "current controlled edition",
-      "revision": "current controlled revision",
-      "publicationDate": "controlled by ICxA",
-      "status": "normative",
-      "profileVersion": "v0.1"
+      "editionOrYear": "ICxA verification required",
+      "revision": "ICxA verification required",
+      "publicationDate": "ICxA verification required",
+      "status": "normative_source_to_be_verified"
     },
     {
       "documentNumber": "ICXA-20101",
       "title": "Commissioning & Outcome Execution — Requirements",
-      "editionOrYear": "current controlled edition",
-      "revision": "current controlled revision",
-      "publicationDate": "controlled by ICxA",
-      "status": "normative",
-      "profileVersion": "v0.1"
+      "editionOrYear": "ICxA verification required",
+      "revision": "ICxA verification required",
+      "publicationDate": "ICxA verification required",
+      "status": "normative_source_to_be_verified"
     },
     {
       "documentNumber": "ICXA-20102",
       "title": "Commissioning & Outcome Execution — Vocabulary",
-      "editionOrYear": "current controlled edition",
-      "revision": "current controlled revision",
-      "publicationDate": "controlled by ICxA",
-      "status": "normative",
-      "profileVersion": "v0.1"
+      "editionOrYear": "ICxA verification required",
+      "revision": "ICxA verification required",
+      "publicationDate": "ICxA verification required",
+      "status": "normative_source_to_be_verified"
     },
     {
       "documentNumber": "ICXA-20200",
       "title": "Operational Readiness — Concepts and Principles",
-      "editionOrYear": "current controlled edition",
-      "revision": "current controlled revision",
-      "publicationDate": "controlled by ICxA",
-      "status": "normative",
-      "profileVersion": "v0.1"
+      "editionOrYear": "ICxA verification required",
+      "revision": "ICxA verification required",
+      "publicationDate": "ICxA verification required",
+      "status": "normative_source_to_be_verified"
     },
     {
       "documentNumber": "ICXA-20201",
       "title": "Operational Readiness — Requirements",
-      "editionOrYear": "current controlled edition",
-      "revision": "current controlled revision",
-      "publicationDate": "controlled by ICxA",
-      "status": "normative",
-      "profileVersion": "v0.1"
+      "editionOrYear": "ICxA verification required",
+      "revision": "ICxA verification required",
+      "publicationDate": "ICxA verification required",
+      "status": "normative_source_to_be_verified"
     },
     {
       "documentNumber": "ICXA-20202",
       "title": "Operational Readiness — Vocabulary",
-      "editionOrYear": "current controlled edition",
-      "revision": "current controlled revision",
-      "publicationDate": "controlled by ICxA",
-      "status": "normative",
-      "profileVersion": "v0.1"
-    },
-    {
-      "documentNumber": "ICXA-10003",
-      "title": "Outcome Assurance — Informative Guidance",
-      "editionOrYear": "current controlled edition",
-      "revision": "current controlled revision",
-      "publicationDate": "controlled by ICxA",
-      "status": "informative",
-      "profileVersion": "v0.1",
-      "usage": "informative guidance only"
+      "editionOrYear": "ICxA verification required",
+      "revision": "ICxA verification required",
+      "publicationDate": "ICxA verification required",
+      "status": "normative_source_to_be_verified"
     },
     {
       "documentNumber": "ICXA-20103",
       "title": "Commissioning & Outcome Execution — Informative Guidance",
-      "editionOrYear": "current controlled edition",
-      "revision": "current controlled revision",
-      "publicationDate": "controlled by ICxA",
-      "status": "informative",
-      "profileVersion": "v0.1",
-      "usage": "informative guidance only"
+      "editionOrYear": "ICxA verification required",
+      "revision": "ICxA verification required",
+      "publicationDate": "ICxA verification required",
+      "status": "informative_only"
     },
     {
       "documentNumber": "ICXA-20203",
       "title": "Operational Readiness — Informative Guidance",
-      "editionOrYear": "current controlled edition",
-      "revision": "current controlled revision",
-      "publicationDate": "controlled by ICxA",
-      "status": "informative",
-      "profileVersion": "v0.1",
-      "usage": "informative guidance only"
+      "editionOrYear": "ICxA verification required",
+      "revision": "ICxA verification required",
+      "publicationDate": "ICxA verification required",
+      "status": "informative_only"
     }
   ],
-  "compatibility": {
-    "rule": "Any change to a controlled ICxA source requires a new OCRS profile version and documented compatibility impact.",
-    "profileVersion": "v0.1",
-    "status": "draft experimental not-yet-stable"
-  }
+  "compatibilityRule": "A controlled-source or mapping-meaning change requires a new profile version and documented compatibility impact.",
+  "qualifications": [
+    "No OCRS v0.1 claim establishes conformity or certification against an ICxA Standard.",
+    "Exact editions, revisions, publication dates, controlled terms, and evidence mappings require Paul and ICxA audit before publication."
+  ]
 }

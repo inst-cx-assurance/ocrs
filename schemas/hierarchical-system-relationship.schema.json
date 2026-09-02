@@ -1,4 +1,23 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema", "$id": "https://spec.ocrs.dev/v0.1/schemas/hierarchical-system-relationship.schema.json", "title": "Hierarchical system relationship",
-  "allOf": [{ "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json" }, { "type": "object", "required": ["entityType", "parentSystemId", "childSystemId", "relationshipType"], "properties": { "entityType": { "const": "hierarchical-system-relationship" }, "parentSystemId": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id" }, "childSystemId": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id" }, "relationshipType": { "enum": ["contains", "groups"] } } }], "unevaluatedProperties": false
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://spec.ocrs.dev/v0.1/schemas/hierarchical-system-relationship.schema.json",
+  "title": "Hierarchical system relationship",
+  "allOf": [
+    { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json" },
+    {
+      "type": "object",
+      "required": ["entityType", "parentSystemId", "childSystemId", "relationshipType"],
+      "properties": {
+        "entityType": { "const": "hierarchical-system-relationship" },
+        "parentSystemId": {
+          "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id"
+        },
+        "childSystemId": {
+          "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id"
+        },
+        "relationshipType": { "enum": ["contains", "groups"] }
+      }
+    }
+  ],
+  "unevaluatedProperties": false
 }

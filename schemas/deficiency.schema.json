@@ -1,4 +1,90 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema", "$id": "https://spec.ocrs.dev/v0.1/schemas/deficiency.schema.json", "title": "Deficiency",
-  "allOf": [{ "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json" }, { "type": "object", "required": ["entityType", "title", "category", "status", "affectedGateIds", "affectedRequirementIds", "affectedSubjectIds", "effectOnCurrentGate", "disposition", "reclassificationHistoryIds"], "properties": { "entityType": { "const": "deficiency" }, "title": { "type": "string", "minLength": 1 }, "category": { "enum": ["A", "B", "C", "D"] }, "status": { "enum": ["open", "closed", "reclassified", "accepted"] }, "severityOrRiskDescriptor": { "type": "string" }, "affectedGateIds": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/idArray" }, "affectedRequirementIds": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/idArray" }, "affectedSubjectIds": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/idArray" }, "effectOnCurrentGate": { "enum": ["prevents", "does_not_prevent", "requires_disposition"] }, "requiredFutureClosurePointId": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id" }, "ownerPartyId": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id" }, "dueDate": { "type": "string", "format": "date" }, "disposition": { "type": "string", "minLength": 1 }, "riskAssessment": { "type": "string", "minLength": 1 }, "acceptance": { "type": "object", "required": ["acceptedByPartyId", "acceptedAt"], "properties": { "acceptedByPartyId": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id" }, "acceptedAt": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/timestamp" } }, "additionalProperties": false }, "closurePlan": { "type": "object", "required": ["approvedByPartyId", "approvedAt", "actions"], "properties": { "approvedByPartyId": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id" }, "approvedAt": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/timestamp" }, "actions": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } } }, "additionalProperties": false }, "reclassificationHistoryIds": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/idArray" }, "closureEvidenceIds": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/idArray" }, "residualRiskInputId": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id" } } }], "unevaluatedProperties": false
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://spec.ocrs.dev/v0.1/schemas/deficiency.schema.json",
+  "title": "Deficiency",
+  "allOf": [
+    { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json" },
+    {
+      "type": "object",
+      "required": [
+        "entityType",
+        "title",
+        "category",
+        "status",
+        "affectedGateIds",
+        "affectedRequirementIds",
+        "affectedSubjectIds",
+        "effectOnCurrentGate",
+        "disposition",
+        "reclassificationHistoryIds"
+      ],
+      "properties": {
+        "entityType": { "const": "deficiency" },
+        "title": { "type": "string", "minLength": 1 },
+        "category": { "enum": ["A", "B", "C", "D"] },
+        "status": { "enum": ["open", "closed", "reclassified", "accepted"] },
+        "severityOrRiskDescriptor": { "type": "string" },
+        "affectedGateIds": {
+          "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/idArray"
+        },
+        "affectedRequirementIds": {
+          "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/idArray"
+        },
+        "affectedSubjectIds": {
+          "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/idArray"
+        },
+        "effectOnCurrentGate": { "enum": ["prevents", "does_not_prevent", "requires_disposition"] },
+        "requiredFutureClosurePointId": {
+          "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id"
+        },
+        "ownerPartyId": {
+          "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id"
+        },
+        "dueDate": { "type": "string", "format": "date" },
+        "disposition": { "type": "string", "minLength": 1 },
+        "riskAssessment": { "type": "string", "minLength": 1 },
+        "acceptance": {
+          "type": "object",
+          "required": ["acceptedByPartyId", "acceptedAt"],
+          "properties": {
+            "acceptedByPartyId": {
+              "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id"
+            },
+            "acceptedAt": {
+              "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/timestamp"
+            }
+          },
+          "additionalProperties": false
+        },
+        "closurePlan": {
+          "type": "object",
+          "required": ["approvedByPartyId", "approvedAt", "actions"],
+          "properties": {
+            "approvedByPartyId": {
+              "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id"
+            },
+            "approvedAt": {
+              "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/timestamp"
+            },
+            "actions": {
+              "type": "array",
+              "minItems": 1,
+              "items": { "type": "string", "minLength": 1 }
+            }
+          },
+          "additionalProperties": false
+        },
+        "reclassificationHistoryIds": {
+          "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/idArray"
+        },
+        "closureEvidenceIds": {
+          "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/idArray"
+        },
+        "residualRiskInputId": {
+          "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id"
+        }
+      }
+    }
+  ],
+  "unevaluatedProperties": false
 }

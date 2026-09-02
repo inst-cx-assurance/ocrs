@@ -1,4 +1,48 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema", "$id": "https://spec.ocrs.dev/v0.1/schemas/commissioning-stage-gate.schema.json", "title": "Commissioning Stage-Gate",
-  "allOf": [{ "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json" }, { "type": "object", "required": ["entityType", "name", "gateType", "subjectIds", "boundaryIds", "conditionIds", "deterministicStatus"], "properties": { "entityType": { "const": "commissioning-stage-gate" }, "name": { "type": "string", "minLength": 1 }, "gateType": { "enum": ["construction_completion", "ready_for_dynamic_commissioning", "ready_for_energization", "ready_for_start_up", "performance_verification", "trial_operation"] }, "subjectIds": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/idArray" }, "boundaryIds": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/idArray" }, "conditionIds": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/idArray" }, "deterministicStatus": { "enum": ["not_evaluated", "satisfied", "not_satisfied", "indeterminate"] }, "gateClass": { "const": "level_2_commissioning" } } }], "unevaluatedProperties": false
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://spec.ocrs.dev/v0.1/schemas/commissioning-stage-gate.schema.json",
+  "title": "Commissioning Stage-Gate",
+  "allOf": [
+    { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json" },
+    {
+      "type": "object",
+      "required": [
+        "entityType",
+        "name",
+        "gateType",
+        "subjectIds",
+        "boundaryIds",
+        "conditionIds",
+        "deterministicStatus"
+      ],
+      "properties": {
+        "entityType": { "const": "commissioning-stage-gate" },
+        "name": { "type": "string", "minLength": 1 },
+        "gateType": {
+          "enum": [
+            "construction_completion",
+            "ready_for_dynamic_commissioning",
+            "ready_for_energization",
+            "ready_for_start_up",
+            "performance_verification",
+            "trial_operation"
+          ]
+        },
+        "subjectIds": {
+          "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/idArray"
+        },
+        "boundaryIds": {
+          "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/idArray"
+        },
+        "conditionIds": {
+          "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/idArray"
+        },
+        "deterministicStatus": {
+          "enum": ["not_evaluated", "satisfied", "not_satisfied", "indeterminate"]
+        },
+        "gateClass": { "const": "level_2_commissioning" }
+      }
+    }
+  ],
+  "unevaluatedProperties": false
 }

@@ -1,4 +1,51 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema", "$id": "https://spec.ocrs.dev/v0.1/schemas/readiness-condition.schema.json", "title": "Readiness condition",
-  "allOf": [{ "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json" }, { "type": "object", "required": ["entityType", "name", "gateId", "subjectIds", "boundaryIds", "rule"], "properties": { "entityType": { "const": "readiness-condition" }, "name": { "type": "string", "minLength": 1 }, "gateId": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id" }, "subjectIds": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/idArray" }, "boundaryIds": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/idArray" }, "rule": { "type": "object", "required": ["kind"], "properties": { "kind": { "enum": ["accepted_evidence", "prerequisite_gate", "boundary_mapping", "dependencies_satisfied", "no_blocking_constraints", "deficiency_controls"] }, "requiredEvidenceTypes": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true }, "prerequisiteGateId": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id" } }, "additionalProperties": false } } }], "unevaluatedProperties": false
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://spec.ocrs.dev/v0.1/schemas/readiness-condition.schema.json",
+  "title": "Readiness condition",
+  "allOf": [
+    { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json" },
+    {
+      "type": "object",
+      "required": ["entityType", "name", "gateId", "subjectIds", "boundaryIds", "rule"],
+      "properties": {
+        "entityType": { "const": "readiness-condition" },
+        "name": { "type": "string", "minLength": 1 },
+        "gateId": {
+          "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id"
+        },
+        "subjectIds": {
+          "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/idArray"
+        },
+        "boundaryIds": {
+          "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/idArray"
+        },
+        "rule": {
+          "type": "object",
+          "required": ["kind"],
+          "properties": {
+            "kind": {
+              "enum": [
+                "accepted_evidence",
+                "prerequisite_gate",
+                "boundary_mapping",
+                "dependencies_satisfied",
+                "no_blocking_constraints",
+                "deficiency_controls"
+              ]
+            },
+            "requiredEvidenceTypes": {
+              "type": "array",
+              "items": { "type": "string", "minLength": 1 },
+              "uniqueItems": true
+            },
+            "prerequisiteGateId": {
+              "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id"
+            }
+          },
+          "additionalProperties": false
+        }
+      }
+    }
+  ],
+  "unevaluatedProperties": false
 }

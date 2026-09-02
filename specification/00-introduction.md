@@ -1,26 +1,9 @@
 # Introduction
 
-This document establishes the initial specification foundation for OCRS v0.1. It does not replace the governing ICxA standards. It defines the digital representation and exchange layer for Level 1 Outcome Assurance and Level 2 commissioning / readiness records.
+OCRS is the Open Completion & Readiness Protocol: an open, machine-readable Level 2 information model for Commissioning & Outcome Execution and Operational Readiness. Version 0.1 is Draft / Experimental / Not Yet Stable.
 
-OCRS is intended to support structured evidence, traceability, readiness evaluation, and outcome authorization records without changing the authority model defined by ICxA. The repository is intentionally limited to the Phase 1 scope described in the build brief.
+Normative statements use MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY as described by RFC 2119/8174 when capitalized. JSON Schemas and conformance rules are normative for technical OCRS conformance; examples and implementation commentary are informative.
 
-## Purpose
+OCRS represents project and lifecycle context, SBS and system structures, boundaries, Level 2 requirements and activities, controlled evidence, Deficiencies, constraints, dependencies, deterministic evaluations, reviews, recommendations, readiness decisions, System Handover, Transfer of Operational Control, profiles, extensions, and package integrity.
 
-The purpose of OCRS v0.1 is to support representation and evaluation of a single Level 2 commissioning stage-gate profile, specifically Ready for Dynamic Commissioning (RFDC), while preserving an optional interface to Level 1 Outcome Assurance records where an ICxA profile expressly maps the stage-gate to Level 1 governance.
-
-## Scope of Phase 1
-
-Phase 1 creates:
-
-- repository structure and governance documents;
-- design principles and authority-boundary model;
-- controlled terminology and ontology;
-- a draft ICxA alignment baseline;
-- the Level 1 / Level 2 model; and
-- a record of open decisions requiring ICxA approval.
-
-Phase 1 does not create schemas, reference implementations, evaluators, or application software.
-
-## Status
-
-OCRS v0.1 is draft, experimental, and not yet stable. It is not a production certification scheme and should not be interpreted as replacing the authority of ICxA standards.
+OCRS does not define or implement OAP. A future external protocol may reference an exact OCRS package, but OCRS does not depend on it.

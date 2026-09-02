@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://spec.ocrs.dev/v0.1/schemas/icxa-profile-manifest.schema.json",
+  "title": "ICxA alignment profile manifest",
+  "type": "object",
+  "required": [
+    "$schema",
+    "profileId",
+    "profileVersion",
+    "ocrsVersion",
+    "status",
+    "scope",
+    "standards",
+    "compatibilityRule",
+    "qualifications"
+  ],
+  "properties": {
+    "$schema": { "const": "https://spec.ocrs.dev/v0.1/schemas/icxa-profile-manifest.schema.json" },
+    "profileId": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id" },
+    "profileVersion": {
+      "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/version"
+    },
+    "ocrsVersion": { "const": "0.1.0" },
+    "status": { "const": "draft_icxa_verification_required" },
+    "scope": { "type": "string", "minLength": 1 },
+    "standards": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "documentNumber",
+          "title",
+          "editionOrYear",
+          "revision",
+          "publicationDate",
+          "status"
+        ],
+        "properties": {
+          "documentNumber": { "type": "string", "pattern": "^ICXA-[0-9]{5}$" },
+          "title": { "type": "string", "minLength": 1 },
+          "editionOrYear": { "type": "string", "minLength": 1 },
+          "revision": { "type": "string", "minLength": 1 },
+          "publicationDate": { "type": "string", "minLength": 1 },
+          "status": { "enum": ["normative_source_to_be_verified", "informative_only"] }
+        },
+        "additionalProperties": false
+      }
+    },
+    "compatibilityRule": { "type": "string", "minLength": 1 },
+    "qualifications": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 }
+    }
+  },
+  "additionalProperties": false
+}

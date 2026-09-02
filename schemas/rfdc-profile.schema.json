@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://spec.ocrs.dev/v0.1/schemas/rfdc-profile.schema.json",
+  "title": "OCRS RFDC profile definition",
+  "type": "object",
+  "required": [
+    "$schema",
+    "profileId",
+    "profileVersion",
+    "ocrsVersion",
+    "gateType",
+    "applicableSubjectTypes",
+    "requiredBoundaryTypes",
+    "criteria",
+    "permittedResults",
+    "explanationRequired",
+    "automaticHumanRecords",
+    "mappingStatus"
+  ],
+  "properties": {
+    "$schema": { "const": "https://spec.ocrs.dev/v0.1/schemas/rfdc-profile.schema.json" },
+    "profileId": { "const": "ocrs:profile:rfdc" },
+    "profileVersion": { "const": "0.1.0" },
+    "ocrsVersion": { "const": "0.1.0" },
+    "gateType": { "const": "ready_for_dynamic_commissioning" },
+    "applicableSubjectTypes": { "type": "array", "items": { "const": "system" }, "minItems": 1 },
+    "requiredBoundaryTypes": {
+      "type": "array",
+      "items": { "enum": ["system", "test", "readiness"] },
+      "minItems": 3,
+      "uniqueItems": true
+    },
+    "criteria": {
+      "type": "array",
+      "minItems": 10,
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true
+    },
+    "permittedResults": {
+      "type": "array",
+      "items": { "enum": ["satisfied", "not_satisfied", "indeterminate"] },
+      "minItems": 3,
+      "uniqueItems": true
+    },
+    "explanationRequired": { "const": true },
+    "automaticHumanRecords": { "const": false },
+    "mappingStatus": { "const": "icxa_verification_required" }
+  },
+  "additionalProperties": false
+}

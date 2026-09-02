@@ -1,32 +1,7 @@
-# Dependency and Boundary Model
+# Dependency and boundary model
 
-## 1. Boundary representation
+OCRS preserves SBS, system, subsystem, asset, interface, and grouping distinctions. Boundary types are system, test, readiness, handover, and Transfer of Operational Control. A test result used for progression MUST be traceable from its test boundary to an applicable system boundary.
 
-OCRS shall represent system, subsystem, test, and operational boundaries distinctly so that readiness and evidence can be evaluated in the correct context.
+Dependencies identify source, target, type, gate, evaluation status, and whether circularity is expressly allowed. Prohibited dependency cycles fail semantic validation. Missing or indeterminate dependencies cannot be silently treated as satisfied.
 
-Boundary records shall distinguish:
-
-- physical or logical system boundaries;
-- test boundaries;
-- handover boundaries; and
-- operational control boundaries.
-
-## 2. Dependencies
-
-Dependencies represent logical or physical relationships that affect timing, sequencing, evidence generation, or readiness decisions.
-
-The model must support dependencies such as:
-
-- upstream and downstream system dependencies;
-- completion dependencies;
-- evidence dependencies;
-- commissioning dependencies; and
-- handover or transfer-of-control dependencies.
-
-## 3. Transfer of operational control vs system handover
-
-Transfer of Operational Control shall be representable as distinct from System Handover. Under an Operational Readiness profile, transfer of operational control occurs only following the documented AOCR or equivalent readiness decision.
-
-## 4. Context and traceability
-
-Dependencies and boundaries must link to the relevant requirement, activity, evidence, review, recommendation, and stage-gate so that either a blocking dependency or a system boundary condition can be explained.
+Project-level aggregation is informative and cannot override a conflicting system or interface. Handover does not imply operational control; control changes only through an explicit Transfer of Operational Control record linked to an applicable readiness decision.

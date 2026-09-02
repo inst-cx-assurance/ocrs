@@ -1,1 +1,12 @@
-{ "name": "invalid package integrity value", "expectedCode": "INVALID_CONTENT_HASH", "mutation": { "op": "add", "path": "/manifest/contentHash", "value": { "algorithm": "sha256", "value": "0000000000000000000000000000000000000000000000000000000000000000" } } }
+{
+  "name": "invalid package integrity value",
+  "expectedCode": "INVALID_CONTENT_HASH",
+  "mutation": {
+    "op": "add",
+    "path": "/manifest/contentHash",
+    "value": {
+      "algorithm": "sha256",
+      "value": "0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  }
+}

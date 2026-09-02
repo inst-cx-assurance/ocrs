@@ -2,24 +2,42 @@ name: OCRS CI
 
 on:
   push:
-    branches: ['**']
   pull_request:
 
+permissions:
+  contents: read
+
 jobs:
-  validate:
+  conformance:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
-
-      - name: Set up Node.js
+      - name: Set up Node.js 22
         uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
-
-      - name: Install dependencies
+      - name: Clean lockfile installation
         run: npm ci
-
-      - name: Validate schemas and conformance
+      - name: Formatting
+        run: npm run format:check
+      - name: Linting
+        run: npm run lint
+      - name: Schema validation
+        run: npm run validate:schemas
+      - name: Valid package validation
+        run: npm run validate:packages
+      - name: Invalid fixture expected failures
+        run: npm run validate:invalid
+      - name: Reference integrity
+        run: npm run validate:references
+      - name: Unit and semantic tests
+        run: npm test
+      - name: Ready RFDC evaluation
+        run: npm run rfdc:evaluate:ready
+      - name: Not-ready RFDC evaluation
+        run: npm run rfdc:evaluate:not-ready
+      - name: Complete OCRS conformance suite
         run: npm run conformance

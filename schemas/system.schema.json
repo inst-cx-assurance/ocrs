@@ -1,4 +1,37 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema", "$id": "https://spec.ocrs.dev/v0.1/schemas/system.schema.json", "title": "System, subsystem, or system grouping",
-  "allOf": [{ "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json" }, { "type": "object", "required": ["entityType", "name", "systemKind", "referenceDesignation", "boundaryIds", "assetIds", "readinessStatus"], "properties": { "entityType": { "const": "system" }, "name": { "type": "string", "minLength": 1 }, "systemKind": { "enum": ["system", "subsystem", "grouping"] }, "referenceDesignation": { "type": "string", "minLength": 1 }, "parentSystemId": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id" }, "boundaryIds": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/idArray" }, "assetIds": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/idArray" }, "readinessStatus": { "enum": ["not_declared", "ready", "not_ready", "indeterminate"] } } }], "unevaluatedProperties": false
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://spec.ocrs.dev/v0.1/schemas/system.schema.json",
+  "title": "System, subsystem, or system grouping",
+  "allOf": [
+    { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json" },
+    {
+      "type": "object",
+      "required": [
+        "entityType",
+        "name",
+        "systemKind",
+        "referenceDesignation",
+        "boundaryIds",
+        "assetIds",
+        "readinessStatus"
+      ],
+      "properties": {
+        "entityType": { "const": "system" },
+        "name": { "type": "string", "minLength": 1 },
+        "systemKind": { "enum": ["system", "subsystem", "grouping"] },
+        "referenceDesignation": { "type": "string", "minLength": 1 },
+        "parentSystemId": {
+          "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id"
+        },
+        "boundaryIds": {
+          "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/idArray"
+        },
+        "assetIds": {
+          "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/idArray"
+        },
+        "readinessStatus": { "enum": ["not_declared", "ready", "not_ready", "indeterminate"] }
+      }
+    }
+  ],
+  "unevaluatedProperties": false
 }

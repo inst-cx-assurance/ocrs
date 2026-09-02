@@ -1,0 +1,5 @@
+BUILD-BRIEF.md
+dist/
+node_modules/
+coverage/
+*.zip

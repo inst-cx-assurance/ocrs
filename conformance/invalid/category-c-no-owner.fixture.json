@@ -1,1 +1,5 @@
-{ "name": "Category C lacks owner", "expectedCode": "CATEGORY_C_OWNER_REQUIRED", "mutation": { "op": "remove", "path": "/deficiencies/2/ownerPartyId" } }
+{
+  "name": "Category C lacks owner",
+  "expectedCode": "CATEGORY_C_OWNER_REQUIRED",
+  "mutation": { "op": "remove", "path": "/deficiencies/2/ownerPartyId" }
+}

@@ -14,19 +14,43 @@ const validFiles = [
 ];
 
 if (mode === 'valid' || mode === 'references') {
+  if (mode === 'valid') {
+    for (const [schemaId, file] of [
+      [
+        'https://spec.ocrs.dev/v0.1/schemas/rfdc-profile.schema.json',
+        path.join(root, 'profiles', 'rfdc', 'profile.json'),
+      ],
+      [
+        'https://spec.ocrs.dev/v0.1/schemas/icxa-profile-manifest.schema.json',
+        path.join(root, 'profiles', 'icxa', 'profile-manifest.json'),
+      ],
+    ] as const) {
+      const validator = context.ajv.getSchema(schemaId);
+      if (!validator || !validator(loadJsonFile(file)))
+        throw new Error(`Profile validation failed: ${file} ${JSON.stringify(validator?.errors)}`);
+      console.log(`Valid profile: ${path.relative(root, file)}`);
+    }
+  }
   for (const file of validFiles) {
     const diagnostics = validateOcrsPackage(loadOcrsInput(file), context);
-    if (diagnostics.length) throw new Error(`${file} failed:\n${JSON.stringify(diagnostics, null, 2)}`);
-    console.log(`${mode === 'references' ? 'Reference integrity verified' : 'Valid OCRS package'}: ${path.relative(root, file)}`);
+    if (diagnostics.length)
+      throw new Error(`${file} failed:\n${JSON.stringify(diagnostics, null, 2)}`);
+    console.log(
+      `${mode === 'references' ? 'Reference integrity verified' : 'Valid OCRS package'}: ${path.relative(root, file)}`,
+    );
   }
 } else if (mode === 'invalid') {
   const base = loadJsonFile(validFiles[0]);
-  const fixtures = listJsonFiles(path.join(root, 'conformance', 'invalid')).filter((file) => file.endsWith('.fixture.json'));
+  const fixtures = listJsonFiles(path.join(root, 'conformance', 'invalid')).filter((file) =>
+    file.endsWith('.fixture.json'),
+  );
   for (const file of fixtures) {
     const fixture = loadJsonFile<InvalidFixture>(file);
     const diagnostics = validateOcrsPackage(applyFixtureMutation(base, fixture), context);
     if (!diagnostics.some((item) => item.code === fixture.expectedCode)) {
-      throw new Error(`${file} expected ${fixture.expectedCode}, received ${JSON.stringify(diagnostics, null, 2)}`);
+      throw new Error(
+        `${file} expected ${fixture.expectedCode}, received ${JSON.stringify(diagnostics, null, 2)}`,
+      );
     }
     console.log(`Expected failure ${fixture.expectedCode}: ${path.relative(root, file)}`);
   }

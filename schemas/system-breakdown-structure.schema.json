@@ -1,4 +1,21 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema", "$id": "https://spec.ocrs.dev/v0.1/schemas/system-breakdown-structure.schema.json", "title": "System Breakdown Structure",
-  "allOf": [{ "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json" }, { "type": "object", "required": ["entityType", "name", "rootSystemIds"], "properties": { "entityType": { "const": "system-breakdown-structure" }, "name": { "type": "string", "minLength": 1 }, "rootSystemIds": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/idArray" }, "referenceDesignationStandard": { "type": "string" } } }], "unevaluatedProperties": false
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://spec.ocrs.dev/v0.1/schemas/system-breakdown-structure.schema.json",
+  "title": "System Breakdown Structure",
+  "allOf": [
+    { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json" },
+    {
+      "type": "object",
+      "required": ["entityType", "name", "rootSystemIds"],
+      "properties": {
+        "entityType": { "const": "system-breakdown-structure" },
+        "name": { "type": "string", "minLength": 1 },
+        "rootSystemIds": {
+          "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/idArray"
+        },
+        "referenceDesignationStandard": { "type": "string" }
+      }
+    }
+  ],
+  "unevaluatedProperties": false
 }

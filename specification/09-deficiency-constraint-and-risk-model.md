@@ -1,29 +1,7 @@
-# Deficiency, Constraint, and Risk Model
+# Deficiency, constraint, and residual-risk input model
 
-## 1. Deficiency
+Category A prevents the applicable current gate. Category B does not prevent the current Commissioning Stage-Gate but an open item requires a defined future closure point. Category C does not prevent the gate but, while open/accepted, requires formal acceptance, an owner, risk assessment, and approved closure plan. Category D requires disposition or reclassification before it can be treated as closed or accepted.
 
-A deficiency is a condition that prevents or undermines readiness, completion, or outcome satisfaction. Deficiencies shall be tracked independently of the final recommendation or authorization decision.
+Category, severity/risk descriptor, affected requirement/subject/gate, current-gate effect, future closure point, owner, due date, disposition, risk assessment, acceptance, closure plan, reclassification history, closure evidence, and residual-risk input are separate fields. Risk labels MUST NOT replace A/B/C/D.
 
-## 2. Constraint
-
-A constraint is a limitation, restriction, or required condition that affects the ability to satisfy a requirement or support a stage-gate. Constraints may limit a decision, require additional evidence, or identify conditions of acceptance.
-
-## 3. Residual risk
-
-Residual risk is the risk that remains after evidence has been evaluated and the applicable decision authority has considered the remaining uncertainty, constraints, or known deficiencies.
-
-OCRS must preserve the difference between:
-
-- residual risk being declared;
-- residual risk being accepted or constrained; and
-- outcome authorization being granted.
-
-## 4. Linkage
-
-Deficiencies, constraints, and residual risk records must be traceable to:
-
-- the relevant requirement or readiness condition;
-- the stage-gate or outcome context;
-- the evidence that informs the risk or deficiency;
-- the responsible party and decision authority; and
-- the final recommendation or authorization outcome.
+A constraint records an external or limiting condition; it MUST NOT hide unmet work that is properly a Deficiency. A residual-risk input is Level 2 information and does not record external authorization or risk acceptance.

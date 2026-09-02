@@ -16,7 +16,10 @@ export function applyFixtureMutation<T>(base: T, fixture: InvalidFixture): T {
 }
 
 export function applyMutations<T>(base: T, mutations: InvalidFixture['mutation'][]): T {
-  return mutations.reduce((current, mutation) => applyMutation(current, mutation), structuredClone(base));
+  return mutations.reduce(
+    (current, mutation) => applyMutation(current, mutation),
+    structuredClone(base),
+  );
 }
 
 function applyMutation<T>(base: T, mutation: InvalidFixture['mutation']): T {
@@ -30,8 +33,11 @@ function applyMutation<T>(base: T, mutation: InvalidFixture['mutation']): T {
   let parent: any = copy;
   for (const token of tokens) parent = parent[Array.isArray(parent) ? Number(token) : token];
   const key: string | number = Array.isArray(parent) ? Number(last) : last;
-  if (mutation.op === 'remove') Array.isArray(parent) ? parent.splice(key as number, 1) : delete parent[key];
-  else if (mutation.op === 'add' && Array.isArray(parent)) parent.splice(key as number, 0, mutation.value);
+  if (mutation.op === 'remove') {
+    if (Array.isArray(parent)) parent.splice(key as number, 1);
+    else delete parent[key];
+  } else if (mutation.op === 'add' && Array.isArray(parent))
+    parent.splice(key as number, 0, mutation.value);
   else parent[key] = mutation.value;
   return copy as unknown as T;
 }

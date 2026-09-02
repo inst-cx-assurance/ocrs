@@ -10,7 +10,11 @@ describe('schemas and semantic packages', () => {
   it('compiles every schema as Draft 2020-12', () => {
     const context = createSchemaContext();
     expect(context.files.length).toBeGreaterThanOrEqual(40);
-    expect(context.files.every((file) => loadJsonFile(file).$schema === 'https://json-schema.org/draft/2020-12/schema')).toBe(true);
+    expect(
+      context.files.every(
+        (file) => loadJsonFile(file).$schema === 'https://json-schema.org/draft/2020-12/schema',
+      ),
+    ).toBe(true);
   });
 
   it('validates the complete canonical package', () => {
@@ -19,11 +23,15 @@ describe('schemas and semantic packages', () => {
 
   it('fails every invalid fixture for its controlled expected reason', () => {
     const base = readyPackage();
-    const files = listJsonFiles(path.join(process.cwd(), 'conformance', 'invalid')).filter((file) => file.endsWith('.fixture.json'));
+    const files = listJsonFiles(path.join(process.cwd(), 'conformance', 'invalid')).filter((file) =>
+      file.endsWith('.fixture.json'),
+    );
     expect(files.length).toBeGreaterThanOrEqual(20);
     for (const file of files) {
       const fixture = loadJsonFile<InvalidFixture>(file);
-      const codes = validateOcrsPackage(applyFixtureMutation(base, fixture)).map((item) => item.code);
+      const codes = validateOcrsPackage(applyFixtureMutation(base, fixture)).map(
+        (item) => item.code,
+      );
       expect(codes, path.basename(file)).toContain(fixture.expectedCode);
     }
   });

@@ -1,4 +1,50 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema", "$id": "https://spec.ocrs.dev/v0.1/schemas/operational-readiness-gate.schema.json", "title": "Operational Readiness decision gate",
-  "allOf": [{ "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json" }, { "type": "object", "required": ["entityType", "name", "gateType", "subjectIds", "boundaryIds", "lifecyclePhase", "capabilityPillars", "status"], "properties": { "entityType": { "const": "operational-readiness-gate" }, "name": { "type": "string", "minLength": 1 }, "gateType": { "enum": ["organizational_readiness_complete", "asset_operational_control_ready", "initial_operational_capability", "full_operational_capability"] }, "subjectIds": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/idArray" }, "boundaryIds": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/idArray" }, "lifecyclePhase": { "enum": ["awareness", "preparedness", "readiness", "ramp_up_stabilization"] }, "capabilityPillars": { "type": "array", "items": { "enum": ["people", "organization", "asset", "systems_and_processes"] }, "uniqueItems": true }, "status": { "enum": ["not_evaluated", "ready", "conditionally_ready", "hold"] }, "profileStatus": { "enum": ["core_representable", "official_profile_not_implemented"] } } }], "unevaluatedProperties": false
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://spec.ocrs.dev/v0.1/schemas/operational-readiness-gate.schema.json",
+  "title": "Operational Readiness decision gate",
+  "allOf": [
+    { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json" },
+    {
+      "type": "object",
+      "required": [
+        "entityType",
+        "name",
+        "gateType",
+        "subjectIds",
+        "boundaryIds",
+        "lifecyclePhase",
+        "capabilityPillars",
+        "status"
+      ],
+      "properties": {
+        "entityType": { "const": "operational-readiness-gate" },
+        "name": { "type": "string", "minLength": 1 },
+        "gateType": {
+          "enum": [
+            "organizational_readiness_complete",
+            "asset_operational_control_ready",
+            "initial_operational_capability",
+            "full_operational_capability"
+          ]
+        },
+        "subjectIds": {
+          "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/idArray"
+        },
+        "boundaryIds": {
+          "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/idArray"
+        },
+        "lifecyclePhase": {
+          "enum": ["awareness", "preparedness", "readiness", "ramp_up_stabilization"]
+        },
+        "capabilityPillars": {
+          "type": "array",
+          "items": { "enum": ["people", "organization", "asset", "systems_and_processes"] },
+          "uniqueItems": true
+        },
+        "status": { "enum": ["not_evaluated", "ready", "conditionally_ready", "hold"] },
+        "profileStatus": { "enum": ["core_representable", "official_profile_not_implemented"] }
+      }
+    }
+  ],
+  "unevaluatedProperties": false
 }

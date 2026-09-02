@@ -1,12 +1,6 @@
-# CW-101 RFDC Reference Project
+# CW-101 RFDC reference
 
-This directory contains the canonical OCRS v0.1 reference case for the Ready for Dynamic Commissioning (RFDC) commissioning stage-gate.
+- `rfdc-ready.package.json` is the complete Scenario B exchange package.
+- `rfdc-not-ready.scenario.json` is the controlled Scenario A mutation set resolved against the complete package.
 
-The project models a small cooling-water pumping system and demonstrates a deterministic evaluation that distinguishes:
-
-- a known unsatisfied readiness condition;
-- missing or invalid evidence;
-- a category A deficiency that blocks progression; and
-- the separate Level 1 Outcome Assurance interface when the project elects to establish one.
-
-The canonical ready package is the basis for conformance testing and schema validation.
+Both resolved states pass structural and semantic package validation. Scenario A evaluates `not_satisfied` with separate indeterminate evidence and Category A blocker nodes. Scenario B evaluates `satisfied`. See `docs/cw-101-walkthrough.md`.

@@ -1,13 +1,7 @@
 export type EvaluationStatus = 'satisfied' | 'not_satisfied' | 'indeterminate';
 export type DeficiencyCategory = 'A' | 'B' | 'C' | 'D';
 export type EvidenceStatus =
-  | 'accepted_current'
-  | 'missing'
-  | 'unavailable'
-  | 'rejected'
-  | 'failed'
-  | 'expired'
-  | 'superseded';
+  'accepted_current' | 'missing' | 'unavailable' | 'rejected' | 'failed' | 'expired' | 'superseded';
 
 export interface VersionedRecord {
   id: string;
@@ -88,9 +82,16 @@ export interface OcrsPackage {
     projectId: string;
     boundaryIds: string[];
     profiles: Array<{ profileId: string; profileVersion: string }>;
-    inventory: Array<{ recordId: string; entityType: string; recordVersion: string }>;
+    inventory: Array<{
+      recordId: string;
+      entityType: string;
+      recordVersion: string;
+      supersessionStatus?: 'current' | 'superseded';
+      supersedesRecordId?: string;
+    }>;
     qualifications: string[];
     exclusions: string[];
+    externalEvidenceReferences?: Array<{ evidenceId: string; reference: string }>;
     contentHash?: { algorithm: 'sha256'; value: string };
   };
   project: VersionedRecord;
@@ -130,12 +131,37 @@ export interface OcrsPackage {
 }
 
 export const RECORD_COLLECTIONS = [
-  'sbs', 'systems', 'systemRelationships', 'assets', 'interfaces', 'boundaries', 'parties',
-  'roleAssignments', 'authorityScopes', 'executionRequirements', 'readinessConditions',
-  'activities', 'evidence', 'evidenceProvenance', 'evidenceRevisions', 'deficiencies',
-  'deficiencyReclassifications', 'constraints', 'dependencies', 'residualRiskInputs',
-  'deterministicEvaluations', 'evaluationExplanations', 'commissioningStageGates',
-  'operationalReadinessGates', 'readinessReviews', 'readinessRecommendations',
-  'readinessDecisions', 'systemHandovers', 'transfersOfOperationalControl', 'conditions',
-  'changeRecords', 'profileDeclarations', 'extensionDeclarations',
+  'sbs',
+  'systems',
+  'systemRelationships',
+  'assets',
+  'interfaces',
+  'boundaries',
+  'parties',
+  'roleAssignments',
+  'authorityScopes',
+  'executionRequirements',
+  'readinessConditions',
+  'activities',
+  'evidence',
+  'evidenceProvenance',
+  'evidenceRevisions',
+  'deficiencies',
+  'deficiencyReclassifications',
+  'constraints',
+  'dependencies',
+  'residualRiskInputs',
+  'deterministicEvaluations',
+  'evaluationExplanations',
+  'commissioningStageGates',
+  'operationalReadinessGates',
+  'readinessReviews',
+  'readinessRecommendations',
+  'readinessDecisions',
+  'systemHandovers',
+  'transfersOfOperationalControl',
+  'conditions',
+  'changeRecords',
+  'profileDeclarations',
+  'extensionDeclarations',
 ] as const;

@@ -1,1 +1,5 @@
-{ "name": "Category C lacks formal acceptance", "expectedCode": "CATEGORY_C_ACCEPTANCE_REQUIRED", "mutation": { "op": "remove", "path": "/deficiencies/2/acceptance" } }
+{
+  "name": "Category C lacks formal acceptance",
+  "expectedCode": "CATEGORY_C_ACCEPTANCE_REQUIRED",
+  "mutation": { "op": "remove", "path": "/deficiencies/2/acceptance" }
+}

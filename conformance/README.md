@@ -1,9 +1,5 @@
-# Conformance and Validation
+# Conformance fixtures
 
-This directory contains conformance fixtures used by the repository validation pipeline.
+`invalid/*.fixture.json` files are one-purpose controlled mutations applied to the canonical ready package. Each declares an exact expected semantic diagnostic. `npm run validate:invalid` fails unless every fixture produces its named reason.
 
-- valid/ contains schema-valid example packages
-- invalid/ contains intentionally invalid inputs used to confirm that validation fails
-- expected-results/ contains deterministic evaluation expectations
-
-The repository test suite validates the schema and checks the RFDC evaluator against expected outcomes.
+The canonical valid package and controlled scenarios live under `examples/cw-101-reference`. This avoids duplicating a large package while preserving two complete resolved package states.

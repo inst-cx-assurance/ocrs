@@ -1,25 +1,15 @@
-# Extension Guide
+# Extension guide
 
-This guide defines the Phase 1 extension posture for OCRS.
+Declare every extension in `extensionDeclarations` with a non-reserved namespace, extension version, and applicable entity types. Store extension values under the record's `extensions` object using qualified keys.
 
-## 1. Core rule
+```json
+{
+  "extensions": {
+    "vendor.example:work-package": "WP-42"
+  }
+}
+```
 
-The generic OCRS core must remain stable and implementation-neutral. Official ICxA profile extensions must preserve the authority model and may add profile-specific semantics that are versioned and explicitly linked to the governing ICxA source.
+Extensions may add information. They may not change official identifier syntax, entity types, Deficiency categories, gate meanings, authority boundaries, reference semantics, conformance results, or required core fields. `ocrs` and `icxa` are reserved namespaces. Controlled-term overrides fail validation.
 
-## 2. Extension namespaces
-
-Future extensions may use explicit namespaces such as:
-
-- ocrs:core
-- ocrs:profile:icxa
-- ocrs:extension:<project-or-organization>
-
-The exact URI architecture shall be documented in a future versioned profile definition. This Phase 1 repository does not hard-code a specific URI implementation because that would prematurely constrain future extension design.
-
-## 3. Temporary rule for v0.1
-
-Project-specific extensions may be represented conceptually but not materially defined as normative schema features in Phase 1.
-
-## 4. Compatibility guardrail
-
-Any extension that changes the meaning of an official ICxA-aligned field or changes the authority boundary must be treated as a profile change, not a core extension, and must be issued under a new profile version.
+If a change alters normative meaning, publish a new profile or core version instead of an extension. Document tailoring, deviations, qualifications, and compatibility explicitly.

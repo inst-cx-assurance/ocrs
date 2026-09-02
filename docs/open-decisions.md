@@ -1,14 +1,20 @@
-# Open Decisions Requiring ICxA Approval
+# Open decisions requiring Paul and ICxA review
 
-This file records only the decisions that remain genuinely unresolved after Phase 1 approval. All other governance and authority decisions have been incorporated into the normative governance records and the architecture decision record.
+## Legal and publication
 
-## 1. Final legal and publication review
+- Select final licenses for specification text, schemas/code/examples/tests, attribution, patent posture, disclaimers, trademarks, and future marks.
+- Decide whether and when the repository may be public. This implementation performed no publication or upload.
 
-- Confirm the final specification, code, schema, test, attribution, disclaimer, and trademark licensing language after ICxA legal review.
-- Confirm whether the repository may be made public, and under what conditions, once ICxA completes the required governance and legal review.
+## Controlled source audit
 
-## 2. Future official profile and certification policy
+- Confirm exact ICXA-20100/20101/20102 and ICXA-20200/20201/20202 editions, revisions, publication dates, controlled terms, and clause mappings.
+- Confirm the draft RFDC A-ITR, B-ITR, static evidence, safety, Control of Work, boundary, dependency, constraint, and A/B/C/D mappings.
+- Confirm controlled naming for Operational Readiness gates/lifecycle/pillars and Handover/Transfer of Operational Control.
 
-- Confirm whether any official ICxA profile or certification model will be introduced beyond the current draft OCRS v0.1 scope.
-- Confirm whether any future publication will require formal ICxA certification marks or separate compliance branding beyond technical OCRS conformance.
+## Governance
 
+- Approve official namespace/domain policy and whether `https://spec.ocrs.dev` is the publication identifier.
+- Approve v0.1 official-profile status and any future ICxA technical certification policy.
+- Decide signing/trust policy if authenticated packages are later required; v0.1 implements content integrity only.
+
+OAP design, OAP governance, and external authorization policy are intentionally not OCRS v0.1 decisions.

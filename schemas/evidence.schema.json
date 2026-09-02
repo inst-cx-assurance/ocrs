@@ -1,4 +1,94 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema", "$id": "https://spec.ocrs.dev/v0.1/schemas/evidence.schema.json", "title": "Controlled evidence",
-  "allOf": [{ "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json" }, { "type": "object", "required": ["entityType", "evidenceType", "status", "authoritativeSource", "creatorPartyId", "responsiblePartyId", "creationDate", "revision", "reviewStatus", "failureStatus", "applicableRequirementIds", "applicableConditionIds", "applicableSubjectIds", "applicableBoundaryIds", "provenanceId", "qualificationsAndLimitations"], "properties": { "entityType": { "const": "evidence" }, "evidenceType": { "type": "string", "minLength": 1 }, "status": { "enum": ["accepted_current", "missing", "unavailable", "rejected", "failed", "expired", "superseded"] }, "authoritativeSource": { "type": "string", "minLength": 1 }, "creatorPartyId": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id" }, "responsiblePartyId": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id" }, "creationDate": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/timestamp" }, "revision": { "type": "string", "minLength": 1 }, "reviewStatus": { "enum": ["pending", "accepted", "rejected"] }, "failureStatus": { "enum": ["not_applicable", "passed", "failed"] }, "applicableRequirementIds": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/idArray" }, "applicableConditionIds": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/idArray" }, "applicableSubjectIds": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/idArray" }, "applicableBoundaryIds": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/idArray" }, "validFrom": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/timestamp" }, "validTo": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/timestamp" }, "decisionPointCurrency": { "enum": ["current", "stale", "unknown"] }, "provenanceId": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id" }, "externalReference": { "type": "string", "minLength": 1 }, "hash": { "type": "object", "required": ["algorithm", "value"], "properties": { "algorithm": { "enum": ["sha256", "sha512"] }, "value": { "type": "string", "pattern": "^[a-fA-F0-9]+$" } }, "additionalProperties": false }, "qualificationsAndLimitations": { "type": "array", "items": { "type": "string", "minLength": 1 } } } }], "unevaluatedProperties": false
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://spec.ocrs.dev/v0.1/schemas/evidence.schema.json",
+  "title": "Controlled evidence",
+  "allOf": [
+    { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json" },
+    {
+      "type": "object",
+      "required": [
+        "entityType",
+        "evidenceType",
+        "status",
+        "authoritativeSource",
+        "creatorPartyId",
+        "responsiblePartyId",
+        "creationDate",
+        "revision",
+        "reviewStatus",
+        "failureStatus",
+        "applicableRequirementIds",
+        "applicableConditionIds",
+        "applicableSubjectIds",
+        "applicableBoundaryIds",
+        "provenanceId",
+        "qualificationsAndLimitations"
+      ],
+      "properties": {
+        "entityType": { "const": "evidence" },
+        "evidenceType": { "type": "string", "minLength": 1 },
+        "status": {
+          "enum": [
+            "accepted_current",
+            "missing",
+            "unavailable",
+            "rejected",
+            "failed",
+            "expired",
+            "superseded"
+          ]
+        },
+        "authoritativeSource": { "type": "string", "minLength": 1 },
+        "creatorPartyId": {
+          "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id"
+        },
+        "responsiblePartyId": {
+          "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id"
+        },
+        "creationDate": {
+          "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/timestamp"
+        },
+        "revision": { "type": "string", "minLength": 1 },
+        "reviewStatus": { "enum": ["pending", "accepted", "rejected"] },
+        "failureStatus": { "enum": ["not_applicable", "passed", "failed"] },
+        "applicableRequirementIds": {
+          "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/idArray"
+        },
+        "applicableConditionIds": {
+          "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/idArray"
+        },
+        "applicableSubjectIds": {
+          "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/idArray"
+        },
+        "applicableBoundaryIds": {
+          "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/idArray"
+        },
+        "validFrom": {
+          "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/timestamp"
+        },
+        "validTo": {
+          "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/timestamp"
+        },
+        "decisionPointCurrency": { "enum": ["current", "stale", "unknown"] },
+        "provenanceId": {
+          "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id"
+        },
+        "externalReference": { "type": "string", "minLength": 1 },
+        "hash": {
+          "type": "object",
+          "required": ["algorithm", "value"],
+          "properties": {
+            "algorithm": { "enum": ["sha256", "sha512"] },
+            "value": { "type": "string", "pattern": "^[a-fA-F0-9]+$" }
+          },
+          "additionalProperties": false
+        },
+        "qualificationsAndLimitations": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        }
+      }
+    }
+  ],
+  "unevaluatedProperties": false
 }

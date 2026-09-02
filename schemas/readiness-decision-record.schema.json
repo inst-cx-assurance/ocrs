@@ -1,4 +1,37 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema", "$id": "https://spec.ocrs.dev/v0.1/schemas/readiness-decision-record.schema.json", "title": "Operational Readiness decision record",
-  "allOf": [{ "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json" }, { "type": "object", "required": ["entityType", "gateId", "decision", "decisionMakerRoleAssignmentId", "decidedAt", "basisRecordIds"], "properties": { "entityType": { "const": "readiness-decision" }, "gateId": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id" }, "decision": { "enum": ["ready", "conditionally_ready", "hold"] }, "decisionMakerRoleAssignmentId": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id" }, "decidedAt": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/timestamp" }, "basisRecordIds": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/idArray" }, "conditions": { "type": "array", "items": { "type": "string", "minLength": 1 } } } }], "unevaluatedProperties": false
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://spec.ocrs.dev/v0.1/schemas/readiness-decision-record.schema.json",
+  "title": "Operational Readiness decision record",
+  "allOf": [
+    { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json" },
+    {
+      "type": "object",
+      "required": [
+        "entityType",
+        "gateId",
+        "decision",
+        "decisionMakerRoleAssignmentId",
+        "decidedAt",
+        "basisRecordIds"
+      ],
+      "properties": {
+        "entityType": { "const": "readiness-decision" },
+        "gateId": {
+          "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id"
+        },
+        "decision": { "enum": ["ready", "conditionally_ready", "hold"] },
+        "decisionMakerRoleAssignmentId": {
+          "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id"
+        },
+        "decidedAt": {
+          "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/timestamp"
+        },
+        "basisRecordIds": {
+          "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/idArray"
+        },
+        "conditions": { "type": "array", "items": { "type": "string", "minLength": 1 } }
+      }
+    }
+  ],
+  "unevaluatedProperties": false
 }

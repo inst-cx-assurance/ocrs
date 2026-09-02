@@ -1,4 +1,45 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema", "$id": "https://spec.ocrs.dev/v0.1/schemas/activity.schema.json", "title": "Activity, inspection, verification, test, or demonstration",
-  "allOf": [{ "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json" }, { "type": "object", "required": ["entityType", "name", "activityType", "status", "requirementIds", "conditionIds", "subjectIds", "performedByPartyId"], "properties": { "entityType": { "const": "activity" }, "name": { "type": "string", "minLength": 1 }, "activityType": { "enum": ["activity", "inspection", "verification", "test", "demonstration"] }, "status": { "enum": ["planned", "in_progress", "completed", "failed", "cancelled"] }, "requirementIds": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/idArray" }, "conditionIds": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/idArray" }, "subjectIds": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/idArray" }, "performedByPartyId": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id" }, "completedAt": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/timestamp" } } }], "unevaluatedProperties": false
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://spec.ocrs.dev/v0.1/schemas/activity.schema.json",
+  "title": "Activity, inspection, verification, test, or demonstration",
+  "allOf": [
+    { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json" },
+    {
+      "type": "object",
+      "required": [
+        "entityType",
+        "name",
+        "activityType",
+        "status",
+        "requirementIds",
+        "conditionIds",
+        "subjectIds",
+        "performedByPartyId"
+      ],
+      "properties": {
+        "entityType": { "const": "activity" },
+        "name": { "type": "string", "minLength": 1 },
+        "activityType": {
+          "enum": ["activity", "inspection", "verification", "test", "demonstration"]
+        },
+        "status": { "enum": ["planned", "in_progress", "completed", "failed", "cancelled"] },
+        "requirementIds": {
+          "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/idArray"
+        },
+        "conditionIds": {
+          "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/idArray"
+        },
+        "subjectIds": {
+          "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/idArray"
+        },
+        "performedByPartyId": {
+          "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id"
+        },
+        "completedAt": {
+          "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/timestamp"
+        }
+      }
+    }
+  ],
+  "unevaluatedProperties": false
 }

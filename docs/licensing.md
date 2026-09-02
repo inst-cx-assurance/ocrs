@@ -2,7 +2,7 @@
 
 ## 1. Recommendation
 
-For OCRS v0.1, the most defensible provisional approach is:
+For the OCRS v0.1 draft, the most defensible provisional approach is:
 
 - keep the specification content publicly readable, reusable, and implementable under a permissive open-specification model that preserves ICxA stewardship and attribution;
 - use a recognized permissive open-source license for reference material, code, schema examples, test utilities, and other machine-readable artifacts where those materials are created in the repository; and
@@ -46,4 +46,4 @@ The following items require formal legal review before choosing a final license:
 
 ## 6. Current status
 
-No final license selection is made in Phase 1. This recommendation is provisional and subject to ICxA counsel review before a final legal choice is approved.
+No final license selection has been made. The completed technical draft remains under the placeholder `LICENSE` notice. This recommendation is provisional and subject to ICxA counsel review before publication or a final legal choice.

@@ -1,4 +1,38 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema", "$id": "https://spec.ocrs.dev/v0.1/schemas/dependency.schema.json", "title": "Dependency",
-  "allOf": [{ "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json" }, { "type": "object", "required": ["entityType", "dependencyType", "sourceId", "targetId", "gateId", "status", "circularityAllowed"], "properties": { "entityType": { "const": "dependency" }, "dependencyType": { "enum": ["system", "interface", "evidence", "readiness", "control_of_work"] }, "sourceId": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id" }, "targetId": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id" }, "gateId": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id" }, "status": { "enum": ["satisfied", "not_satisfied", "indeterminate"] }, "circularityAllowed": { "type": "boolean" } } }], "unevaluatedProperties": false
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://spec.ocrs.dev/v0.1/schemas/dependency.schema.json",
+  "title": "Dependency",
+  "allOf": [
+    { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json" },
+    {
+      "type": "object",
+      "required": [
+        "entityType",
+        "dependencyType",
+        "sourceId",
+        "targetId",
+        "gateId",
+        "status",
+        "circularityAllowed"
+      ],
+      "properties": {
+        "entityType": { "const": "dependency" },
+        "dependencyType": {
+          "enum": ["system", "interface", "evidence", "readiness", "control_of_work"]
+        },
+        "sourceId": {
+          "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id"
+        },
+        "targetId": {
+          "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id"
+        },
+        "gateId": {
+          "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id"
+        },
+        "status": { "enum": ["satisfied", "not_satisfied", "indeterminate"] },
+        "circularityAllowed": { "type": "boolean" }
+      }
+    }
+  ],
+  "unevaluatedProperties": false
 }

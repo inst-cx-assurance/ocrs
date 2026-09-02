@@ -1,56 +1,26 @@
 # Contributing to OCRS
 
-This repository is intentionally limited to Phase 1 governance and specification structure. Contributions should improve the repository foundation without creating schemas, reference implementations, evaluators, or application software before the Phase 1 scope is formally approved.
+OCRS v0.1 is a draft protocol implementation. Contributions may change schemas, tooling, tests, examples, profiles, and documentation when the change remains within the Level 2 scope and includes proportionate verification.
 
-## Contribution principles
+## Contribution rules
 
-- Preserve the authority separation between Level 1 and Level 2 governance.
-- Maintain ICxA stewardship and attribution.
-- Prefer clarity, traceability, and explainability over automation assumptions.
-- Keep profile mappings explicit, versioned, and reversible.
-- Document any decision that requires ICxA approval in docs/open-decisions.md.
+- Preserve the distinction among assertions, controlled evidence, deterministic evaluation, human Readiness Review, recommendation, readiness decision, System Handover, and Transfer of Operational Control.
+- Do not add OAP or Level 1 assurance/authorization schemas, workflows, examples, validators, or conformance claims.
+- Do not infer readiness from missing evidence or percentage completion.
+- Keep identifiers, record versions, manifest inventory, provenance, supersession, and boundary mappings explicit.
+- Add a reason-specific invalid fixture for new semantic rejection rules.
+- Add tests for every new deterministic rule and update the applicable traceability and gate-coverage documentation.
+- Mark uncertain ICxA mappings `icxa_verification_required`; do not copy unverified normative text.
 
-## What to contribute
+## Before submitting a change
 
-During Phase 1, acceptable contributions include:
+Run:
 
-- clarification of terminology and ontology;
-- improvement of traceability and model language;
-- refinement of the alignment baseline and profile manifest;
-- editorial improvements to specification chapters;
-- governance and process clarifications;
-- open questions and unresolved decisions requiring ICxA review.
+```sh
+npm ci
+npm run conformance
+```
 
-## What not to contribute yet
+Explain the problem, compatibility impact, affected profile or schema version, tests added, and whether ICxA review is required. Architecture changes should include or update an ADR.
 
-The following are outside the Phase 1 scope unless explicitly approved:
-
-- schema creation or schema editing
-- reference implementation code
-- arbitrary evaluators or validation logic
-- proprietary application software
-- claims of ICxA certification or regulatory approval
-
-## Review expectations
-
-Changes to core architecture, controlled terminology, profile mapping, or governance language should be reviewed with explicit attention to:
-
-- ICxA authority boundaries;
-- Level 1 vs Level 2 separation;
-- compatibility of profile mapping;
-- future maintainability of the ontology; and
-- clarity of open decisions requiring ICxA approval.
-
-## Proposed changes
-
-Open a pull request or working draft explaining:
-
-1. the change and why it is needed;
-2. which ICxA standard or profile it affects;
-3. whether it changes governance authority or merely improves representation;
-4. whether it needs ICxA approval; and
-5. the expected compatibility impact.
-
-## Draft status
-
-The repository remains draft / experimental / not yet stable. Do not treat Phase 1 content as final normative guidance beyond the explicit control of ICxA.
+The repository remains Draft / Experimental / Not Yet Stable. Publication and final licensing remain governance decisions.

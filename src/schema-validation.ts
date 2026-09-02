@@ -17,9 +17,16 @@ export interface SchemaContext {
 }
 
 export function createSchemaContext(rootDir = process.cwd()): SchemaContext {
-  const Ajv2020 = Ajv2020Import as unknown as new (options: Record<string, unknown>) => SchemaContext['ajv'];
+  const Ajv2020 = Ajv2020Import as unknown as new (
+    options: Record<string, unknown>,
+  ) => SchemaContext['ajv'];
   const addFormats = addFormatsImport as unknown as (instance: SchemaContext['ajv']) => unknown;
-  const ajv = new Ajv2020({ allErrors: true, strict: true, strictTypes: false, validateFormats: true });
+  const ajv = new Ajv2020({
+    allErrors: true,
+    strict: true,
+    strictTypes: false,
+    validateFormats: true,
+  });
   addFormats(ajv);
   const files = listJsonFiles(path.join(rootDir, 'schemas'));
 

@@ -1,1 +1,5 @@
-{ "name": "unresolved Category D treated as closed", "expectedCode": "CATEGORY_D_DISPOSITION_REQUIRED", "mutation": { "op": "replace", "path": "/deficiencies/2/category", "value": "D" } }
+{
+  "name": "unresolved Category D treated as closed",
+  "expectedCode": "CATEGORY_D_DISPOSITION_REQUIRED",
+  "mutation": { "op": "replace", "path": "/deficiencies/2/category", "value": "D" }
+}

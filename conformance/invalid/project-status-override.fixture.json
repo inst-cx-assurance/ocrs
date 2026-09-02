@@ -1,1 +1,5 @@
-{ "name": "project ready overrides not-ready system", "expectedCode": "PROJECT_STATUS_OVERRIDE", "mutation": { "op": "replace", "path": "/systems/1/readinessStatus", "value": "not_ready" } }
+{
+  "name": "project ready overrides not-ready system",
+  "expectedCode": "PROJECT_STATUS_OVERRIDE",
+  "mutation": { "op": "replace", "path": "/systems/1/readinessStatus", "value": "not_ready" }
+}

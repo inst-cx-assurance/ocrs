@@ -3,7 +3,9 @@
   "version": "0.1.0-draft",
   "private": true,
   "type": "module",
-  "engines": { "node": ">=22.12.0" },
+  "engines": {
+    "node": ">=22.12.0"
+  },
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "format": "prettier --write .",
@@ -21,13 +23,13 @@
     "audit:dependencies": "npm audit --omit=dev"
   },
   "devDependencies": {
-    "@eslint/js": "9.39.5",
+    "@eslint/js": "10.0.1",
     "@types/node": "22.20.1",
     "@typescript-eslint/eslint-plugin": "8.69.0",
     "@typescript-eslint/parser": "8.69.0",
     "ajv": "8.20.0",
     "ajv-formats": "3.0.1",
-    "eslint": "9.39.5",
+    "eslint": "10.9.1",
     "eslint-config-prettier": "10.1.8",
     "prettier": "3.9.6",
     "tsx": "4.23.13",

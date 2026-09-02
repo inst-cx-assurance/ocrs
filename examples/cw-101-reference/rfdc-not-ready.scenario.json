@@ -3,15 +3,32 @@
   "basePackage": "rfdc-ready.package.json",
   "expectedResult": "not_satisfied",
   "mutations": [
-    { "op": "replace", "path": "/manifest/packageId", "value": "ocrs:package:CW-101-RFDC-NOT-READY" },
+    {
+      "op": "replace",
+      "path": "/manifest/packageId",
+      "value": "ocrs:package:CW-101-RFDC-NOT-READY"
+    },
+    {
+      "op": "replace",
+      "path": "/manifest/contentHash/value",
+      "value": "4c3c01ccd67bc3370a825ce25aad6c2e5ee1aa68c3924cc9b23957cad2600901"
+    },
     { "op": "replace", "path": "/project/aggregateReadiness", "value": "not_ready" },
     { "op": "replace", "path": "/evidence/4/status", "value": "missing" },
     { "op": "replace", "path": "/evidence/4/reviewStatus", "value": "pending" },
     { "op": "replace", "path": "/deficiencies/0/status", "value": "open" },
     { "op": "replace", "path": "/deficiencies/0/closureEvidenceIds", "value": [] },
-    { "op": "replace", "path": "/commissioningStageGates/1/deterministicStatus", "value": "not_satisfied" },
+    {
+      "op": "replace",
+      "path": "/commissioningStageGates/1/deterministicStatus",
+      "value": "not_satisfied"
+    },
     { "op": "replace", "path": "/deterministicEvaluations/0/result", "value": "not_satisfied" },
     { "op": "replace", "path": "/readinessReviews/0/conclusion", "value": "does_not_support" },
-    { "op": "replace", "path": "/readinessRecommendations/0/recommendation", "value": "not_supported_pending_corrective_action" }
+    {
+      "op": "replace",
+      "path": "/readinessRecommendations/0/recommendation",
+      "value": "not_supported_pending_corrective_action"
+    }
   ]
 }

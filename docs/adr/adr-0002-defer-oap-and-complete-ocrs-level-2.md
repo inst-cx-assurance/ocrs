@@ -22,4 +22,3 @@ An OCRS package carries an exact identity, versioned record inventory, provenanc
 - Existing specification chapters that described a Level 1 data model are converted to non-normative boundary notes.
 - `Outcome Authorization` is not an OCRS record or conformance result.
 - OCRS makes no cryptographic non-repudiation claim. A SHA-256 content hash, when present and verified, establishes deterministic content integrity only.
-

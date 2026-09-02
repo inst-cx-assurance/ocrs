@@ -1,0 +1,25 @@
+{
+  "$schema": "https://spec.ocrs.dev/v0.1/schemas/rfdc-profile.schema.json",
+  "profileId": "ocrs:profile:rfdc",
+  "profileVersion": "0.1.0",
+  "ocrsVersion": "0.1.0",
+  "gateType": "ready_for_dynamic_commissioning",
+  "applicableSubjectTypes": ["system"],
+  "requiredBoundaryTypes": ["system", "test", "readiness"],
+  "criteria": [
+    "prerequisite_construction_completion",
+    "accepted_a_itr_and_construction_records",
+    "accepted_b_itr_records",
+    "accepted_static_commissioning_evidence",
+    "accepted_safety_controls",
+    "accepted_control_of_work_prerequisites",
+    "test_boundary_mapped_to_system_boundary",
+    "dependencies_satisfied",
+    "no_blocking_constraints",
+    "controlled_category_a_b_c_d_deficiencies"
+  ],
+  "permittedResults": ["satisfied", "not_satisfied", "indeterminate"],
+  "explanationRequired": true,
+  "automaticHumanRecords": false,
+  "mappingStatus": "icxa_verification_required"
+}

@@ -1,56 +1,62 @@
-# Open Completion & Readiness Standard (OCRS)
+# Open Completion & Readiness Protocol (OCRS)
 
-OCRS is an open interoperability specification for representing Outcome Assurance governance, operational readiness, commissioning and outcome execution, evidence, deficiencies, dependencies, readiness decisions, stage-gates, and authorization in a structured and machine-readable form.
+OCRS is an open, machine-readable protocol for exchanging and evaluating Level 2 Commissioning & Outcome Execution and Operational Readiness information. It links systems and boundaries to requirements, activities, controlled evidence, Deficiencies, constraints, dependencies, reviews, recommendations, readiness decisions, System Handover, and Transfer of Operational Control.
 
-This repository is the Phase 1 foundation for OCRS v0.1. It establishes the repository structure, stewardship and governance, design principles, controlled terminology, initial ontology, ICxA alignment baseline, and the authority-boundary model that separates Level 1 Outcome Assurance from Level 2 commissioning and readiness practices.
+**OCRS does not determine readiness by percentage complete. It provides a structured model linking readiness assertions to requirements, evidence, dependencies, deficiencies, and controlled gates.**
 
-## Phase 1 deliverables
+OCRS v0.1 stops at the Level 2 boundary. A deterministic evaluation, Readiness Recommendation, Operational Readiness decision, System Handover, or Transfer of Operational Control is not Outcome Authorization. OAP is a future, separate protocol and is not implemented here.
 
-This repository intentionally does not yet include:
+## Draft status
 
-- JSON Schema files
-- reference implementations
-- conformance evaluators
-- application software
-- proprietary ICxA tooling
+Version 0.1 is Draft / Experimental / Not Yet Stable. The schemas, reference evaluator, and conformance fixtures are suitable for review and interoperability experiments, not an ICxA certification claim.
 
-Phase 1 establishes the conceptual and governance foundation only.
+## What v0.1 contains
 
-## Architecture separation
+- 46 modular JSON Schemas using Draft 2020-12;
+- stable namespaced identifiers and exact record versions;
+- a package manifest with profiles, complete inventory, qualifications, external evidence references, and optional SHA-256 content integrity;
+- semantic validation for typed references, versions, supersession, dependencies, Deficiency controls, extensions, and package integrity;
+- core representation for the commissioning and Operational Readiness gates listed in the gate-coverage matrix;
+- one fully deterministic RFDC profile;
+- a complete fictional CW-101 package plus ready and not-ready controlled scenarios;
+- reason-specific invalid fixtures and an inspectable explanation-tree evaluator.
 
-The repository preserves the distinction between:
+OCRS is independent of databases, APIs, workflow engines, AI models, and vendors. ICxA stewards official OCRS specifications and profiles; third parties may implement the published protocol without proprietary ICxA software, subject to the final license decision.
 
-1. ICxA Level 1 Outcome Assurance standards
-2. ICxA Level 2 commissioning and operational readiness standards
-3. OCRS as the machine-readable representation layer
-4. implementation software that consumes or produces OCRS-compatible information
-5. AI and agent systems that reason over OCRS data without being part of the core standard
+## Quick start
 
-## Initial canonical reference
+Node.js 22.12 or later is required.
 
-The initial v0.1 stage-gate profile is the Ready for Dynamic Commissioning (RFDC) gate. It is represented as a Level 2 commissioning stage-gate and shall not define an automatic or canonical mapping to Level 1 Outcome Authorization.
+```sh
+npm ci
+npm run conformance
+```
 
-RFDC evidence and Readiness Recommendation may support a separately established Level 1 outcome stage-gate only where the project expressly defines the Outcome Obligation, Outcome Requirements, Outcome Evidence Need, Outcome Auditor evaluation, and Outcome Director authorization process.
+Useful individual commands:
 
-## Repository layout
+```sh
+npm run format:check
+npm run lint
+npm run validate:schemas
+npm run validate:packages
+npm run validate:invalid
+npm run validate:references
+npm test
+npm run rfdc:evaluate:ready
+npm run rfdc:evaluate:not-ready
+```
 
-- specification/ — normative and descriptive specification content for v0.1
-- profiles/ — profile manifests and alignment baselines
-- docs/ — governance, architecture, and decision tracking
+`npm run conformance` runs formatting, linting, TypeScript compilation, schema/package/fixture/reference validation, tests, and both RFDC evaluations.
 
-## Status
+## Repository map
 
-This repository is intentionally marked as Draft / Experimental / Not Yet Stable. OCRS v0.1 is not yet stable and must not be interpreted as a production-ready certification regime. The repository remains private until ICxA completes the required governance and legal review.
+- `specification/` — normative draft protocol chapters and informative alignment material
+- `schemas/` — modular Draft 2020-12 schemas
+- `profiles/` — controlled RFDC and ICxA alignment declarations
+- `examples/cw-101-reference/` — canonical package and scenarios
+- `conformance/` — expected-failure fixtures
+- `src/` — deterministic validation, integrity, scenario, and RFDC evaluation tooling
+- `test/` — unit and semantic conformance tests
+- `docs/` — architecture, implementation, security, validation, governance, and audit guidance
 
-## Primary governance
-
-ICxA is the sole steward and publication authority for OCRS. ICxA controls the specification, controlled terms, official profile declarations, namespaces, versioning, and conformance requirements. Third parties may implement OCRS without ICxA permission, subject to the final published licenses.
-
-## Further reading
-
-- GOVERNANCE.md
-- specification/02-design-principles.md
-- specification/03-terminology.md
-- specification/04-ontology.md
-- specification/icxa-alignment.md
-- docs/open-decisions.md
+Start with [the CW-101 walkthrough](docs/cw-101-walkthrough.md), [the validation guide](docs/validation-guide.md), and [the OAP boundary note](docs/future-oap-interface.md).

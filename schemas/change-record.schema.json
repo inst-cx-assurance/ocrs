@@ -1,4 +1,44 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema", "$id": "https://spec.ocrs.dev/v0.1/schemas/change-record.schema.json", "title": "Change record",
-  "allOf": [{ "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json" }, { "type": "object", "required": ["entityType", "targetRecordId", "changeType", "changedByPartyId", "changedAt", "reason", "priorRecordVersion", "newRecordVersion"], "properties": { "entityType": { "const": "change-record" }, "targetRecordId": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id" }, "changeType": { "enum": ["create", "correct", "supersede", "close", "reclassify", "decision"] }, "changedByPartyId": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id" }, "changedAt": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/timestamp" }, "reason": { "type": "string", "minLength": 1 }, "priorRecordVersion": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/version" }, "newRecordVersion": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/version" } } }], "unevaluatedProperties": false
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://spec.ocrs.dev/v0.1/schemas/change-record.schema.json",
+  "title": "Change record",
+  "allOf": [
+    { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json" },
+    {
+      "type": "object",
+      "required": [
+        "entityType",
+        "targetRecordId",
+        "changeType",
+        "changedByPartyId",
+        "changedAt",
+        "reason",
+        "priorRecordVersion",
+        "newRecordVersion"
+      ],
+      "properties": {
+        "entityType": { "const": "change-record" },
+        "targetRecordId": {
+          "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id"
+        },
+        "changeType": {
+          "enum": ["create", "correct", "supersede", "close", "reclassify", "decision"]
+        },
+        "changedByPartyId": {
+          "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id"
+        },
+        "changedAt": {
+          "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/timestamp"
+        },
+        "reason": { "type": "string", "minLength": 1 },
+        "priorRecordVersion": {
+          "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/version"
+        },
+        "newRecordVersion": {
+          "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/version"
+        }
+      }
+    }
+  ],
+  "unevaluatedProperties": false
 }

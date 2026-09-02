@@ -1,1 +1,5 @@
-{ "name": "Category C lacks approved closure plan", "expectedCode": "CATEGORY_C_CLOSURE_PLAN_REQUIRED", "mutation": { "op": "remove", "path": "/deficiencies/2/closurePlan" } }
+{
+  "name": "Category C lacks approved closure plan",
+  "expectedCode": "CATEGORY_C_CLOSURE_PLAN_REQUIRED",
+  "mutation": { "op": "remove", "path": "/deficiencies/2/closurePlan" }
+}

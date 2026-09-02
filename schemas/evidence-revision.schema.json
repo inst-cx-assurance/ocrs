@@ -1,4 +1,24 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema", "$id": "https://spec.ocrs.dev/v0.1/schemas/evidence-revision.schema.json", "title": "Evidence revision",
-  "allOf": [{ "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json" }, { "type": "object", "required": ["entityType", "evidenceId", "revision", "changeReason"], "properties": { "entityType": { "const": "evidence-revision" }, "evidenceId": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id" }, "revision": { "type": "string", "minLength": 1 }, "supersedesEvidenceId": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id" }, "changeReason": { "type": "string", "minLength": 1 } } }], "unevaluatedProperties": false
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://spec.ocrs.dev/v0.1/schemas/evidence-revision.schema.json",
+  "title": "Evidence revision",
+  "allOf": [
+    { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json" },
+    {
+      "type": "object",
+      "required": ["entityType", "evidenceId", "revision", "changeReason"],
+      "properties": {
+        "entityType": { "const": "evidence-revision" },
+        "evidenceId": {
+          "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id"
+        },
+        "revision": { "type": "string", "minLength": 1 },
+        "supersedesEvidenceId": {
+          "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id"
+        },
+        "changeReason": { "type": "string", "minLength": 1 }
+      }
+    }
+  ],
+  "unevaluatedProperties": false
 }

@@ -1,4 +1,37 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema", "$id": "https://spec.ocrs.dev/v0.1/schemas/extension-declaration.schema.json", "title": "Extension declaration",
-  "allOf": [{ "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json" }, { "type": "object", "required": ["entityType", "namespace", "name", "extensionVersion", "appliesToEntityTypes", "controlledTermOverrides"], "properties": { "entityType": { "const": "extension-declaration" }, "namespace": { "type": "string", "pattern": "^[a-z][a-z0-9.-]*$" }, "name": { "type": "string", "minLength": 1 }, "extensionVersion": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/version" }, "appliesToEntityTypes": { "type": "array", "items": { "type": "string", "pattern": "^[a-z][a-z0-9-]*$" }, "uniqueItems": true }, "controlledTermOverrides": { "type": "array", "items": { "type": "string", "minLength": 1 } } } }], "unevaluatedProperties": false
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://spec.ocrs.dev/v0.1/schemas/extension-declaration.schema.json",
+  "title": "Extension declaration",
+  "allOf": [
+    { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json" },
+    {
+      "type": "object",
+      "required": [
+        "entityType",
+        "namespace",
+        "name",
+        "extensionVersion",
+        "appliesToEntityTypes",
+        "controlledTermOverrides"
+      ],
+      "properties": {
+        "entityType": { "const": "extension-declaration" },
+        "namespace": { "type": "string", "pattern": "^[a-z][a-z0-9.-]*$" },
+        "name": { "type": "string", "minLength": 1 },
+        "extensionVersion": {
+          "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/version"
+        },
+        "appliesToEntityTypes": {
+          "type": "array",
+          "items": { "type": "string", "pattern": "^[a-z][a-z0-9-]*$" },
+          "uniqueItems": true
+        },
+        "controlledTermOverrides": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        }
+      }
+    }
+  ],
+  "unevaluatedProperties": false
 }

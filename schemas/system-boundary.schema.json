@@ -1,1 +1,9 @@
-{ "$schema": "https://json-schema.org/draft/2020-12/schema", "$id": "https://spec.ocrs.dev/v0.1/schemas/system-boundary.schema.json", "title": "System boundary specialization", "allOf": [{ "$ref": "https://spec.ocrs.dev/v0.1/schemas/boundary.schema.json" }, { "properties": { "boundaryType": { "const": "system" } } }] }
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://spec.ocrs.dev/v0.1/schemas/system-boundary.schema.json",
+  "title": "System boundary specialization",
+  "allOf": [
+    { "$ref": "https://spec.ocrs.dev/v0.1/schemas/boundary.schema.json" },
+    { "properties": { "boundaryType": { "const": "system" } } }
+  ]
+}

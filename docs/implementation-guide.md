@@ -1,19 +1,18 @@
-# Implementation Guide
+# Implementation guide
 
-This document is intentionally minimal for Phase 1. OCRS v0.1 is a specification and governance foundation only.
+Use a Draft 2020-12 validator with format checking, then apply OCRS semantic rules. JSON Schema alone cannot prove uniqueness, typed references, graph acyclicity, exact inventory, safe external references, profile support, current evidence, or Deficiency controls.
 
-## Phase 1 implementation posture
+Recommended import flow:
 
-Implementations in this phase should be limited to reading, publishing, or exchanging OCRS-compatible representation records without asserting authority that belongs to Level 1 governance processes.
+1. parse JSON with size/resource limits;
+2. reject an unsafe scenario/base path before resolving local controlled scenarios;
+3. validate the declared schema and profiles;
+4. index records by stable ID and reject duplicates;
+5. verify exact inventory, typed references, versions, supersession, graph rules, extensions, and optional package hash;
+6. evaluate only an explicitly supported profile;
+7. return all explanation nodes and supporting record IDs; and
+8. never create a human Review, Recommendation, or decision implicitly.
 
-## Key implementation rules
+Exporters should canonicalize timestamps with a timezone, preserve unknown declared extensions losslessly, retain prior versions, and keep external evidence outside the package unless embedding is explicitly required. Content hashing uses recursively sorted JSON object keys and excludes `manifest.contentHash` itself.
 
-- Preserve Level 1 and Level 2 authority separation.
-- Keep evidence generation distinct from evidence evaluation.
-- Preserve optional linkage between Level 2 stage-gates and Level 1 Outcome Evidence Needs.
-- Do not infer authorization, residual-risk acceptance, or outcome approval from schema validity alone.
-- Keep profile and extension usage explicit and versioned.
-
-## Future phases
-
-Future phases may define schema validation, validation tooling, profile-specific implementation rules, and reference implementations. Those are explicitly out of scope for Phase 1.
+The reference toolchain uses Node 22, TypeScript, `tsx`, Ajv 8, and Vitest. These are implementation choices, not protocol requirements.

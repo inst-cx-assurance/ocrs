@@ -1,1 +1,9 @@
-{ "$schema": "https://json-schema.org/draft/2020-12/schema", "$id": "https://spec.ocrs.dev/v0.1/schemas/demonstration.schema.json", "title": "Demonstration specialization", "allOf": [{ "$ref": "https://spec.ocrs.dev/v0.1/schemas/activity.schema.json" }, { "properties": { "activityType": { "const": "demonstration" } } }] }
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://spec.ocrs.dev/v0.1/schemas/demonstration.schema.json",
+  "title": "Demonstration specialization",
+  "allOf": [
+    { "$ref": "https://spec.ocrs.dev/v0.1/schemas/activity.schema.json" },
+    { "properties": { "activityType": { "const": "demonstration" } } }
+  ]
+}

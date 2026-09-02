@@ -1,4 +1,20 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema", "$id": "https://spec.ocrs.dev/v0.1/schemas/project.schema.json", "title": "Project",
-  "allOf": [{ "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json" }, { "type": "object", "required": ["entityType", "name", "lifecyclePhase", "sbsId"], "properties": { "entityType": { "const": "project" }, "name": { "type": "string", "minLength": 1 }, "lifecyclePhase": { "type": "string", "minLength": 1 }, "sbsId": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id" }, "aggregateReadiness": { "enum": ["not_declared", "ready", "not_ready", "indeterminate"] } } }], "unevaluatedProperties": false
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://spec.ocrs.dev/v0.1/schemas/project.schema.json",
+  "title": "Project",
+  "allOf": [
+    { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json" },
+    {
+      "type": "object",
+      "required": ["entityType", "name", "lifecyclePhase", "sbsId"],
+      "properties": {
+        "entityType": { "const": "project" },
+        "name": { "type": "string", "minLength": 1 },
+        "lifecyclePhase": { "type": "string", "minLength": 1 },
+        "sbsId": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id" },
+        "aggregateReadiness": { "enum": ["not_declared", "ready", "not_ready", "indeterminate"] }
+      }
+    }
+  ],
+  "unevaluatedProperties": false
 }

@@ -1,1 +1,9 @@
-{ "$schema": "https://json-schema.org/draft/2020-12/schema", "$id": "https://spec.ocrs.dev/v0.1/schemas/readiness-boundary.schema.json", "title": "Readiness boundary specialization", "allOf": [{ "$ref": "https://spec.ocrs.dev/v0.1/schemas/boundary.schema.json" }, { "properties": { "boundaryType": { "const": "readiness" } } }] }
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://spec.ocrs.dev/v0.1/schemas/readiness-boundary.schema.json",
+  "title": "Readiness boundary specialization",
+  "allOf": [
+    { "$ref": "https://spec.ocrs.dev/v0.1/schemas/boundary.schema.json" },
+    { "properties": { "boundaryType": { "const": "readiness" } } }
+  ]
+}

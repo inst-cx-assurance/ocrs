@@ -1,42 +1,24 @@
-# Controlled Terminology
+# Terminology
 
-This chapter defines the initial controlled terminology used in OCRS v0.1. It is a foundational vocabulary for the core ontology and profile alignment model.
-
-## 1. Core terms
-
-- Project: an organized effort to deliver or modify a system or asset set.
-- System: a managed system or technological assembly within the scope of a project or operational environment.
-- Subsystem: a clearly defined part of a system with its own boundaries and responsibilities.
-- Asset / Equipment / Tag: an identifiable physical or logical item requiring management, verification, or handover.
-- Requirement: a condition, obligation, or expectation that must be met.
-- Readiness Condition: a condition that must be satisfied before a transition, stage-gate, or readiness decision can be supported.
-- Outcome Obligation: the governing obligation that drives an outcome requirement and associated evidence.
-- Outcome Requirement: the required outcome or standard that must be satisfied through evidence and independent evaluation.
-- Outcome Evidence Need: the evidence required to assess whether an Outcome Requirement is satisfied.
-- Activity / Verification / Test: the controlled action used to produce evidence relevant to a requirement or readiness condition.
-- Evidence: a record that demonstrates outcome satisfaction, condition completion, or readiness support.
-- Deficiency: a known gap, defect, or unresolved issue that affects readiness or outcome assurance.
-- Constraint: a condition, limitation, or restriction affecting progression or decision support.
-- Dependency: a relationship that affects sequencing, readiness, transition, or handover.
-- Boundary: the logical or physical delimitation of a system, subsystem, or test domain.
-- Stage-Gate: a defined decision point or transition gate in a commissioning or readiness process.
-- Readiness Review: a structured evaluation of evidence and status against readiness conditions.
-- Readiness Recommendation: a recommendation to proceed, defer, restrict, or stop at a stage-gate.
-- Readiness Decision: the formal decision that follows the recommendation and is recorded under the applicable readiness process.
-- Outcome Auditor Evaluation: the independent evaluation of evidence sufficiency and adequacy for an Outcome Requirement.
-- Residual Risk: the remaining risk accepted, controlled, or constrained as part of a decision basis.
-- Outcome Authorization: the formal Level 1 decision to authorize an outcome subject to defined obligations and conditions.
-- Responsible Party: the party accountable for a requirement, evidence package, decision, or action.
-
-## 2. Controlled distinction
-
-The following are intentionally distinct:
-
-- readiness recommendation and readiness decision;
-- stage-gate decision and Outcome Authorization;
-- evidence generation and evidence evaluation; and
-- technical validation and professional judgment.
-
-## 3. Terminology governance
-
-Controlled terminology in OCRS v0.1 is linked to the governing ICxA standards and future official OCRS profile definitions. Changes to controlled terms require explicit versioning and compatibility review.
+- **System Breakdown Structure (SBS):** controlled hierarchy of systems, subsystems, interfaces, boundaries, and groupings; not a WBS, tag list, document register, or organization chart.
+- **System / Subsystem / Grouping:** functional whole, contained functional part, or non-hierarchical controlled collection.
+- **Asset:** identifiable physical or logical item allocated to a system.
+- **Interface:** controlled relationship surface between subjects.
+- **Boundary:** a system, test, readiness, handover, or Transfer of Operational Control limit.
+- **Execution Requirement:** Level 2 delivery, inspection, verification, test, safety, Control of Work, interface, handover, or readiness requirement.
+- **Readiness Condition:** criterion evaluated for a declared gate, subject, and boundary.
+- **Activity:** activity, inspection, verification, test, or demonstration capable of producing evidence.
+- **Evidence:** revision-controlled record supporting an assertion, with status, provenance, scope, currency, and qualifications.
+- **Deficiency:** controlled gap classified Category A, B, C, or D. Severity/risk labels supplement but never replace category.
+- **Constraint:** restriction on progression that is not necessarily defective work.
+- **Dependency:** typed relationship whose status affects readiness.
+- **Deterministic Evaluation:** reproducible rule result: `satisfied`, `not_satisfied`, or `indeterminate`.
+- **Commissioning Stage-Gate:** Level 2 execution transition gate.
+- **Operational Readiness decision gate:** Level 2 readiness decision point.
+- **Evidence-control point:** review/control point that is not itself a gate or authorization.
+- **Readiness Review:** controlled human review of the declared Level 2 basis.
+- **Readiness Recommendation:** `proceed`, `proceed_with_documented_conditions`, or `not_supported_pending_corrective_action`.
+- **Readiness decision:** Operational Readiness outcome of `ready`, `conditionally_ready`, or `hold`.
+- **System Handover:** controlled transfer/acceptance record for a system boundary; not Transfer of Operational Control.
+- **Transfer of Operational Control:** separate explicit controlled record supported by an applicable readiness decision.
+- **Residual-risk input:** Level 2 risk information supplied to a review or decision; not external risk acceptance.

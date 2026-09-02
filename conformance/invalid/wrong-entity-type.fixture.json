@@ -1,1 +1,5 @@
-{ "name": "asset points to party instead of system", "expectedCode": "WRONG_ENTITY_TYPE_REFERENCE", "mutation": { "op": "replace", "path": "/assets/0/systemId", "value": "ocrs:party:project-owner" } }
+{
+  "name": "asset points to party instead of system",
+  "expectedCode": "WRONG_ENTITY_TYPE_REFERENCE",
+  "mutation": { "op": "replace", "path": "/assets/0/systemId", "value": "ocrs:party:project-owner" }
+}

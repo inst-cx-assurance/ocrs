@@ -11,7 +11,7 @@ export default [
     languageOptions: {
       parser: tsParser,
       parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
-      globals: { console: 'readonly', process: 'readonly' },
+      globals: { console: 'readonly', process: 'readonly', structuredClone: 'readonly' },
     },
     plugins: { '@typescript-eslint': tseslint },
     rules: { ...tseslint.configs.recommended.rules, '@typescript-eslint/no-explicit-any': 'off' },

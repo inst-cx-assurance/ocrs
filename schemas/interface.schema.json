@@ -1,4 +1,32 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema", "$id": "https://spec.ocrs.dev/v0.1/schemas/interface.schema.json", "title": "Interface",
-  "allOf": [{ "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json" }, { "type": "object", "required": ["entityType", "name", "interfaceType", "endpointSystemIds", "boundaryIds", "readinessStatus"], "properties": { "entityType": { "const": "interface" }, "name": { "type": "string", "minLength": 1 }, "interfaceType": { "type": "string", "minLength": 1 }, "endpointSystemIds": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/idArray" }, "boundaryIds": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/idArray" }, "readinessStatus": { "enum": ["ready", "not_ready", "indeterminate", "not_declared"] } } }], "unevaluatedProperties": false
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://spec.ocrs.dev/v0.1/schemas/interface.schema.json",
+  "title": "Interface",
+  "allOf": [
+    { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json" },
+    {
+      "type": "object",
+      "required": [
+        "entityType",
+        "name",
+        "interfaceType",
+        "endpointSystemIds",
+        "boundaryIds",
+        "readinessStatus"
+      ],
+      "properties": {
+        "entityType": { "const": "interface" },
+        "name": { "type": "string", "minLength": 1 },
+        "interfaceType": { "type": "string", "minLength": 1 },
+        "endpointSystemIds": {
+          "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/idArray"
+        },
+        "boundaryIds": {
+          "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/idArray"
+        },
+        "readinessStatus": { "enum": ["ready", "not_ready", "indeterminate", "not_declared"] }
+      }
+    }
+  ],
+  "unevaluatedProperties": false
 }

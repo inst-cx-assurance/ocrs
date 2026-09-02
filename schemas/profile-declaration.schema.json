@@ -1,4 +1,38 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema", "$id": "https://spec.ocrs.dev/v0.1/schemas/profile-declaration.schema.json", "title": "Profile declaration",
-  "allOf": [{ "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json" }, { "type": "object", "required": ["entityType", "name", "profileType", "profileVersion", "authorityPartyId", "ocrsVersion", "conformanceClaim"], "properties": { "entityType": { "const": "profile-declaration" }, "name": { "type": "string", "minLength": 1 }, "profileType": { "enum": ["core", "icxa", "industry", "organization", "project", "vendor"] }, "profileVersion": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/version" }, "authorityPartyId": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id" }, "ocrsVersion": { "const": "0.1.0" }, "conformanceClaim": { "enum": ["data", "exchange", "rfdc_evaluation", "icxa_profile"] }, "sourceStandards": { "type": "array", "items": { "type": "string", "minLength": 1 } }, "verificationStatus": { "enum": ["confirmed", "icxa_verification_required"] } } }], "unevaluatedProperties": false
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://spec.ocrs.dev/v0.1/schemas/profile-declaration.schema.json",
+  "title": "Profile declaration",
+  "allOf": [
+    { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json" },
+    {
+      "type": "object",
+      "required": [
+        "entityType",
+        "name",
+        "profileType",
+        "profileVersion",
+        "authorityPartyId",
+        "ocrsVersion",
+        "conformanceClaim"
+      ],
+      "properties": {
+        "entityType": { "const": "profile-declaration" },
+        "name": { "type": "string", "minLength": 1 },
+        "profileType": {
+          "enum": ["core", "icxa", "industry", "organization", "project", "vendor"]
+        },
+        "profileVersion": {
+          "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/version"
+        },
+        "authorityPartyId": {
+          "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id"
+        },
+        "ocrsVersion": { "const": "0.1.0" },
+        "conformanceClaim": { "enum": ["data", "exchange", "rfdc_evaluation", "icxa_profile"] },
+        "sourceStandards": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+        "verificationStatus": { "enum": ["confirmed", "icxa_verification_required"] }
+      }
+    }
+  ],
+  "unevaluatedProperties": false
 }

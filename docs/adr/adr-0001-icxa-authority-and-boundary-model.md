@@ -1,9 +1,11 @@
 # ADR-0001: ICxA authority and OCRS boundary model
 
-- Status: Accepted for Phase 1
+- Status: Superseded in part by ADR-0002
 - Date: 2026-09-01
 
 ## Context
+
+> Historical note: ADR-0002 supersedes every part of this decision that placed Level 1/OAP records or an optional Level 1 mapping inside OCRS. The remaining open-implementation, ICxA stewardship, technical-conformance, versioning, draft-status, and legal-review decisions remain historical foundations.
 
 OCRS must operate as an open interoperability layer for evidence, readiness, and outcome assurance records without altering the authority model defined by the ICxA standards. The repository must distinguish between technical representation and governed professional judgment.
 

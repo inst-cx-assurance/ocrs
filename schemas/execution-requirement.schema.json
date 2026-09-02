@@ -1,4 +1,43 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema", "$id": "https://spec.ocrs.dev/v0.1/schemas/execution-requirement.schema.json", "title": "Level 2 execution requirement",
-  "allOf": [{ "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json" }, { "type": "object", "required": ["entityType", "name", "requirementType", "subjectIds", "sourceReference", "acceptanceCriteria"], "properties": { "entityType": { "const": "execution-requirement" }, "name": { "type": "string", "minLength": 1 }, "requirementType": { "enum": ["construction", "inspection", "verification", "test", "safety", "control_of_work", "interface", "handover", "operational_readiness"] }, "subjectIds": { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/idArray" }, "sourceReference": { "type": "string", "minLength": 1 }, "acceptanceCriteria": { "type": "string", "minLength": 1 }, "mappingStatus": { "enum": ["confirmed", "icxa_verification_required"] } } }], "unevaluatedProperties": false
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://spec.ocrs.dev/v0.1/schemas/execution-requirement.schema.json",
+  "title": "Level 2 execution requirement",
+  "allOf": [
+    { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json" },
+    {
+      "type": "object",
+      "required": [
+        "entityType",
+        "name",
+        "requirementType",
+        "subjectIds",
+        "sourceReference",
+        "acceptanceCriteria"
+      ],
+      "properties": {
+        "entityType": { "const": "execution-requirement" },
+        "name": { "type": "string", "minLength": 1 },
+        "requirementType": {
+          "enum": [
+            "construction",
+            "inspection",
+            "verification",
+            "test",
+            "safety",
+            "control_of_work",
+            "interface",
+            "handover",
+            "operational_readiness"
+          ]
+        },
+        "subjectIds": {
+          "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/idArray"
+        },
+        "sourceReference": { "type": "string", "minLength": 1 },
+        "acceptanceCriteria": { "type": "string", "minLength": 1 },
+        "mappingStatus": { "enum": ["confirmed", "icxa_verification_required"] }
+      }
+    }
+  ],
+  "unevaluatedProperties": false
 }

@@ -1,1 +1,5 @@
-{ "name": "open Category B has no future closure point", "expectedCode": "CATEGORY_B_CLOSURE_POINT_REQUIRED", "mutation": { "op": "remove", "path": "/deficiencies/1/requiredFutureClosurePointId" } }
+{
+  "name": "open Category B has no future closure point",
+  "expectedCode": "CATEGORY_B_CLOSURE_POINT_REQUIRED",
+  "mutation": { "op": "remove", "path": "/deficiencies/1/requiredFutureClosurePointId" }
+}
