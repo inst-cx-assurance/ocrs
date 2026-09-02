@@ -9,6 +9,8 @@
       "required": [
         "entityType",
         "gateId",
+        "subjectIds",
+        "boundaryIds",
         "reviewedAt",
         "reviewerRoleAssignmentIds",
         "evidenceIds",
@@ -20,6 +22,12 @@
         "entityType": { "const": "readiness-review" },
         "gateId": {
           "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id"
+        },
+        "subjectIds": {
+          "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/idArray"
+        },
+        "boundaryIds": {
+          "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/idArray"
         },
         "reviewedAt": {
           "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/timestamp"

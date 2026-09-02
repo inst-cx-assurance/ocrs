@@ -1,0 +1,17 @@
+{
+  "algorithm": "OCRS Canonical JSON v0.1",
+  "vectors": [
+    {
+      "name": "sorted object keys",
+      "input": { "b": 1, "a": "x" },
+      "canonical": "{\"a\":\"x\",\"b\":1}",
+      "sha256": "cdab067e9f3beb32d1252cfd63e492592fecbf591b0d08cadb24bb17f3864246"
+    },
+    {
+      "name": "nested arrays and UTF-8",
+      "input": { "z": [3, { "b": false, "a": null }], "a": "é" },
+      "canonical": "{\"a\":\"é\",\"z\":[3,{\"a\":null,\"b\":false}]}",
+      "sha256": "de7f2d136d2317b1ef5e7aa2f1b9dc86567d436fd7571bf94b35aa2446fadcaa"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "name": "Relied external evidence lacks content or version binding",
+  "expectedCode": "EXTERNAL_EVIDENCE_BINDING_REQUIRED",
+  "mutation": {
+    "op": "remove",
+    "path": "/evidence/9/externalVersionId"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "Conditionally ready decision has no controlled conditions",
+  "expectedCode": "CONDITIONAL_DECISION_REQUIRES_CONDITIONS",
+  "baseValidFixture": "conditional-decision.fixture.json",
+  "mutations": [
+    {
+      "op": "replace",
+      "path": "/readinessDecisions/0/conditionIds",
+      "value": []
+    },
+    {
+      "op": "replace",
+      "path": "/conditions/0/decisionIds",
+      "value": []
+    }
+  ]
+}

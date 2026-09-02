@@ -1,0 +1,10 @@
+{
+  "name": "Decision residual-risk declaration contradicts its controlled inputs",
+  "expectedCode": "DECISION_RESIDUAL_RISK_CONTRADICTION",
+  "baseValidFixture": "conditional-decision.fixture.json",
+  "mutation": {
+    "op": "replace",
+    "path": "/readinessDecisions/0/residualRiskDeclaration/status",
+    "value": "none_identified"
+  }
+}

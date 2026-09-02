@@ -11,33 +11,22 @@ jobs:
   conformance:
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version: [22.13.0, 24.x]
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
-      - name: Set up Node.js 22
-        uses: actions/setup-node@v4
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - name: Set up supported Node.js
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
-          node-version: 22
+          node-version: ${{ matrix.node-version }}
           cache: npm
       - name: Clean lockfile installation
         run: npm ci
-      - name: Formatting
-        run: npm run format:check
-      - name: Linting
-        run: npm run lint
-      - name: Schema validation
-        run: npm run validate:schemas
-      - name: Valid package validation
-        run: npm run validate:packages
-      - name: Invalid fixture expected failures
-        run: npm run validate:invalid
-      - name: Reference integrity
-        run: npm run validate:references
-      - name: Unit and semantic tests
-        run: npm test
-      - name: Ready RFDC evaluation
-        run: npm run rfdc:evaluate:ready
-      - name: Not-ready RFDC evaluation
-        run: npm run rfdc:evaluate:not-ready
-      - name: Complete OCRS conformance suite
+      # The aggregate command emits every component stage once; CI does not rerun them separately.
+      - name: Complete OCRS conformance suite (format, lint, build, schemas, packages, fixtures, references, tests, RFDC)
         run: npm run conformance
+      - name: Dependency audit
+        run: npm audit

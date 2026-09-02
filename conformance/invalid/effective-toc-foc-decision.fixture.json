@@ -1,0 +1,10 @@
+{
+  "name": "Effective TOC relies on FOC rather than AOCR",
+  "expectedCode": "TOC_REQUIRES_AOCR_DECISION",
+  "baseValidFixture": "effective-toc.fixture.json",
+  "mutation": {
+    "op": "replace",
+    "path": "/operationalReadinessGates/0/gateType",
+    "value": "full_operational_capability"
+  }
+}

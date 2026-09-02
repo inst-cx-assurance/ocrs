@@ -2,7 +2,7 @@
 
 ## Stewardship and open implementation
 
-ICxA is the steward of official OCRS specifications, namespaces, versions, profiles, conformance suites, and any future certification marks. Stewardship does not restrict who may implement published OCRS: owners, contractors, consultants, open-source projects, and commercial vendors may create independent implementations, subject to the final published licenses.
+The draft governance model proposes ICxA as steward of official OCRS specifications, namespaces, versions, profiles, conformance suites, and any future certification marks. No repository evidence establishes that the required appointments, delegated authority, publication approvals, or stewardship instruments have been formally approved; these remain open decisions. The intended model permits independent implementation only subject to final published licenses. Until a license is approved, this repository does not claim that vendor redistribution is legally authorized.
 
 OCRS technical behavior is distinct from ICxA conformity or certification. Schema validity does not prove readiness. Deterministic RFDC evaluation does not replace professional judgment. An OCRS Readiness Recommendation or readiness decision is not Outcome Authorization.
 

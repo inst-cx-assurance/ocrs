@@ -1,0 +1,5 @@
+{
+  "name": "coherent RFDC Readiness Review and Recommendation",
+  "mutations": [],
+  "expectedRecordIds": ["ocrs:review:CW-RFDC", "ocrs:recommendation:CW-RFDC"]
+}

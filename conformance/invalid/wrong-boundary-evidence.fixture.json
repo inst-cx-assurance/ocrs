@@ -1,0 +1,9 @@
+{
+  "name": "RFDC evidence covers the wrong boundary",
+  "expectedCode": "EVIDENCE_BOUNDARY_SCOPE_MISMATCH",
+  "mutation": {
+    "op": "replace",
+    "path": "/evidence/4/applicableBoundaryIds/0",
+    "value": "ocrs:boundary:CW-101-SYSTEM"
+  }
+}

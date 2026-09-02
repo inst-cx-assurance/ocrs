@@ -12,20 +12,20 @@ Version 0.1 is Draft / Experimental / Not Yet Stable. The schemas, reference eva
 
 ## What v0.1 contains
 
-- 46 modular JSON Schemas using Draft 2020-12;
+- 48 modular JSON Schemas using Draft 2020-12;
 - stable namespaced identifiers and exact record versions;
-- a package manifest with profiles, complete inventory, qualifications, external evidence references, and optional SHA-256 content integrity;
-- semantic validation for typed references, versions, supersession, dependencies, Deficiency controls, extensions, and package integrity;
+- a package manifest with profiles, exact inventory, qualifications, bound external evidence references, and SHA-256 integrity required by the RFDC profile;
+- semantic validation for evidence usability/scope, typed references, gate and review context, Level 2 authority, decisions, handover/control transfer, versions, history, extensions, and integrity;
 - core representation for the commissioning and Operational Readiness gates listed in the gate-coverage matrix;
 - one fully deterministic RFDC profile;
 - a complete fictional CW-101 package plus ready and not-ready controlled scenarios;
 - reason-specific invalid fixtures and an inspectable explanation-tree evaluator.
 
-OCRS is independent of databases, APIs, workflow engines, AI models, and vendors. ICxA stewards official OCRS specifications and profiles; third parties may implement the published protocol without proprietary ICxA software, subject to the final license decision.
+OCRS is independent of databases, APIs, workflow engines, AI models, and vendors. The draft proposes ICxA stewardship, but formal appointments and publication authority remain unresolved governance decisions. The intended open-implementation model does not itself grant redistribution rights: no final license has been approved.
 
 ## Quick start
 
-Node.js 22.12 or later is required.
+Supported reference-tooling ranges are Node.js `>=22.13.0 <23` and `>=24.0.0 <25`.
 
 ```sh
 npm ci
@@ -47,6 +47,8 @@ npm run rfdc:evaluate:not-ready
 ```
 
 `npm run conformance` runs formatting, linting, TypeScript compilation, schema/package/fixture/reference validation, tests, and both RFDC evaluations.
+
+OCRS Data Conformance requires both structural and semantic validation. It establishes internal consistency for the declared package/version; it does not prove source truth, evidence sufficiency as professional judgment, current field readiness, ICxA conformity, certification, or authorization.
 
 ## Repository map
 

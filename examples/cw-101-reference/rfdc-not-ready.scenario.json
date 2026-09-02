@@ -11,7 +11,7 @@
     {
       "op": "replace",
       "path": "/manifest/contentHash/value",
-      "value": "4c3c01ccd67bc3370a825ce25aad6c2e5ee1aa68c3924cc9b23957cad2600901"
+      "value": "efbd85cf04003aebc9e8e0d3c120070dee2e92ee76cb37b46beedf116266872f"
     },
     { "op": "replace", "path": "/project/aggregateReadiness", "value": "not_ready" },
     { "op": "replace", "path": "/evidence/4/status", "value": "missing" },

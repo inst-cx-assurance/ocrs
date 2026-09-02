@@ -22,6 +22,7 @@
         "applicableSubjectIds",
         "applicableBoundaryIds",
         "provenanceId",
+        "currencyApplicable",
         "qualificationsAndLimitations"
       ],
       "properties": {
@@ -70,10 +71,12 @@
           "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/timestamp"
         },
         "decisionPointCurrency": { "enum": ["current", "stale", "unknown"] },
+        "currencyApplicable": { "type": "boolean" },
         "provenanceId": {
           "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id"
         },
         "externalReference": { "type": "string", "minLength": 1 },
+        "externalVersionId": { "type": "string", "minLength": 1 },
         "hash": {
           "type": "object",
           "required": ["algorithm", "value"],
@@ -88,6 +91,13 @@
           "items": { "type": "string", "minLength": 1 }
         }
       }
+    },
+    {
+      "if": {
+        "properties": { "currencyApplicable": { "const": true } },
+        "required": ["currencyApplicable"]
+      },
+      "then": { "required": ["decisionPointCurrency"] }
     }
   ],
   "unevaluatedProperties": false

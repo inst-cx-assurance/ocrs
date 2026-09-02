@@ -1,0 +1,58 @@
+{
+  "name": "authorized accepted System Handover",
+  "mutations": [
+    {
+      "op": "add",
+      "path": "/authorityScopes/1",
+      "value": {
+        "id": "ocrs:scope:CW-101-OR",
+        "entityType": "authority-scope",
+        "recordVersion": "1.0.0",
+        "createdAt": "2026-09-02T12:00:00Z",
+        "name": "CW-101 Level 2 operational-control scope",
+        "subjectIds": ["ocrs:system:CW-101"],
+        "boundaryIds": ["ocrs:boundary:CW-101-HANDOVER", "ocrs:boundary:CW-101-TOOC"],
+        "permittedActions": [
+          "make_readiness_decision",
+          "accept_handover",
+          "transfer_operational_control"
+        ]
+      }
+    },
+    {
+      "op": "add",
+      "path": "/roleAssignments/3",
+      "value": {
+        "id": "ocrs:role:receiving-operations",
+        "entityType": "role-assignment",
+        "recordVersion": "1.0.0",
+        "createdAt": "2026-09-02T12:00:00Z",
+        "partyId": "ocrs:party:operations",
+        "role": "receiving_organization",
+        "authorityScopeId": "ocrs:scope:CW-101-OR",
+        "validFrom": "2026-09-02T12:00:00Z",
+        "competenceBasis": "Fictional receiving-organization appointment"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/systemHandovers/0",
+      "value": {
+        "id": "ocrs:handover:CW-101",
+        "entityType": "system-handover",
+        "recordVersion": "1.0.0",
+        "createdAt": "2026-09-05T12:00:00Z",
+        "systemIds": ["ocrs:system:CW-101"],
+        "boundaryIds": ["ocrs:boundary:CW-101-HANDOVER"],
+        "handoverStatus": "accepted",
+        "deliveringPartyId": "ocrs:party:commissioning-team",
+        "receivingPartyId": "ocrs:party:operations",
+        "acceptedByPartyId": "ocrs:party:operations",
+        "acceptedByRoleAssignmentId": "ocrs:role:receiving-operations",
+        "effectiveAt": "2026-09-05T12:00:00Z",
+        "basisRecordIds": ["ocrs:review:CW-RFDC", "ocrs:recommendation:CW-RFDC"]
+      }
+    }
+  ],
+  "expectedRecordIds": ["ocrs:handover:CW-101"]
+}

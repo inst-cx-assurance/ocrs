@@ -1,0 +1,9 @@
+{
+  "name": "Proceed recommendation uses review that does not support progression",
+  "expectedCode": "RECOMMENDATION_NOT_SUPPORTED",
+  "mutation": {
+    "op": "replace",
+    "path": "/readinessReviews/0/conclusion",
+    "value": "does_not_support"
+  }
+}

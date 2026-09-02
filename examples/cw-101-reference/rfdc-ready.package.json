@@ -293,12 +293,13 @@
     "externalEvidenceReferences": [
       {
         "evidenceId": "ocrs:evidence:CW-PROCEDURE",
-        "reference": "https://example.invalid/documents/CW-101-COW-002"
+        "reference": "https://example.invalid/documents/CW-101-COW-002",
+        "binding": { "kind": "version", "value": "2" }
       }
     ],
     "contentHash": {
       "algorithm": "sha256",
-      "value": "ec58ae4041a6f91c2a7ddfe15bf548b91c6a7b1479acd2c6800f4d812d3bd499"
+      "value": "f68b7e5ed934330633919534ea6e074582d1e9b6edf14482efdec8960b5fb7d2"
     }
   },
   "project": {
@@ -550,7 +551,12 @@
       "recordVersion": "1.0.0",
       "createdAt": "2026-08-01T12:00:00Z",
       "name": "CW-101 Level 2 RFDC scope",
-      "boundaryIds": ["ocrs:boundary:CW-101-RFDC"],
+      "subjectIds": ["ocrs:system:CW-101"],
+      "boundaryIds": [
+        "ocrs:boundary:CW-101-RFDC",
+        "ocrs:boundary:CW-101-TEST",
+        "ocrs:boundary:CW-101-SYSTEM"
+      ],
       "permittedActions": ["create_evidence", "review_readiness", "recommend_progression"]
     }
   ],
@@ -648,6 +654,7 @@
       "createdAt": "2026-08-05T12:00:00Z",
       "name": "Construction Completion satisfied",
       "gateId": "ocrs:gate:CW-RFDC",
+      "requirementIds": ["ocrs:requirement:CW-CC"],
       "subjectIds": ["ocrs:system:CW-101"],
       "boundaryIds": ["ocrs:boundary:CW-101-RFDC"],
       "rule": { "kind": "prerequisite_gate", "prerequisiteGateId": "ocrs:gate:CW-CC" }
@@ -659,11 +666,13 @@
       "createdAt": "2026-08-05T12:00:00Z",
       "name": "A-ITRs and construction records accepted",
       "gateId": "ocrs:gate:CW-RFDC",
+      "requirementIds": ["ocrs:requirement:CW-ITR-A"],
       "subjectIds": ["ocrs:system:CW-101"],
       "boundaryIds": ["ocrs:boundary:CW-101-SYSTEM"],
       "rule": {
         "kind": "accepted_evidence",
-        "requiredEvidenceTypes": ["a_itr", "construction_record"]
+        "requiredEvidenceTypes": ["a_itr", "construction_record"],
+        "currencyRequired": true
       }
     },
     {
@@ -673,9 +682,14 @@
       "createdAt": "2026-08-05T12:00:00Z",
       "name": "B-ITRs accepted",
       "gateId": "ocrs:gate:CW-RFDC",
+      "requirementIds": ["ocrs:requirement:CW-ITR-B"],
       "subjectIds": ["ocrs:system:CW-101"],
       "boundaryIds": ["ocrs:boundary:CW-101-TEST"],
-      "rule": { "kind": "accepted_evidence", "requiredEvidenceTypes": ["b_itr"] }
+      "rule": {
+        "kind": "accepted_evidence",
+        "requiredEvidenceTypes": ["b_itr"],
+        "currencyRequired": true
+      }
     },
     {
       "id": "ocrs:condition:CW-STATIC",
@@ -684,9 +698,14 @@
       "createdAt": "2026-08-05T12:00:00Z",
       "name": "Static commissioning evidence accepted",
       "gateId": "ocrs:gate:CW-RFDC",
+      "requirementIds": ["ocrs:requirement:CW-ITR-B"],
       "subjectIds": ["ocrs:system:CW-101"],
       "boundaryIds": ["ocrs:boundary:CW-101-TEST"],
-      "rule": { "kind": "accepted_evidence", "requiredEvidenceTypes": ["static_test"] }
+      "rule": {
+        "kind": "accepted_evidence",
+        "requiredEvidenceTypes": ["static_test"],
+        "currencyRequired": true
+      }
     },
     {
       "id": "ocrs:condition:CW-SAFETY",
@@ -695,9 +714,14 @@
       "createdAt": "2026-08-05T12:00:00Z",
       "name": "Safety controls accepted",
       "gateId": "ocrs:gate:CW-RFDC",
+      "requirementIds": ["ocrs:requirement:CW-SAFETY"],
       "subjectIds": ["ocrs:system:CW-101"],
       "boundaryIds": ["ocrs:boundary:CW-101-RFDC"],
-      "rule": { "kind": "accepted_evidence", "requiredEvidenceTypes": ["safety_control"] }
+      "rule": {
+        "kind": "accepted_evidence",
+        "requiredEvidenceTypes": ["safety_control"],
+        "currencyRequired": true
+      }
     },
     {
       "id": "ocrs:condition:CW-COW",
@@ -706,9 +730,14 @@
       "createdAt": "2026-08-05T12:00:00Z",
       "name": "Control of Work prerequisites accepted",
       "gateId": "ocrs:gate:CW-RFDC",
+      "requirementIds": ["ocrs:requirement:CW-COW"],
       "subjectIds": ["ocrs:system:CW-101"],
       "boundaryIds": ["ocrs:boundary:CW-101-RFDC"],
-      "rule": { "kind": "accepted_evidence", "requiredEvidenceTypes": ["control_of_work"] }
+      "rule": {
+        "kind": "accepted_evidence",
+        "requiredEvidenceTypes": ["control_of_work", "approved_procedure"],
+        "currencyRequired": true
+      }
     },
     {
       "id": "ocrs:condition:CW-BOUNDARY",
@@ -717,6 +746,7 @@
       "createdAt": "2026-08-05T12:00:00Z",
       "name": "Test boundary maps to system boundary",
       "gateId": "ocrs:gate:CW-RFDC",
+      "requirementIds": [],
       "subjectIds": ["ocrs:system:CW-101"],
       "boundaryIds": ["ocrs:boundary:CW-101-TEST", "ocrs:boundary:CW-101-SYSTEM"],
       "rule": { "kind": "boundary_mapping" }
@@ -728,6 +758,7 @@
       "createdAt": "2026-08-05T12:00:00Z",
       "name": "Dependencies satisfied",
       "gateId": "ocrs:gate:CW-RFDC",
+      "requirementIds": [],
       "subjectIds": ["ocrs:system:CW-101"],
       "boundaryIds": ["ocrs:boundary:CW-101-RFDC"],
       "rule": { "kind": "dependencies_satisfied" }
@@ -739,6 +770,7 @@
       "createdAt": "2026-08-05T12:00:00Z",
       "name": "No blocking constraints",
       "gateId": "ocrs:gate:CW-RFDC",
+      "requirementIds": [],
       "subjectIds": ["ocrs:system:CW-101"],
       "boundaryIds": ["ocrs:boundary:CW-101-RFDC"],
       "rule": { "kind": "no_blocking_constraints" }
@@ -750,6 +782,7 @@
       "createdAt": "2026-08-05T12:00:00Z",
       "name": "Deficiencies controlled",
       "gateId": "ocrs:gate:CW-RFDC",
+      "requirementIds": [],
       "subjectIds": ["ocrs:system:CW-101"],
       "boundaryIds": ["ocrs:boundary:CW-101-RFDC"],
       "rule": { "kind": "deficiency_controls" }
@@ -860,6 +893,7 @@
       "applicableConditionIds": ["ocrs:condition:CW-PREREQ"],
       "applicableSubjectIds": ["ocrs:system:CW-101"],
       "applicableBoundaryIds": ["ocrs:boundary:CW-101-SYSTEM"],
+      "currencyApplicable": true,
       "decisionPointCurrency": "current",
       "provenanceId": "ocrs:provenance:CW-CONTROLLED",
       "qualificationsAndLimitations": []
@@ -882,6 +916,7 @@
       "applicableConditionIds": ["ocrs:condition:CW-AITR"],
       "applicableSubjectIds": ["ocrs:system:CW-101"],
       "applicableBoundaryIds": ["ocrs:boundary:CW-101-SYSTEM"],
+      "currencyApplicable": true,
       "decisionPointCurrency": "current",
       "provenanceId": "ocrs:provenance:CW-CONTROLLED",
       "qualificationsAndLimitations": []
@@ -904,6 +939,7 @@
       "applicableConditionIds": ["ocrs:condition:CW-AITR"],
       "applicableSubjectIds": ["ocrs:system:CW-101"],
       "applicableBoundaryIds": ["ocrs:boundary:CW-101-SYSTEM"],
+      "currencyApplicable": true,
       "decisionPointCurrency": "current",
       "provenanceId": "ocrs:provenance:CW-CONTROLLED",
       "qualificationsAndLimitations": []
@@ -926,6 +962,7 @@
       "applicableConditionIds": ["ocrs:condition:CW-BITR"],
       "applicableSubjectIds": ["ocrs:system:CW-101"],
       "applicableBoundaryIds": ["ocrs:boundary:CW-101-TEST"],
+      "currencyApplicable": true,
       "decisionPointCurrency": "current",
       "provenanceId": "ocrs:provenance:CW-CONTROLLED",
       "qualificationsAndLimitations": []
@@ -948,6 +985,7 @@
       "applicableConditionIds": ["ocrs:condition:CW-STATIC"],
       "applicableSubjectIds": ["ocrs:system:CW-101"],
       "applicableBoundaryIds": ["ocrs:boundary:CW-101-TEST"],
+      "currencyApplicable": true,
       "decisionPointCurrency": "current",
       "provenanceId": "ocrs:provenance:CW-CONTROLLED",
       "qualificationsAndLimitations": []
@@ -970,6 +1008,7 @@
       "applicableConditionIds": ["ocrs:condition:CW-SAFETY"],
       "applicableSubjectIds": ["ocrs:system:CW-101"],
       "applicableBoundaryIds": ["ocrs:boundary:CW-101-RFDC"],
+      "currencyApplicable": true,
       "decisionPointCurrency": "current",
       "provenanceId": "ocrs:provenance:CW-CONTROLLED",
       "qualificationsAndLimitations": []
@@ -992,6 +1031,7 @@
       "applicableConditionIds": ["ocrs:condition:CW-COW"],
       "applicableSubjectIds": ["ocrs:system:CW-101"],
       "applicableBoundaryIds": ["ocrs:boundary:CW-101-RFDC"],
+      "currencyApplicable": true,
       "decisionPointCurrency": "current",
       "provenanceId": "ocrs:provenance:CW-CONTROLLED",
       "qualificationsAndLimitations": []
@@ -1014,6 +1054,7 @@
       "applicableConditionIds": ["ocrs:condition:CW-DEPS"],
       "applicableSubjectIds": ["ocrs:interface:CW-101-POWER"],
       "applicableBoundaryIds": ["ocrs:boundary:CW-101-SYSTEM"],
+      "currencyApplicable": true,
       "decisionPointCurrency": "current",
       "provenanceId": "ocrs:provenance:CW-CONTROLLED",
       "qualificationsAndLimitations": []
@@ -1036,6 +1077,7 @@
       "applicableConditionIds": ["ocrs:condition:CW-DEFICIENCIES"],
       "applicableSubjectIds": ["ocrs:asset:P-101A"],
       "applicableBoundaryIds": ["ocrs:boundary:CW-101-RFDC"],
+      "currencyApplicable": true,
       "decisionPointCurrency": "current",
       "provenanceId": "ocrs:provenance:CW-CONTROLLED",
       "qualificationsAndLimitations": []
@@ -1058,9 +1100,11 @@
       "applicableConditionIds": ["ocrs:condition:CW-COW"],
       "applicableSubjectIds": ["ocrs:system:CW-101"],
       "applicableBoundaryIds": ["ocrs:boundary:CW-101-RFDC"],
+      "currencyApplicable": true,
       "decisionPointCurrency": "current",
       "provenanceId": "ocrs:provenance:CW-CONTROLLED",
       "externalReference": "https://example.invalid/documents/CW-101-COW-002",
+      "externalVersionId": "2",
       "qualificationsAndLimitations": ["External content is not embedded in this package."]
     }
   ],
@@ -1070,7 +1114,18 @@
       "entityType": "evidence-provenance",
       "recordVersion": "1.0.0",
       "createdAt": "2026-08-20T17:00:00Z",
-      "evidenceId": "ocrs:evidence:CW-CC",
+      "evidenceIds": [
+        "ocrs:evidence:CW-CC",
+        "ocrs:evidence:CW-AITR",
+        "ocrs:evidence:CW-CONSTRUCTION",
+        "ocrs:evidence:CW-BITR",
+        "ocrs:evidence:CW-STATIC",
+        "ocrs:evidence:CW-SAFETY",
+        "ocrs:evidence:CW-COW",
+        "ocrs:evidence:CW-INTERFACE",
+        "ocrs:evidence:CW-DEF-CLOSE",
+        "ocrs:evidence:CW-PROCEDURE"
+      ],
       "sourcePartyId": "ocrs:party:commissioning-team",
       "sourceSystem": "Fictional controlled project record systems",
       "captureMethod": "Controlled export",
@@ -1228,6 +1283,7 @@
       "createdAt": "2026-08-20T18:00:00Z",
       "name": "Construction Completion",
       "gateType": "construction_completion",
+      "profileId": "ocrs:profile:core",
       "subjectIds": ["ocrs:system:CW-101"],
       "boundaryIds": ["ocrs:boundary:CW-101-SYSTEM"],
       "conditionIds": [],
@@ -1241,6 +1297,7 @@
       "createdAt": "2026-08-30T18:00:00Z",
       "name": "Ready for Dynamic Commissioning",
       "gateType": "ready_for_dynamic_commissioning",
+      "profileId": "ocrs:profile:rfdc",
       "subjectIds": ["ocrs:system:CW-101"],
       "boundaryIds": [
         "ocrs:boundary:CW-101-RFDC",
@@ -1271,14 +1328,33 @@
       "recordVersion": "1.0.0",
       "createdAt": "2026-08-30T18:10:00Z",
       "gateId": "ocrs:gate:CW-RFDC",
+      "subjectIds": ["ocrs:system:CW-101"],
+      "boundaryIds": [
+        "ocrs:boundary:CW-101-RFDC",
+        "ocrs:boundary:CW-101-TEST",
+        "ocrs:boundary:CW-101-SYSTEM"
+      ],
+      "evaluatedAt": "2026-08-30T18:10:00Z",
       "evaluatorId": "ocrs-reference-rfdc",
       "evaluatorVersion": "0.1.0",
       "result": "satisfied",
       "explanationId": "ocrs:explanation:CW-RFDC",
       "inputRecordIds": [
         "ocrs:gate:CW-RFDC",
+        "ocrs:condition:CW-PREREQ",
+        "ocrs:condition:CW-AITR",
+        "ocrs:condition:CW-BITR",
+        "ocrs:condition:CW-STATIC",
+        "ocrs:condition:CW-SAFETY",
+        "ocrs:condition:CW-COW",
+        "ocrs:condition:CW-BOUNDARY",
+        "ocrs:condition:CW-DEPS",
+        "ocrs:condition:CW-CONSTRAINTS",
         "ocrs:condition:CW-DEFICIENCIES",
-        "ocrs:evidence:CW-STATIC"
+        "ocrs:evidence:CW-STATIC",
+        "ocrs:dependency:CW-POWER",
+        "ocrs:dependency:CW-INTERFACE",
+        "ocrs:constraint:CW-UTILITY"
       ]
     }
   ],
@@ -1305,6 +1381,12 @@
       "recordVersion": "1.0.0",
       "createdAt": "2026-08-31T14:00:00Z",
       "gateId": "ocrs:gate:CW-RFDC",
+      "subjectIds": ["ocrs:system:CW-101"],
+      "boundaryIds": [
+        "ocrs:boundary:CW-101-RFDC",
+        "ocrs:boundary:CW-101-TEST",
+        "ocrs:boundary:CW-101-SYSTEM"
+      ],
       "reviewedAt": "2026-08-31T14:00:00Z",
       "reviewerRoleAssignmentIds": ["ocrs:role:readiness-reviewer"],
       "evidenceIds": [
@@ -1312,8 +1394,7 @@
         "ocrs:evidence:CW-BITR",
         "ocrs:evidence:CW-STATIC",
         "ocrs:evidence:CW-SAFETY",
-        "ocrs:evidence:CW-COW",
-        "ocrs:evidence:CW-DEF-CLOSE"
+        "ocrs:evidence:CW-COW"
       ],
       "evaluationId": "ocrs:evaluation:CW-RFDC",
       "conclusion": "supports_proceed",
@@ -1331,6 +1412,7 @@
       "createdAt": "2026-08-31T15:00:00Z",
       "reviewId": "ocrs:review:CW-RFDC",
       "gateId": "ocrs:gate:CW-RFDC",
+      "issuedByRoleAssignmentId": "ocrs:role:readiness-reviewer",
       "recommendation": "proceed",
       "issuedAt": "2026-08-31T15:00:00Z",
       "rationale": "The controlled Readiness Review supports progression to dynamic commissioning.",

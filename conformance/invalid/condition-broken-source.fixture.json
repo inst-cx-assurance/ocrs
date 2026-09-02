@@ -1,0 +1,10 @@
+{
+  "name": "Controlled Condition has broken source reference",
+  "expectedCode": "BROKEN_REFERENCE",
+  "baseValidFixture": "conditional-decision.fixture.json",
+  "mutation": {
+    "op": "replace",
+    "path": "/conditions/0/sourceRecordIds/0",
+    "value": "ocrs:gate:DOES-NOT-EXIST"
+  }
+}

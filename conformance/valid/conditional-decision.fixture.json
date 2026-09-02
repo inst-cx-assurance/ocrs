@@ -1,0 +1,141 @@
+{
+  "name": "conditionally ready Level 2 decision with controlled Condition",
+  "mutations": [
+    {
+      "op": "add",
+      "path": "/authorityScopes/1",
+      "value": {
+        "id": "ocrs:scope:CW-101-OR",
+        "entityType": "authority-scope",
+        "recordVersion": "1.0.0",
+        "createdAt": "2026-09-02T12:00:00Z",
+        "name": "CW-101 Level 2 operational-control scope",
+        "subjectIds": ["ocrs:system:CW-101"],
+        "boundaryIds": ["ocrs:boundary:CW-101-HANDOVER", "ocrs:boundary:CW-101-TOOC"],
+        "permittedActions": [
+          "make_readiness_decision",
+          "accept_handover",
+          "transfer_operational_control"
+        ]
+      }
+    },
+    {
+      "op": "add",
+      "path": "/roleAssignments/2",
+      "value": {
+        "id": "ocrs:role:or-decision-authority",
+        "entityType": "role-assignment",
+        "recordVersion": "1.0.0",
+        "createdAt": "2026-09-02T12:00:00Z",
+        "partyId": "ocrs:party:project-owner",
+        "role": "readiness_decision_authority",
+        "authorityScopeId": "ocrs:scope:CW-101-OR",
+        "validFrom": "2026-09-02T12:00:00Z",
+        "competenceBasis": "Fictional Level 2 appointment"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/roleAssignments/3",
+      "value": {
+        "id": "ocrs:role:receiving-operations",
+        "entityType": "role-assignment",
+        "recordVersion": "1.0.0",
+        "createdAt": "2026-09-02T12:00:00Z",
+        "partyId": "ocrs:party:operations",
+        "role": "receiving_organization",
+        "authorityScopeId": "ocrs:scope:CW-101-OR",
+        "validFrom": "2026-09-02T12:00:00Z",
+        "competenceBasis": "Fictional receiving-organization appointment"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/roleAssignments/4",
+      "value": {
+        "id": "ocrs:role:delivery-control-transfer",
+        "entityType": "role-assignment",
+        "recordVersion": "1.0.0",
+        "createdAt": "2026-09-02T12:00:00Z",
+        "partyId": "ocrs:party:commissioning-team",
+        "role": "delivery_party",
+        "authorityScopeId": "ocrs:scope:CW-101-OR",
+        "validFrom": "2026-09-02T12:00:00Z",
+        "competenceBasis": "Fictional delivery-party appointment"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/operationalReadinessGates/0",
+      "value": {
+        "id": "ocrs:or-gate:CW-AOCR",
+        "entityType": "operational-readiness-gate",
+        "recordVersion": "1.0.0",
+        "createdAt": "2026-09-03T12:00:00Z",
+        "name": "Asset Operational Control Ready core example",
+        "gateType": "asset_operational_control_ready",
+        "profileId": "ocrs:profile:core",
+        "subjectIds": ["ocrs:system:CW-101"],
+        "boundaryIds": ["ocrs:boundary:CW-101-TOOC"],
+        "lifecyclePhase": "readiness",
+        "capabilityPillars": ["people", "organization", "asset", "systems_and_processes"],
+        "status": "conditionally_ready",
+        "profileStatus": "core_representable"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/conditions/0",
+      "value": {
+        "id": "ocrs:controlled-condition:CW-AOCR-01",
+        "entityType": "condition",
+        "recordVersion": "1.0.0",
+        "createdAt": "2026-09-03T12:30:00Z",
+        "title": "Complete post-transfer operating log review",
+        "status": "open",
+        "ownerPartyId": "ocrs:party:operations",
+        "dueDate": "2026-09-20",
+        "requiredAction": "Review and sign the first operating-cycle log.",
+        "closureCriteria": "Receiving organization records verified closure.",
+        "monitoringRequirements": ["Daily operating-log review until closure"],
+        "escalationRequirements": ["Escalate overdue closure to the Level 2 decision authority"],
+        "sourceRecordIds": ["ocrs:or-gate:CW-AOCR", "ocrs:risk-input:CW-C1"],
+        "decisionIds": ["ocrs:decision:CW-AOCR"],
+        "closureEvidenceIds": [],
+        "changeRecordIds": []
+      }
+    },
+    {
+      "op": "add",
+      "path": "/readinessDecisions/0",
+      "value": {
+        "id": "ocrs:decision:CW-AOCR",
+        "entityType": "readiness-decision",
+        "recordVersion": "1.0.0",
+        "createdAt": "2026-09-04T12:00:00Z",
+        "gateId": "ocrs:or-gate:CW-AOCR",
+        "subjectIds": ["ocrs:system:CW-101"],
+        "boundaryIds": ["ocrs:boundary:CW-101-TOOC"],
+        "decision": "conditionally_ready",
+        "decisionRecordStatus": "effective",
+        "decisionMakerRoleAssignmentId": "ocrs:role:or-decision-authority",
+        "decidedAt": "2026-09-04T12:00:00Z",
+        "decisionBasisRecordIds": ["ocrs:or-gate:CW-AOCR", "ocrs:risk-input:CW-C1"],
+        "residualRiskDeclaration": {
+          "status": "declared_and_controlled",
+          "rationale": "The Level 2 operating-log condition is controlled."
+        },
+        "residualRiskInputIds": ["ocrs:risk-input:CW-C1"],
+        "riskAcceptanceBasis": "Applicable Level 2 project risk process; no Level 1 acceptance is represented.",
+        "conditionIds": ["ocrs:controlled-condition:CW-AOCR-01"],
+        "rationale": "Core representability example only; not detailed AOCR profile conformance.",
+        "historyRecordIds": []
+      }
+    }
+  ],
+  "expectedRecordIds": [
+    "ocrs:or-gate:CW-AOCR",
+    "ocrs:controlled-condition:CW-AOCR-01",
+    "ocrs:decision:CW-AOCR"
+  ]
+}

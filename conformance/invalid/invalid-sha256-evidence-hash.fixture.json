@@ -1,0 +1,12 @@
+{
+  "name": "Evidence SHA-256 has invalid length",
+  "expectedCode": "INVALID_EVIDENCE_HASH_LENGTH",
+  "mutation": {
+    "op": "add",
+    "path": "/evidence/0/hash",
+    "value": {
+      "algorithm": "sha256",
+      "value": "abcd"
+    }
+  }
+}

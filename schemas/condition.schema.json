@@ -6,16 +6,49 @@
     { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json" },
     {
       "type": "object",
-      "required": ["entityType", "title", "status", "ownerPartyId", "dueDate", "sourceRecordIds"],
+      "required": [
+        "entityType",
+        "title",
+        "status",
+        "ownerPartyId",
+        "dueDate",
+        "requiredAction",
+        "closureCriteria",
+        "monitoringRequirements",
+        "escalationRequirements",
+        "sourceRecordIds",
+        "decisionIds",
+        "closureEvidenceIds",
+        "changeRecordIds"
+      ],
       "properties": {
         "entityType": { "const": "condition" },
         "title": { "type": "string", "minLength": 1 },
-        "status": { "enum": ["open", "closed", "superseded"] },
+        "status": { "enum": ["open", "verified_closed", "cancelled", "superseded"] },
         "ownerPartyId": {
           "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id"
         },
         "dueDate": { "type": "string", "format": "date" },
+        "requiredAction": { "type": "string", "minLength": 1 },
+        "closureCriteria": { "type": "string", "minLength": 1 },
+        "monitoringRequirements": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "escalationRequirements": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        },
         "sourceRecordIds": {
+          "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/idArray"
+        },
+        "decisionIds": {
+          "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/idArray"
+        },
+        "closureEvidenceIds": {
+          "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/idArray"
+        },
+        "changeRecordIds": {
           "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/idArray"
         }
       }

@@ -6,4 +6,8 @@ Scenario A resolves `rfdc-not-ready.scenario.json` against the complete base pac
 
 Scenario B is `rfdc-ready.package.json`. Accepted current static-test evidence is supplied and the Category A item is closed with `CW-DEF-CLOSE`. Every RFDC condition is satisfied. The separately recorded human Readiness Review supports the separately recorded recommendation to proceed.
 
+RFDC evidence is now checked at the recorded evaluation time for accepted status, accepted review, non-failure, current currency, inclusive validity interval, required type, requirement, condition, subject, boundary, and provenance. The externally managed approved procedure is bound to controlled version `2` in both the evidence and manifest records.
+
+`conformance/valid` adds core-only representability fixtures for a conditionally-ready Level 2 AOCR decision with a structured Condition, accepted System Handover, and effective TOC. These are not detailed ORC/AOCR/IOC/FOC profile examples and do not claim ICxA profile conformance.
+
 Neither scenario contains or implies OAP records or Outcome Authorization.

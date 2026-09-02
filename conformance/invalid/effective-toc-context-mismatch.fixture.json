@@ -1,0 +1,10 @@
+{
+  "name": "Effective TOC has mismatched systems boundaries or parties",
+  "expectedCode": "TOC_CONTEXT_MISMATCH",
+  "baseValidFixture": "effective-toc.fixture.json",
+  "mutation": {
+    "op": "replace",
+    "path": "/transfersOfOperationalControl/0/toPartyId",
+    "value": "ocrs:party:project-owner"
+  }
+}

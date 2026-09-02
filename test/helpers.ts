@@ -2,6 +2,9 @@ import path from 'node:path';
 import { loadOcrsInput } from '../src/ocrs-input.js';
 import { type OcrsPackage, type VersionedRecord } from '../src/ocrs-types.js';
 import { packageContentHash } from '../src/package-integrity.js';
+import { allRecords } from '../src/package-validator.js';
+import { applyMutations, type ValidFixture } from '../src/fixture-mutations.js';
+import { loadJsonFile } from '../src/schema-loader.js';
 
 export function readyPackage(): OcrsPackage {
   return loadOcrsInput(
@@ -34,4 +37,17 @@ export function rehash(pkg: OcrsPackage): OcrsPackage {
     value: packageContentHash(pkg as unknown as Record<string, unknown>),
   };
   return pkg;
+}
+
+export function validFixturePackage(fileName: string): OcrsPackage {
+  const fixture = loadJsonFile<ValidFixture>(
+    path.join(process.cwd(), 'conformance', 'valid', fileName),
+  );
+  const pkg = applyMutations(readyPackage(), fixture.mutations);
+  pkg.manifest.inventory = allRecords(pkg).map((record) => ({
+    recordId: record.id,
+    entityType: record.entityType,
+    recordVersion: record.recordVersion,
+  }));
+  return rehash(pkg);
 }

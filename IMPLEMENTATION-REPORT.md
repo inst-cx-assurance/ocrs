@@ -6,7 +6,7 @@ The baseline passed `npm install`, a one-package schema command, two shallow tes
 
 ## 2. Gaps identified
 
-The audit found missing core entities, versions, exact inventory, typed references, extension controls, supersession and dependency checks, Category B/C/D rules, provenance/history rigor, valid/invalid scenario coverage, complete explanation trees, gate coverage, conformance categories, security checks, documentation, and CI stages. See `docs/current-implementation-gap-review.md`.
+The baseline audit found missing core entities, versions, exact inventory, typed references, extension controls, supersession and dependency checks, Category B/C/D rules, provenance/history rigor, valid/invalid scenario coverage, complete explanation trees, gate coverage, conformance categories, security checks, documentation, and CI stages. The independent semantic audit then found evidence label/scope/currency bypasses, cross-gate and stored-status contradictions, weak Review/Recommendation/decision authority consistency, free-text decision conditions, insufficient external-evidence binding, and invalid TOC support paths. See `docs/current-implementation-gap-review.md`.
 
 ## 3. Files added
 
@@ -15,8 +15,9 @@ The audit found missing core entities, versions, exact inventory, typed referenc
 - RFDC profile under `profiles/rfdc/`;
 - new modular schemas under `schemas/`, including authority, interface, five boundary specializations, activity specializations, provenance/revision, evaluation/explanation, Operational Readiness, handover/control, manifest, and profile schemas;
 - `src/fixture-mutations.ts`, `ocrs-input.ts`, `package-integrity.ts`, `package-validator.ts`, and `schema-validation.ts`;
+- `scripts/create-audit-archive.ps1` and reproducible canonical-JSON hash vectors;
 - complete ready package and controlled not-ready scenario;
-- 20 invalid fixture files and four expanded test files plus helpers.
+- 42 invalid fixture files, four valid Level 2 core fixtures, and five test files plus helpers.
 
 ## 4. Files materially changed
 
@@ -24,17 +25,17 @@ README, GOVERNANCE, CONTRIBUTING, CHANGELOG, CI, package files, all specificatio
 
 ## 5. Schemas completed
 
-The 48-schema set covers base/versioned records; package manifest/package; project; SBS; system/hierarchy; asset; interface; generic and five specialized boundaries; party/role/authority; execution requirement/readiness condition; activity plus inspection/verification/test/demonstration specializations; evidence/provenance/revision; Deficiency/reclassification; constraint; dependency; residual-risk input; deterministic evaluation/explanation; Commissioning and Operational Readiness gates; Review/Recommendation/readiness decision; System Handover; Transfer of Operational Control; condition; change; profile/extension declarations; RFDC profile; and ICxA profile manifest.
+The 48-schema set covers base/versioned records; package manifest/package; project; SBS; system/hierarchy; asset; interface; generic and five specialized boundaries; party/role/authority; execution requirement/readiness condition; activity plus inspection/verification/test/demonstration specializations; evidence/provenance/revision; Deficiency/reclassification; constraint; dependency; residual-risk input; deterministic evaluation/explanation; Commissioning and Operational Readiness gates; Review/Recommendation/structured readiness decision; System Handover; Transfer of Operational Control; structured Condition; change; profile/extension declarations; RFDC profile; and ICxA profile manifest. Structural coverage is not a claim that every gate has a detailed profile.
 
 ## 6. Examples completed
 
 CW-101 includes one main system, two subsystems, six assets, one interface, five boundary types, five execution requirements, ten readiness conditions, six activities, ten evidence records, two dependencies, three Deficiencies, one constraint, one RFDC profile, provenance/history, exact inventory, qualifications, external-reference index, and deterministic content integrity.
 
-Scenario A is a controlled mutation set over the complete package; Scenario B is the complete ready package. Both resolved states validate.
+Scenario A is a controlled mutation set over the complete package; Scenario B is the complete ready package. Both resolved states validate. Four additional fixtures validate a coherent Review/Recommendation, conditionally-ready Level 2 decision with controlled Condition, System Handover, and authorized effective TOC following a supportive AOCR decision. Those four prove core representability only.
 
 ## 7. Test inventory and results
 
-Four test files contain 32 tests covering schema compilation, valid and invalid packages, all 20 expected diagnostic fixtures, aggregation conflicts, evidence states, provenance, both scenarios, complete/reproducible explanations, no automatic human records, Category A/B/C/D, reclassification, supersession/history, decision replacement, handover/control distinction, manifest versions, and content hashing. Final result: 4 files passed, 32 tests passed.
+Five test files contain 38 tests covering schema compilation, valid packages, all 42 expected diagnostic fixtures, evidence status/currency/time/type/requirement/subject/boundary semantics, cross-record contexts and authority, aggregation conflicts, provenance, both scenarios, complete/reproducible explanations, no automatic human records, Category A/B/C/D, reclassification, supersession/history, decision replacement, structured conditions, handover/control distinction, manifest versions, external bindings, and canonical hash vectors. Final result: 5 files passed, 38 tests passed.
 
 ## 8. Exact proof commands
 
@@ -67,11 +68,11 @@ All passed in the final verification recorded in `AUDIT-PACK.md`.
 
 ## 11. Conformance results
 
-Data and RFDC evaluation conformance reference behavior pass. The package structure supports lossless Exchange Conformance. OCRS ICxA Profile Conformance is not claimed because exact controlled-source mappings require ICxA verification. The all-in-one `npm run conformance` command passes.
+Data and RFDC evaluation conformance reference behavior pass. The package structure and tests support the implemented Exchange Conformance mechanics. OCRS ICxA Profile Conformance is not claimed because exact controlled-source mappings require ICxA verification. The all-in-one `npm run conformance` command passes.
 
 ## 12. Known limitations
 
-Only RFDC has a detailed evidence profile, evaluator, canonical example, and behavioral tests. Other controlled gates are core-representable only. The reference implementation is not a production API and does not implement deployment, signing, identity authentication, or non-repudiation.
+Only RFDC has a detailed evidence profile, evaluator, canonical example, and behavioral tests. Other controlled gates are core-representable only. RFDC requires a content digest; other profiles may set their own integrity requirement. The reference implementation is not a production API and does not implement deployment, signing, identity authentication, immutability, non-repudiation, host allowlists, or production resource limits.
 
 ## 13. Assumptions requiring ICxA verification
 

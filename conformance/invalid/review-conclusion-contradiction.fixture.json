@@ -1,0 +1,9 @@
+{
+  "name": "Review conclusion contradicts satisfied evaluation",
+  "expectedCode": "REVIEW_CONCLUSION_CONTRADICTION",
+  "mutation": {
+    "op": "replace",
+    "path": "/readinessReviews/0/conclusion",
+    "value": "does_not_support"
+  }
+}

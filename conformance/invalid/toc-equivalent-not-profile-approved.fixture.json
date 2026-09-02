@@ -1,0 +1,17 @@
+{
+  "name": "TOC equivalent gate is not explicitly permitted by the cited profile",
+  "expectedCode": "TOC_EQUIVALENT_NOT_APPROVED",
+  "baseValidFixture": "effective-toc.fixture.json",
+  "mutations": [
+    {
+      "op": "replace",
+      "path": "/transfersOfOperationalControl/0/supportBasisType",
+      "value": "profile_approved_equivalent"
+    },
+    {
+      "op": "add",
+      "path": "/transfersOfOperationalControl/0/approvedEquivalentProfileId",
+      "value": "ocrs:profile:core"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "name": "accepted_current evidence is stale",
+  "expectedCode": "EVIDENCE_CURRENCY_CONTRADICTION",
+  "mutation": {
+    "op": "replace",
+    "path": "/evidence/4/decisionPointCurrency",
+    "value": "stale"
+  }
+}

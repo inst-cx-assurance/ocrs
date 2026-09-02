@@ -37,11 +37,15 @@ export function evaluateRfdc(pkg: OcrsPackage): DeterministicEvaluation {
     (item) => item.gateType === 'ready_for_dynamic_commissioning',
   );
   if (!gate) throw new Error('No Ready for Dynamic Commissioning gate exists in the package.');
+  const evaluationTime = String(
+    pkg.deterministicEvaluations.find((item) => item.gateId === gate.id)?.evaluatedAt ??
+      pkg.manifest.createdAt,
+  );
 
   const conditionNodes = (gate.conditionIds as string[]).map((id) => {
     const condition = pkg.readinessConditions.find((item) => item.id === id);
     if (!condition) throw new Error(`Validated package lost readiness condition ${id}.`);
-    return evaluateCondition(pkg, condition);
+    return evaluateCondition(pkg, condition, evaluationTime);
   });
   const result = combine(conditionNodes.map((node) => node.result));
   return {
@@ -69,9 +73,13 @@ export function evaluateRfdc(pkg: OcrsPackage): DeterministicEvaluation {
   };
 }
 
-function evaluateCondition(pkg: OcrsPackage, condition: ReadinessConditionRecord): ExplanationNode {
+function evaluateCondition(
+  pkg: OcrsPackage,
+  condition: ReadinessConditionRecord,
+  evaluationTime: string,
+): ExplanationNode {
   const kind = condition.rule.kind;
-  if (kind === 'accepted_evidence') return evidenceCondition(pkg, condition);
+  if (kind === 'accepted_evidence') return evidenceCondition(pkg, condition, evaluationTime);
   if (kind === 'prerequisite_gate') {
     const prerequisite = pkg.commissioningStageGates.find(
       (item) => item.id === condition.rule.prerequisiteGateId,
@@ -155,7 +163,11 @@ function evaluateCondition(pkg: OcrsPackage, condition: ReadinessConditionRecord
   );
 }
 
-function evidenceCondition(pkg: OcrsPackage, condition: ReadinessConditionRecord): ExplanationNode {
+function evidenceCondition(
+  pkg: OcrsPackage,
+  condition: ReadinessConditionRecord,
+  evaluationTime: string,
+): ExplanationNode {
   const requiredTypes = condition.rule.requiredEvidenceTypes ?? [];
   const matching = pkg.evidence.filter(
     (item) =>
@@ -167,6 +179,7 @@ function evidenceCondition(pkg: OcrsPackage, condition: ReadinessConditionRecord
       condition,
       type,
       matching.filter((item) => item.evidenceType === type),
+      evaluationTime,
     ),
   );
   const result = combine(children.map((item) => item.result));
@@ -185,23 +198,20 @@ function evidenceTypeNode(
   condition: ReadinessConditionRecord,
   type: string,
   evidence: EvidenceRecord[],
+  evaluationTime: string,
 ): ExplanationNode {
-  const failed = evidence.find(
+  const applicable = evidence.filter((item) => evidenceScopeMatches(item, condition));
+  const failed = applicable.find(
     (item) => item.status === 'failed' || item.failureStatus === 'failed',
   );
-  const accepted = evidence.find(
-    (item) =>
-      item.status === 'accepted_current' &&
-      item.reviewStatus === 'accepted' &&
-      item.failureStatus !== 'failed',
-  );
+  const accepted = applicable.find((item) => evidenceIsUsable(item, condition, evaluationTime));
   const result: EvaluationStatus = failed
     ? 'not_satisfied'
     : accepted
       ? 'satisfied'
       : 'indeterminate';
   const states = evidence.length
-    ? evidence.map((item) => `${item.id}:${item.status}`).join(', ')
+    ? evidence.map((item) => `${item.id}:${describeEvidenceState(item, evaluationTime)}`).join(', ')
     : 'none';
   return {
     id: `${condition.id}:${type}`,
@@ -211,11 +221,49 @@ function evidenceTypeNode(
     message: failed
       ? `Failed evidence exists (${states}).`
       : accepted
-        ? `Accepted current evidence ${accepted.id} satisfies ${type}.`
-        : `No accepted current ${type} evidence exists (${states}).`,
+        ? `Accepted, reviewed, current, in-scope evidence ${accepted.id} satisfies ${type}.`
+        : `No accepted, reviewed, current, in-scope ${type} evidence exists (${states}).`,
     supportingRecordIds: evidence.map((item) => item.id),
     children: [],
   };
+}
+
+function evidenceScopeMatches(
+  evidence: EvidenceRecord,
+  condition: ReadinessConditionRecord,
+): boolean {
+  return (
+    condition.subjectIds.every((id) => evidence.applicableSubjectIds.includes(id)) &&
+    condition.boundaryIds.every((id) => evidence.applicableBoundaryIds.includes(id)) &&
+    condition.requirementIds.every((id) => evidence.applicableRequirementIds.includes(id))
+  );
+}
+
+function evidenceIsUsable(
+  evidence: EvidenceRecord,
+  condition: ReadinessConditionRecord,
+  evaluationTime: string,
+): boolean {
+  if (!evidenceScopeMatches(evidence, condition)) return false;
+  if (evidence.status !== 'accepted_current') return false;
+  if (evidence.reviewStatus !== 'accepted' || evidence.failureStatus === 'failed') return false;
+  if (condition.rule.currencyRequired && evidence.decisionPointCurrency !== 'current') return false;
+  const at = Date.parse(evaluationTime);
+  if (evidence.validFrom && at < Date.parse(evidence.validFrom)) return false;
+  if (evidence.validTo && at > Date.parse(evidence.validTo)) return false;
+  return true;
+}
+
+function describeEvidenceState(evidence: EvidenceRecord, evaluationTime: string): string {
+  if (evidence.failureStatus === 'failed' || evidence.status === 'failed') return 'failed';
+  if (evidence.status !== 'accepted_current') return evidence.status;
+  if (evidence.reviewStatus !== 'accepted') return `review_${evidence.reviewStatus}`;
+  if (evidence.decisionPointCurrency === 'stale') return 'stale';
+  if (evidence.decisionPointCurrency === 'unknown') return 'currency_unknown';
+  const at = Date.parse(evaluationTime);
+  if (evidence.validFrom && at < Date.parse(evidence.validFrom)) return 'not_yet_valid';
+  if (evidence.validTo && at > Date.parse(evidence.validTo)) return 'expired';
+  return 'accepted_current';
 }
 
 function node(

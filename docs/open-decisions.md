@@ -4,6 +4,7 @@
 
 - Select final licenses for specification text, schemas/code/examples/tests, attribution, patent posture, disclaimers, trademarks, and future marks.
 - Decide whether and when the repository may be public. This implementation performed no publication or upload.
+- Confirm that no vendor redistribution or public implementation rights are claimed until final licenses take effect.
 
 ## Controlled source audit
 
@@ -13,6 +14,7 @@
 
 ## Governance
 
+- Formally appoint the OCRS steward, publication authority, namespace custodian, profile approvers, and conformance-suite maintainers; the repository currently records only a proposed governance model.
 - Approve official namespace/domain policy and whether `https://spec.ocrs.dev` is the publication identifier.
 - Approve v0.1 official-profile status and any future ICxA technical certification policy.
 - Decide signing/trust policy if authenticated packages are later required; v0.1 implements content integrity only.

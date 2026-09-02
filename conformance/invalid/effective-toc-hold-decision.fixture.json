@@ -1,0 +1,27 @@
+{
+  "name": "Effective TOC relies on hold decision",
+  "expectedCode": "TOC_SUPPORTING_DECISION_INVALID",
+  "baseValidFixture": "effective-toc.fixture.json",
+  "mutations": [
+    {
+      "op": "replace",
+      "path": "/readinessDecisions/0/decision",
+      "value": "hold"
+    },
+    {
+      "op": "replace",
+      "path": "/readinessDecisions/0/conditionIds",
+      "value": []
+    },
+    {
+      "op": "replace",
+      "path": "/conditions/0/decisionIds",
+      "value": []
+    },
+    {
+      "op": "replace",
+      "path": "/operationalReadinessGates/0/status",
+      "value": "hold"
+    }
+  ]
+}

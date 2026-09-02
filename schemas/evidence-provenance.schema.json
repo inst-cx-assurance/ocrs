@@ -8,7 +8,7 @@
       "type": "object",
       "required": [
         "entityType",
-        "evidenceId",
+        "evidenceIds",
         "sourcePartyId",
         "sourceSystem",
         "captureMethod",
@@ -17,8 +17,8 @@
       ],
       "properties": {
         "entityType": { "const": "evidence-provenance" },
-        "evidenceId": {
-          "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id"
+        "evidenceIds": {
+          "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/idArray"
         },
         "sourcePartyId": {
           "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id"

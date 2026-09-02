@@ -13,7 +13,7 @@ OCRS v0.1 represents Level 2 Commissioning & Outcome Execution and Operational R
 
 OCRS does not determine Outcome Evidence Need, perform Outcome Auditor evaluation, record Outcome Director judgment or residual-risk acceptance, issue Outcome Authorization, or imply that any Level 2 result is Outcome Authorization. No OAP schemas, validators, examples, workflow, or conformance categories form part of OCRS v0.1.
 
-An OCRS package carries an exact identity, versioned record inventory, provenance, supersession state, declared project and boundaries, profiles, qualifications, external references, and an optional deterministic content hash. A future external protocol can therefore reference an exact OCRS package and exact record versions without OCRS depending on that protocol.
+An OCRS package carries an exact identity, versioned record inventory, provenance, supersession state, declared project and boundaries, profiles, qualifications, and bound external references. Draft RFDC conformance requires a verified SHA-256 `contentHash` over OCRS Canonical JSON v0.1; other core packages may use the optional digest field unless an applicable profile requires it. A future external protocol can therefore reference an exact versioned, integrity-checkable snapshot and exact record versions without OCRS depending on that protocol. Identity and versions alone are not immutability.
 
 ## Consequences
 
@@ -21,4 +21,4 @@ An OCRS package carries an exact identity, versioned record inventory, provenanc
 - Existing Level 1-oriented draft schemas are removed from the active schema set; their architectural history remains documented in ADR-0001, this ADR, and Git history once committed.
 - Existing specification chapters that described a Level 1 data model are converted to non-normative boundary notes.
 - `Outcome Authorization` is not an OCRS record or conformance result.
-- OCRS makes no cryptographic non-repudiation claim. A SHA-256 content hash, when present and verified, establishes deterministic content integrity only.
+- OCRS makes no signature, identity-authentication, immutability, or cryptographic non-repudiation claim. A content hash, when present and verified, establishes deterministic content integrity only.

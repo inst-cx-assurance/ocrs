@@ -1,0 +1,9 @@
+{
+  "name": "Recommendation references review for another gate",
+  "expectedCode": "RECOMMENDATION_CONTEXT_MISMATCH",
+  "mutation": {
+    "op": "replace",
+    "path": "/readinessRecommendations/0/gateId",
+    "value": "ocrs:gate:CW-CC"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "name": "accepted_current evidence is expired at evaluation time",
+  "expectedCode": "EVIDENCE_VALIDITY_CONTRADICTION",
+  "mutation": {
+    "op": "add",
+    "path": "/evidence/4/validTo",
+    "value": "2026-08-29T18:10:00Z"
+  }
+}

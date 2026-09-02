@@ -11,7 +11,10 @@
         "systemIds",
         "boundaryIds",
         "handoverStatus",
+        "deliveringPartyId",
+        "receivingPartyId",
         "acceptedByPartyId",
+        "acceptedByRoleAssignmentId",
         "effectiveAt",
         "basisRecordIds"
       ],
@@ -24,7 +27,16 @@
           "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/idArray"
         },
         "handoverStatus": { "enum": ["proposed", "accepted", "rejected", "superseded"] },
+        "deliveringPartyId": {
+          "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id"
+        },
+        "receivingPartyId": {
+          "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id"
+        },
         "acceptedByPartyId": {
+          "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id"
+        },
+        "acceptedByRoleAssignmentId": {
           "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id"
         },
         "effectiveAt": {

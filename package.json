@@ -4,23 +4,23 @@
   "private": true,
   "type": "module",
   "engines": {
-    "node": ">=22.12.0"
+    "node": ">=22.13.0 <23 || >=24.0.0 <25"
   },
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "lint": "eslint . --max-warnings 0",
-    "validate:schemas": "tsx src/validate-schemas.ts",
-    "validate:packages": "tsx src/validate-packages-cli.ts valid",
-    "validate:invalid": "tsx src/validate-packages-cli.ts invalid",
-    "validate:references": "tsx src/validate-packages-cli.ts references",
+    "validate:schemas": "node --import tsx src/validate-schemas.ts",
+    "validate:packages": "node --import tsx src/validate-packages-cli.ts valid",
+    "validate:invalid": "node --import tsx src/validate-packages-cli.ts invalid",
+    "validate:references": "node --import tsx src/validate-packages-cli.ts references",
     "test": "vitest run",
-    "rfdc:evaluate:ready": "tsx src/rfdc-cli.ts examples/cw-101-reference/rfdc-ready.package.json",
-    "rfdc:evaluate:not-ready": "tsx src/rfdc-cli.ts examples/cw-101-reference/rfdc-not-ready.scenario.json",
+    "rfdc:evaluate:ready": "node --import tsx src/rfdc-cli.ts examples/cw-101-reference/rfdc-ready.package.json",
+    "rfdc:evaluate:not-ready": "node --import tsx src/rfdc-cli.ts examples/cw-101-reference/rfdc-not-ready.scenario.json",
     "rfdc:evaluate": "npm run rfdc:evaluate:ready",
     "conformance": "npm run format:check && npm run lint && npm run build && npm run validate:schemas && npm run validate:packages && npm run validate:invalid && npm run validate:references && npm test && npm run rfdc:evaluate:ready && npm run rfdc:evaluate:not-ready",
-    "audit:dependencies": "npm audit --omit=dev"
+    "audit:dependencies": "npm audit"
   },
   "devDependencies": {
     "@eslint/js": "10.0.1",

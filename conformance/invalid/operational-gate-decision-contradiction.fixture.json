@@ -1,0 +1,10 @@
+{
+  "name": "Stored Operational Readiness gate contradicts its decision",
+  "expectedCode": "GATE_DECISION_CONTRADICTION",
+  "baseValidFixture": "conditional-decision.fixture.json",
+  "mutation": {
+    "op": "replace",
+    "path": "/operationalReadinessGates/0/status",
+    "value": "ready"
+  }
+}

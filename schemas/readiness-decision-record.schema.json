@@ -9,27 +9,62 @@
       "required": [
         "entityType",
         "gateId",
+        "subjectIds",
+        "boundaryIds",
         "decision",
+        "decisionRecordStatus",
         "decisionMakerRoleAssignmentId",
         "decidedAt",
-        "basisRecordIds"
+        "decisionBasisRecordIds",
+        "residualRiskDeclaration",
+        "residualRiskInputIds",
+        "riskAcceptanceBasis",
+        "conditionIds",
+        "rationale",
+        "historyRecordIds"
       ],
       "properties": {
         "entityType": { "const": "readiness-decision" },
         "gateId": {
           "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id"
         },
+        "subjectIds": {
+          "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/idArray"
+        },
+        "boundaryIds": {
+          "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/idArray"
+        },
         "decision": { "enum": ["ready", "conditionally_ready", "hold"] },
+        "decisionRecordStatus": { "enum": ["effective", "rejected", "revoked", "superseded"] },
         "decisionMakerRoleAssignmentId": {
           "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id"
         },
         "decidedAt": {
           "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/timestamp"
         },
-        "basisRecordIds": {
+        "decisionBasisRecordIds": {
           "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/idArray"
         },
-        "conditions": { "type": "array", "items": { "type": "string", "minLength": 1 } }
+        "residualRiskDeclaration": {
+          "type": "object",
+          "required": ["status", "rationale"],
+          "properties": {
+            "status": { "enum": ["none_identified", "declared_and_controlled", "unresolved"] },
+            "rationale": { "type": "string", "minLength": 1 }
+          },
+          "additionalProperties": false
+        },
+        "residualRiskInputIds": {
+          "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/idArray"
+        },
+        "riskAcceptanceBasis": { "type": "string", "minLength": 1 },
+        "conditionIds": {
+          "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/idArray"
+        },
+        "rationale": { "type": "string", "minLength": 1 },
+        "historyRecordIds": {
+          "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/idArray"
+        }
       }
     }
   ],

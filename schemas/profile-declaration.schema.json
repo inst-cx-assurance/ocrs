@@ -30,6 +30,18 @@
         "ocrsVersion": { "const": "0.1.0" },
         "conformanceClaim": { "enum": ["data", "exchange", "rfdc_evaluation", "icxa_profile"] },
         "sourceStandards": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+        "tocEquivalentGateTypes": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "organizational_readiness_complete",
+              "asset_operational_control_ready",
+              "initial_operational_capability",
+              "full_operational_capability"
+            ]
+          },
+          "uniqueItems": true
+        },
         "verificationStatus": { "enum": ["confirmed", "icxa_verification_required"] }
       }
     }

@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { packageContentHash } from '../src/package-integrity.js';
 import { validateOcrsPackage } from '../src/package-validator.js';
 import { type VersionedRecord } from '../src/ocrs-types.js';
-import { addRecord, readyPackage, rehash } from './helpers.js';
+import { addRecord, readyPackage, rehash, validFixturePackage } from './helpers.js';
 
 describe('history, handover, control, and integrity', () => {
   it('preserves a prior evidence record when a correction supersedes it', () => {
@@ -14,24 +14,14 @@ describe('history, handover, control, and integrity', () => {
     correction.revision = 'C';
     correction.supersedes = prior.id;
     addRecord(pkg, 'evidence', correction);
+    (pkg.evidenceProvenance[0].evidenceIds as string[]).push(correction.id);
     expect(pkg.evidence.some((item) => item.id === prior.id)).toBe(true);
     expect(validateOcrsPackage(rehash(pkg))).toEqual([]);
   });
 
   it('detects a silently overwritten decision identifier', () => {
-    const pkg = readyPackage();
-    const decision: VersionedRecord = {
-      id: 'ocrs:decision:CW-ORC',
-      entityType: 'readiness-decision',
-      recordVersion: '1.0.0',
-      createdAt: '2026-09-01T18:00:00Z',
-      gateId: 'ocrs:gate:CW-ORC',
-      decision: 'hold',
-      decisionMakerRoleAssignmentId: 'ocrs:role:readiness-reviewer',
-      decidedAt: '2026-09-01T18:00:00Z',
-      basisRecordIds: [],
-    };
-    addRecord(pkg, 'readinessDecisions', decision);
+    const pkg = validFixturePackage('conditional-decision.fixture.json');
+    const decision = pkg.readinessDecisions[0] as VersionedRecord;
     pkg.readinessDecisions.push(structuredClone(decision));
     rehash(pkg);
     expect(validateOcrsPackage(pkg).map((item) => item.code)).toContain('DUPLICATE_IDENTIFIER');

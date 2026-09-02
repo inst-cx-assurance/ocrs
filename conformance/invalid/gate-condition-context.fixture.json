@@ -1,0 +1,9 @@
+{
+  "name": "RFDC gate references a Construction Completion condition",
+  "expectedCode": "GATE_CONDITION_MISMATCH",
+  "mutation": {
+    "op": "replace",
+    "path": "/readinessConditions/0/gateId",
+    "value": "ocrs:gate:CW-CC"
+  }
+}

@@ -6,12 +6,23 @@
     { "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json" },
     {
       "type": "object",
-      "required": ["entityType", "name", "gateId", "subjectIds", "boundaryIds", "rule"],
+      "required": [
+        "entityType",
+        "name",
+        "gateId",
+        "requirementIds",
+        "subjectIds",
+        "boundaryIds",
+        "rule"
+      ],
       "properties": {
         "entityType": { "const": "readiness-condition" },
         "name": { "type": "string", "minLength": 1 },
         "gateId": {
           "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id"
+        },
+        "requirementIds": {
+          "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/idArray"
         },
         "subjectIds": {
           "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/idArray"
@@ -38,6 +49,7 @@
               "items": { "type": "string", "minLength": 1 },
               "uniqueItems": true
             },
+            "currencyRequired": { "type": "boolean" },
             "prerequisiteGateId": {
               "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id"
             }

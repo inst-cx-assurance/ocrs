@@ -1,0 +1,10 @@
+{
+  "name": "Controlled Condition has broken owner reference",
+  "expectedCode": "BROKEN_REFERENCE",
+  "baseValidFixture": "conditional-decision.fixture.json",
+  "mutation": {
+    "op": "replace",
+    "path": "/conditions/0/ownerPartyId",
+    "value": "ocrs:party:DOES-NOT-EXIST"
+  }
+}

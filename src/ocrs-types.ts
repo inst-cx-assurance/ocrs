@@ -26,11 +26,19 @@ export interface EvidenceRecord extends VersionedRecord {
   authoritativeSource: string;
   creatorPartyId: string;
   responsiblePartyId: string;
+  currencyApplicable: boolean;
+  decisionPointCurrency?: 'current' | 'stale' | 'unknown';
+  validFrom?: string;
+  validTo?: string;
+  externalReference?: string;
+  externalVersionId?: string;
+  hash?: { algorithm: 'sha256' | 'sha512'; value: string };
 }
 
 export interface ReadinessConditionRecord extends VersionedRecord {
   entityType: 'readiness-condition';
   gateId: string;
+  requirementIds: string[];
   subjectIds: string[];
   boundaryIds: string[];
   rule: {
@@ -43,6 +51,7 @@ export interface ReadinessConditionRecord extends VersionedRecord {
       | 'deficiency_controls';
     requiredEvidenceTypes?: string[];
     prerequisiteGateId?: string;
+    currencyRequired?: boolean;
   };
 }
 
@@ -91,7 +100,11 @@ export interface OcrsPackage {
     }>;
     qualifications: string[];
     exclusions: string[];
-    externalEvidenceReferences?: Array<{ evidenceId: string; reference: string }>;
+    externalEvidenceReferences?: Array<{
+      evidenceId: string;
+      reference: string;
+      binding: { kind: 'sha256' | 'sha512' | 'version' | 'immutable_identifier'; value: string };
+    }>;
     contentHash?: { algorithm: 'sha256'; value: string };
   };
   project: VersionedRecord;

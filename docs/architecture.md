@@ -9,7 +9,7 @@ flowchart TB
   Profiles --> Package
   Package --> Implementations[Independent implementations]
   Implementations --> Apps[Applications / APIs / databases / AI]
-  Package -. exact immutable evidence input .-> Future[Future separate OAP]
+  Package -. exact versioned integrity-checkable snapshot .-> Future[Future separate OAP]
 ```
 
 AI may query or summarize OCRS but is never required. The truth model is versioned records plus deterministic rules. The optional future arrow is one-way compatibility, not an OCRS dependency or OAP transaction design.
@@ -18,7 +18,7 @@ AI may query or summarize OCRS but is never required. The truth model is version
 
 1. Draft 2020-12 meta-schema and schema compilation.
 2. Package structure and profile-definition validation.
-3. Semantic identifier, typed-reference, inventory, version, history, boundary, Deficiency, dependency, extension, and integrity rules.
+3. Semantic identifier, typed-reference, inventory, evidence usability/scope, gate/review/decision context, Level 2 authority, history, boundary, Deficiency, dependency, handover/TOC, extension, and integrity rules.
 4. Profile evaluation (RFDC only in v0.1).
 5. Human Level 2 Review, Recommendation, or readiness decision, represented only when explicitly recorded.
 
@@ -36,7 +36,7 @@ AI may query or summarize OCRS but is never required. The truth model is version
 | Project extensions without core edits?                    | Yes, through declared qualified namespaces.                                                                                      |
 | Future v0.2 compatibility?                                | Yes, through independent semantic core/schema/profile versions; breaking change still requires migration.                        |
 | Independent commercial implementation?                    | Yes, subject to final published licenses; no proprietary ICxA software is required.                                              |
-| ICxA stewardship?                                         | Yes, for official specification, namespaces, profiles, releases, and conformance suites.                                         |
+| ICxA stewardship?                                         | Proposed for official specification, namespaces, profiles, releases, and conformance suites; formal appointment remains open.    |
 | Former Outcome Obligation/Requirement/OEN distinctions?   | Not applicable to OCRS v0.1; OAP is deferred and not modeled.                                                                    |
 | Commissioning vs Operational Readiness gates?             | Yes. Separate schemas and controlled types. External outcome gates are outside OCRS.                                             |
 | Evaluation vs Recommendation vs external authorization?   | Yes. Evaluation and Recommendation are separate; external authorization is outside OCRS.                                         |

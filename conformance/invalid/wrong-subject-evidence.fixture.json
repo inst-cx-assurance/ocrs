@@ -1,0 +1,9 @@
+{
+  "name": "RFDC evidence covers the wrong subject",
+  "expectedCode": "EVIDENCE_SUBJECT_SCOPE_MISMATCH",
+  "mutation": {
+    "op": "replace",
+    "path": "/evidence/4/applicableSubjectIds/0",
+    "value": "ocrs:system:CW-101-MECH"
+  }
+}

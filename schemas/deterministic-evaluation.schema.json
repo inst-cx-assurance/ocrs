@@ -9,6 +9,9 @@
       "required": [
         "entityType",
         "gateId",
+        "subjectIds",
+        "boundaryIds",
+        "evaluatedAt",
         "evaluatorId",
         "evaluatorVersion",
         "result",
@@ -19,6 +22,15 @@
         "entityType": { "const": "deterministic-evaluation" },
         "gateId": {
           "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id"
+        },
+        "subjectIds": {
+          "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/idArray"
+        },
+        "boundaryIds": {
+          "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/idArray"
+        },
+        "evaluatedAt": {
+          "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/timestamp"
         },
         "evaluatorId": { "type": "string", "minLength": 1 },
         "evaluatorVersion": {

@@ -4,7 +4,7 @@ import { createSchemaContext } from '../src/schema-validation.js';
 import { validateOcrsPackage } from '../src/package-validator.js';
 import { applyFixtureMutation, type InvalidFixture } from '../src/fixture-mutations.js';
 import { listJsonFiles, loadJsonFile } from '../src/schema-loader.js';
-import { readyPackage } from './helpers.js';
+import { readyPackage, validFixturePackage } from './helpers.js';
 
 describe('schemas and semantic packages', () => {
   it('compiles every schema as Draft 2020-12', () => {
@@ -29,7 +29,10 @@ describe('schemas and semantic packages', () => {
     expect(files.length).toBeGreaterThanOrEqual(20);
     for (const file of files) {
       const fixture = loadJsonFile<InvalidFixture>(file);
-      const codes = validateOcrsPackage(applyFixtureMutation(base, fixture)).map(
+      const fixtureBase = fixture.baseValidFixture
+        ? validFixturePackage(fixture.baseValidFixture)
+        : base;
+      const codes = validateOcrsPackage(applyFixtureMutation(fixtureBase, fixture)).map(
         (item) => item.code,
       );
       expect(codes, path.basename(file)).toContain(fixture.expectedCode);

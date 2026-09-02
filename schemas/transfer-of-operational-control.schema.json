@@ -11,8 +11,12 @@
         "systemIds",
         "boundaryIds",
         "readinessDecisionId",
+        "handoverId",
+        "supportBasisType",
         "fromPartyId",
         "toPartyId",
+        "transferredByRoleAssignmentId",
+        "acceptedByRoleAssignmentId",
         "effectiveAt",
         "status"
       ],
@@ -27,10 +31,23 @@
         "readinessDecisionId": {
           "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id"
         },
+        "handoverId": {
+          "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id"
+        },
+        "supportBasisType": { "enum": ["aocr_decision", "profile_approved_equivalent"] },
+        "approvedEquivalentProfileId": {
+          "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id"
+        },
         "fromPartyId": {
           "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id"
         },
         "toPartyId": {
+          "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id"
+        },
+        "transferredByRoleAssignmentId": {
+          "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id"
+        },
+        "acceptedByRoleAssignmentId": {
           "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id"
         },
         "effectiveAt": {

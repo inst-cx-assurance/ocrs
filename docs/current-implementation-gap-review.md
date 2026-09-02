@@ -1,6 +1,6 @@
 # Current implementation gap review
 
-Status: completed baseline audit, 2026-09-01. This review compares the repository as found with `BUILD-BRIEF.md` and the controlling OCRS-only scope decision.
+Status: baseline audit completed 2026-09-01; semantic-hardening review completed 2026-09-02. This review compares the repository as found with `BUILD-BRIEF.md`, the controlling OCRS-only scope decision, and the later independent semantic audit.
 
 ## Baseline found
 
@@ -41,17 +41,23 @@ The reported commands passed on 2026-09-01:
 
 ## Controlling scope correction
 
-`BUILD-BRIEF.md` is retained as project history, but its Level 1/OAP implementation directions are superseded for draft OCRS v0.1 by ADR-0002. OCRS now stops at Level 2. A future, independent OAP may consume an exact immutable OCRS package, but OCRS defines no OAP transaction or OAP records.
+`BUILD-BRIEF.md` is retained as project history, but its Level 1/OAP implementation directions are superseded for draft OCRS v0.1 by ADR-0002. OCRS now stops at Level 2. A future, independent OAP may consume an exact versioned, integrity-checkable OCRS package snapshot, but OCRS defines no OAP transaction or OAP records.
+
+## Semantic-hardening findings and disposition
+
+The completed baseline was structurally broad but still allowed accepted-current labels to bypass time/scope checks, cross-gate conditions, contradictory stored Reviews/Recommendations/gate status, weakly scoped Level 2 authority, free-text decision conditions, insufficiently bound external evidence, and TOC support from an inapplicable decision. Package identity and versions were also described too broadly as immutability in some documents.
+
+The hardening pass now rejects those contradictions through semantic diagnostics; expands structured Condition, Operational Readiness decision, Handover, and TOC records; requires a matching digest/version binding for relied-upon external evidence; makes RFDC package hashing mandatory; defines/test-vectors OCRS Canonical JSON v0.1; and adds four valid core-representability fixtures plus 42 expected-invalid fixtures. ORC/AOCR/IOC/FOC detailed profiles remain unimplemented and are not claimed.
 
 ## Implementation response
 
-The v0.1 completion work will:
+The v0.1 completion work now:
 
-- keep the Node 22 and `tsx` toolchain;
+- keep TypeScript and `tsx` while invoking TypeScript entry points through portable `node --import tsx` on the declared Node ranges;
 - use Draft 2020-12 meta-schema validation and modular entity schemas;
-- add stable namespaced identifiers, record versions, exact inventory, provenance, qualifications, and optional deterministic package hashes;
-- perform controlled semantic validation for references, versions, revision/supersession chains, dependencies, deficiencies, extensions, boundaries, and history;
+- adds stable namespaced identifiers, record versions, exact inventory, provenance, qualifications, and profile-governed deterministic package hashes;
+- performs controlled semantic validation for evidence usability/scope, gate/review/recommendation/decision context, Level 2 authority, Handover/TOC, references, versions, revision/supersession chains, dependencies, deficiencies, extensions, boundaries, and history;
 - implement two complete CW-101 scenarios and a deterministic, explanation-tree RFDC evaluator;
-- add reason-specific invalid fixtures and broad unit/semantic tests;
-- expose explicit commands for every CI and conformance stage; and
-- rewrite stale documentation to describe the implemented OCRS-only draft accurately.
+- adds reason-specific invalid fixtures and broad unit/semantic tests;
+- exposes explicit commands for every CI and conformance stage; and
+- describes the implemented OCRS-only draft and its remaining profile/legal/governance limits precisely.

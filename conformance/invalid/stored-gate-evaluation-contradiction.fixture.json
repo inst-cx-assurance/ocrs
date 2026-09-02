@@ -1,0 +1,9 @@
+{
+  "name": "Stored not_satisfied gate contradicts satisfied evaluation",
+  "expectedCode": "GATE_EVALUATION_CONTRADICTION",
+  "mutation": {
+    "op": "replace",
+    "path": "/commissioningStageGates/1/deterministicStatus",
+    "value": "not_satisfied"
+  }
+}

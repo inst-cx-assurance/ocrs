@@ -87,12 +87,21 @@
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["evidenceId", "reference"],
+        "required": ["evidenceId", "reference", "binding"],
         "properties": {
           "evidenceId": {
             "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id"
           },
-          "reference": { "type": "string", "minLength": 1 }
+          "reference": { "type": "string", "minLength": 1 },
+          "binding": {
+            "type": "object",
+            "required": ["kind", "value"],
+            "properties": {
+              "kind": { "enum": ["sha256", "sha512", "version", "immutable_identifier"] },
+              "value": { "type": "string", "minLength": 1 }
+            },
+            "additionalProperties": false
+          }
         },
         "additionalProperties": false
       }

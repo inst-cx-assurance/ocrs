@@ -1,0 +1,10 @@
+{
+  "name": "Readiness decision is made by wrong role and outside authority scope",
+  "expectedCode": "ROLE_AUTHORITY_INVALID",
+  "baseValidFixture": "conditional-decision.fixture.json",
+  "mutation": {
+    "op": "replace",
+    "path": "/readinessDecisions/0/decisionMakerRoleAssignmentId",
+    "value": "ocrs:role:readiness-reviewer"
+  }
+}

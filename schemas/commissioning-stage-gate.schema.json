@@ -10,6 +10,7 @@
         "entityType",
         "name",
         "gateType",
+        "profileId",
         "subjectIds",
         "boundaryIds",
         "conditionIds",
@@ -27,6 +28,9 @@
             "performance_verification",
             "trial_operation"
           ]
+        },
+        "profileId": {
+          "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/id"
         },
         "subjectIds": {
           "$ref": "https://spec.ocrs.dev/v0.1/schemas/base-record.schema.json#/$defs/idArray"

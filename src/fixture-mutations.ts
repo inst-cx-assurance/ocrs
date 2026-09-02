@@ -1,28 +1,43 @@
 export interface InvalidFixture {
   name: string;
   expectedCode: string;
-  mutation: { op: 'add' | 'replace' | 'remove'; path: string; value?: unknown };
+  baseValidFixture?: string;
+  mutation?: Mutation;
+  mutations?: Mutation[];
+}
+
+export interface ValidFixture {
+  name: string;
+  mutations: Mutation[];
+  expectedRecordIds: string[];
+}
+
+export interface Mutation {
+  op: 'add' | 'replace' | 'remove';
+  path: string;
+  value?: unknown;
 }
 
 export interface ControlledScenario {
   scenarioId: string;
   basePackage: string;
   expectedResult: string;
-  mutations: InvalidFixture['mutation'][];
+  mutations: Mutation[];
 }
 
 export function applyFixtureMutation<T>(base: T, fixture: InvalidFixture): T {
-  return applyMutation(base, fixture.mutation);
+  const mutations = fixture.mutations ?? (fixture.mutation ? [fixture.mutation] : []);
+  return applyMutations(base, mutations);
 }
 
-export function applyMutations<T>(base: T, mutations: InvalidFixture['mutation'][]): T {
+export function applyMutations<T>(base: T, mutations: Mutation[]): T {
   return mutations.reduce(
     (current, mutation) => applyMutation(current, mutation),
     structuredClone(base),
   );
 }
 
-function applyMutation<T>(base: T, mutation: InvalidFixture['mutation']): T {
+function applyMutation<T>(base: T, mutation: Mutation): T {
   const copy = structuredClone(base) as unknown as Record<string, unknown>;
   const tokens = mutation.path
     .split('/')
