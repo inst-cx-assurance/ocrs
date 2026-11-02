@@ -21,7 +21,7 @@ Version 0.1 is Draft / Experimental / Not Yet Stable. The schemas, reference eva
 - a complete fictional CW-101 package plus ready and not-ready controlled scenarios;
 - reason-specific invalid fixtures and an inspectable explanation-tree evaluator.
 
-OCRS is independent of databases, APIs, workflow engines, AI models, and vendors. **Licensing proposal (not yet effective):** ICxA proposes free internal noncommercial development and testing of the reference software and technical assets. Commercial use, production deployment, and public distribution would require a separate written ICxA commercial license associated with an eligible active Corporate Membership. Membership alone is not a license. See the draft `LICENSE` and `specification/LICENSE`; existing licensing restrictions remain in force until approval and publication. ICxA marks and certification require separate authorization.
+OCRS is independent of databases, APIs, workflow engines, AI models, and vendors. **Licensing:** ICxA permits free internal noncommercial evaluation, development and testing of covered reference technical assets under the repository-root `LICENSE`. Commercial use, production deployment or public distribution of covered assets requires a separate written ICxA commercial license, available to eligible active Corporate Members; membership alone does not confer licensing rights. Normative specification prose is separately reserved under `specification/LICENSE`. ICxA branding and certification require separate authorization. These are source-available, not OSI open-source, terms.
 
 ## Quick start
 
