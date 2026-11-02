@@ -20,20 +20,23 @@
     "rfdc:evaluate:not-ready": "tsx src/rfdc-cli.ts examples/cw-101-reference/rfdc-not-ready.scenario.json",
     "rfdc:evaluate": "npm run rfdc:evaluate:ready",
     "conformance": "npm run format:check && npm run lint && npm run build && npm run validate:schemas && npm run validate:packages && npm run validate:invalid && npm run validate:references && npm test && npm run rfdc:evaluate:ready && npm run rfdc:evaluate:not-ready",
-    "audit:dependencies": "npm audit --omit=dev"
+    "audit:dependencies": "npm audit"
   },
   "devDependencies": {
     "@eslint/js": "10.0.1",
     "@types/node": "22.20.1",
-    "@typescript-eslint/eslint-plugin": "8.69.0",
-    "@typescript-eslint/parser": "8.69.0",
+    "@typescript-eslint/eslint-plugin": "8.72.1",
+    "@typescript-eslint/parser": "8.72.1",
     "ajv": "8.20.0",
     "ajv-formats": "3.0.1",
-    "eslint": "10.9.1",
+    "eslint": "10.14.0",
     "eslint-config-prettier": "10.1.8",
     "prettier": "3.9.6",
     "tsx": "4.23.13",
     "typescript": "5.9.3",
-    "vitest": "4.1.11"
+    "vitest": "4.1.12"
+  },
+  "overrides": {
+    "minimatch": "11.0.4"
   }
 }

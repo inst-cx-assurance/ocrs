@@ -25,7 +25,7 @@ The approved Phase 1 model is:
 10. OCRS core versions and ICxA profile versions are independently identifiable.
 11. OCRS v0.1 is marked Draft / Experimental / Not Yet Stable.
 12. Final specification, code, schema, test, attribution, disclaimer, and trademark licensing language remains subject to ICxA legal review.
-13. The repository remains private until ICxA completes the required governance and legal review.
+13. The repository is publicly available; publication does not establish profile approval or grant rights beyond the published licensing terms.
 
 ## Consequences
 

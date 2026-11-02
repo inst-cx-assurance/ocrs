@@ -1,9 +1,9 @@
-# Open decisions requiring Paul and ICxA review
+# Open decisions requiring ICxA governance review
 
 ## Legal and publication
 
-- Select final licenses for specification text, schemas/code/examples/tests, attribution, patent posture, disclaimers, trademarks, and future marks.
-- Decide whether and when the repository may be public. This implementation performed no publication or upload.
+- Review any proposed changes to the published licensing policy through ICxA governance; current terms are in LICENSE and specification/LICENSE.
+- Maintain public-release notices consistently with the published licensing and profile-approval status.
 
 ## Controlled source audit
 

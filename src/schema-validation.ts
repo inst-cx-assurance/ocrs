@@ -1,3 +1,4 @@
+import { canonicalize } from './package-integrity.js';
 import Ajv2020Import, { type ErrorObject, type ValidateFunction } from 'ajv/dist/2020.js';
 import addFormatsImport from 'ajv-formats';
 import path from 'node:path';
@@ -11,6 +12,9 @@ export interface SchemaContext {
     validateSchema(schema: unknown): boolean | Promise<unknown>;
     addSchema(schema: unknown): unknown;
     getSchema(id: string): ValidateFunction | undefined;
+    compile(schema: unknown): ValidateFunction;
+    removeKeyword(keyword: string): unknown;
+    addKeyword(definition: Record<string, unknown>): unknown;
   };
   packageValidator: ValidateFunction;
   files: string[];
@@ -28,6 +32,24 @@ export function createSchemaContext(rootDir = process.cwd()): SchemaContext {
     validateFormats: true,
   });
   addFormats(ajv);
+  // Preserve JSON Schema deep equality while avoiding pairwise object comparisons.
+  ajv.removeKeyword('uniqueItems');
+  ajv.addKeyword({
+    keyword: 'uniqueItems',
+    type: 'array',
+    schemaType: 'boolean',
+    errors: false,
+    validate: (enabled: boolean, items: unknown[]) => {
+      if (!enabled) return true;
+      const seen = new Set<string>();
+      for (const item of items) {
+        const key = canonicalize(item);
+        if (seen.has(key)) return false;
+        seen.add(key);
+      }
+      return true;
+    },
+  });
   const files = listJsonFiles(path.join(rootDir, 'schemas'));
 
   for (const file of files) {

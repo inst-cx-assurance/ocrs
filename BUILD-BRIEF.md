@@ -1,3 +1,5 @@
+> Historical design brief. Current status is described in README.md and docs/verification-status.md; the current root LICENSE and specification/LICENSE govern the respective materials.
+
 # Build the Open Completion & Readiness Standard (OCRS) v0.1
 
 ## Project Objective

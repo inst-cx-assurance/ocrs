@@ -74,6 +74,6 @@
   "compatibilityRule": "A controlled-source or mapping-meaning change requires a new profile version and documented compatibility impact.",
   "qualifications": [
     "No OCRS v0.1 claim establishes conformity or certification against an ICxA Standard.",
-    "Exact editions, revisions, publication dates, controlled terms, and evidence mappings require Paul and ICxA audit before publication."
+    "Exact editions, revisions, publication dates, controlled terms, and evidence mappings require ICxA governance audit before publication."
   ]
 }

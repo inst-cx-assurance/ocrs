@@ -197,7 +197,7 @@ export function validateOcrsPackage(input: unknown, context?: SchemaContext): Di
   for (const record of pkg.residualRiskInputs)
     references(record, 'sourceIds', ['deficiency', 'constraint', 'dependency', 'evidence']);
   for (const record of pkg.deterministicEvaluations) {
-    references(record, 'gateId', ['commissioning-stage-gate']);
+    references(record, 'gateId', ['commissioning-stage-gate', 'operational-readiness-gate']);
     references(record, 'explanationId', ['evaluation-explanation']);
     references(
       record,
@@ -221,6 +221,15 @@ export function validateOcrsPackage(input: unknown, context?: SchemaContext): Di
     references(record, 'reviewerRoleAssignmentIds', ['role-assignment']);
     references(record, 'evidenceIds', ['evidence']);
     references(record, 'evaluationId', ['deterministic-evaluation']);
+    const evaluation = byId.get(String(record.evaluationId));
+    if (evaluation && evaluation.gateId !== record.gateId)
+      diagnostics.push(
+        diag(
+          'REVIEW_EVALUATION_GATE_MISMATCH',
+          '/' + record.id + '/evaluationId',
+          'Review and evaluation must refer to the same gate.',
+        ),
+      );
     references(record, 'openDeficiencyIds', ['deficiency']);
     references(record, 'constraintIds', ['constraint']);
     references(record, 'dependencyIds', ['dependency']);
@@ -299,6 +308,18 @@ function validateInventory(
   records: VersionedRecord[],
   diagnostics: Diagnostic[],
 ): void {
+  const inventoryIds = new Set<string>();
+  for (const entry of pkg.manifest.inventory) {
+    if (inventoryIds.has(entry.recordId))
+      diagnostics.push(
+        diag(
+          'MANIFEST_INVENTORY_MISMATCH',
+          '/manifest/inventory',
+          'Inventory contains a duplicate record identifier.',
+        ),
+      );
+    inventoryIds.add(entry.recordId);
+  }
   const actual = new Set(
     records.map((record) => `${record.id}|${record.entityType}|${record.recordVersion}`),
   );
