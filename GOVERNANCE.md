@@ -1,5 +1,9 @@
 # OCRS governance
 
+## Repository updating authority
+
+[Jav EBRA @ JEPROGRAMS](https://github.com/jeprograms) — **ICxA Chairman Global Digitalization** — is the updating authority for this ICxA GitHub repository. Repository updates follow the change-control and review requirements described in this document.
+
 ## Stewardship and open implementation
 
 ICxA is the steward of official OCRS specifications, namespaces, versions, profiles, conformance suites, and any future certification marks. Stewardship does not restrict who may implement published OCRS: owners, contractors, consultants, open-source projects, and commercial vendors may create independent implementations, subject to the final published licenses.

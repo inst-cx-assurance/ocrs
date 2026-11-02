@@ -1,5 +1,7 @@
 # Open Completion & Readiness Protocol (OCRS)
 
+**Repository updating authority:** [Jav EBRA @ JEPROGRAMS](https://github.com/jeprograms) — ICxA Chairman Global Digitalization. See [governance](GOVERNANCE.md).
+
 OCRS is an open, machine-readable protocol for exchanging and evaluating Level 2 Commissioning & Outcome Execution and Operational Readiness information. It links systems and boundaries to requirements, activities, controlled evidence, Deficiencies, constraints, dependencies, reviews, recommendations, readiness decisions, System Handover, and Transfer of Operational Control.
 
 **OCRS does not determine readiness by percentage complete. It provides a structured model linking readiness assertions to requirements, evidence, dependencies, deficiencies, and controlled gates.**
