@@ -33,10 +33,16 @@ export function evaluateRfdc(pkg: OcrsPackage): DeterministicEvaluation {
   const diagnostics = validateOcrsPackage(pkg);
   if (diagnostics.length)
     throw new Error(`OCRS package validation failed: ${JSON.stringify(diagnostics)}`);
-  const gate = pkg.commissioningStageGates.find(
+  const gates = pkg.commissioningStageGates.filter(
     (item) => item.gateType === 'ready_for_dynamic_commissioning',
   );
-  if (!gate) throw new Error('No Ready for Dynamic Commissioning gate exists in the package.');
+  if (gates.length === 0)
+    throw new Error('No Ready for Dynamic Commissioning gate exists in the package.');
+  if (gates.length > 1)
+    throw new Error(
+      'Multiple Ready for Dynamic Commissioning gates exist; specify a single gate for deterministic evaluation.',
+    );
+  const gate = gates[0];
 
   const conditionNodes = (gate.conditionIds as string[]).map((id) => {
     const condition = pkg.readinessConditions.find((item) => item.id === id);
