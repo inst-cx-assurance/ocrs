@@ -21,7 +21,7 @@ Version 0.1 is Draft / Experimental / Not Yet Stable. The schemas, reference eva
 - a complete fictional CW-101 package plus ready and not-ready controlled scenarios;
 - reason-specific invalid fixtures and an inspectable explanation-tree evaluator.
 
-OCRS is independent of databases, APIs, workflow engines, AI models, and vendors. ICxA stewards official OCRS specifications and profiles; third parties may implement the published protocol without proprietary ICxA software, subject to the final license decision.
+OCRS is independent of databases, APIs, workflow engines, AI models, and vendors. ICxA stewards official OCRS specifications and profiles. Reference software, JSON schemas, tests, fixtures, and machine-readable examples are licensed under Apache-2.0 (see `LICENSE`). Normative specification text in `specification/` is excluded (see `specification/LICENSE`). ICxA trademarks, endorsement, and certification marks are not licensed.
 
 ## Quick start
 
